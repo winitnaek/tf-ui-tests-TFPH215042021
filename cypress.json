@@ -1,4 +1,8 @@
 {
   "integrationFolder": "tests",
-  "uncaught":"exception"
+  "uncaught":"exception",
+    "env": {
+    "url": "http://ssqa01:2022/#"
+  },
+  "projectId": "5b3xof"
 }
