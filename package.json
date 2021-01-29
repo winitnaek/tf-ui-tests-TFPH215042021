@@ -1,12 +1,16 @@
 {
-  "name": "cypress-tutorial",
+  "name": "tfatf",
   "version": "1.0.0",
-  "main": "form.js",
+  "description": "TF Automation Test Framework",
+  "main": "index.js",
   "scripts": {
-    "e2e": "cypress open"
+    "ots": "npx cypress open",
+    "rts": "npx cypress run"
   },
-  "keywords": [],
-  "author": "",
+  "author": "Vinit Naik",
   "license": "ISC",
-  "description": ""
+  "dependencies": {
+    "cypress": "^6.2.1",
+    "cypress-sql-server": "^1.0.0"
+  }
 }
