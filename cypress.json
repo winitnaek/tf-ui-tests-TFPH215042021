@@ -1,8 +1,11 @@
 {
-  "integrationFolder": "tests",
+  "integrationFolder": "cypress/tests",
   "uncaught":"exception",
-    "env": {
-    "url": "http://ssqa01:2022/#"
-  },
-  "projectId": "5b3xof"
+  "env": {
+    "configntaxesurl": "http://ssqa01:2022",
+    "reportsurl": "http://ssqa01:2021",
+    "setupmaintenanceurl":"http://ssqa01:2020",
+    "sslaburl":"",
+    "produrl":""
+  }
 }
