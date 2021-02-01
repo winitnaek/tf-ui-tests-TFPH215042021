@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "ots": "npx cypress open",
-    "rts": "npx cypress run"
+    "rts": "npx cypress run",
+    "udqtest": "npm run rts -- --spec cypress\\tests\\Reports\\*",
+    "configtest": "npm run rts -- --spec cypress\\tests\\ConfigurationAndTaxes\\*",
+    "setuptest": "npm run rts -- --spec cypress\\tests\\SetupAndMaintenance\\*"
   },
   "author": "Vinit Naik",
   "license": "ISC",
