@@ -33,16 +33,17 @@ it('Verify Page Title', () => {
 	  cy.get("#pageContainer > div:nth-child(1) > h1").should( "have.text","Custom Formulas")// verifying screen title
 	  cy.get('p').should('have.text','Click the magnifying glass in the view column on the appropriate row to manage the formula')//verifying the 
       cy.wait(1000)
-	  cy.get('#unselectAll').click()// Select All
-	  cy.wait(1000)
-	  cy.get('#unselectAll').click()//Unselect All
+      cy.wait(2000)
+	  cy.get('#unselectAll-0').click()// Select All
+	  cy.wait(2000)
+	  cy.get('#selectAll-0').click()//Unselect All
 })
 it('Add Tax Code', () => {
 	 cy.wait(1000)
 	 cy.get('[tabindex="5"]').type('RG1_CTC')
      cy.get('[tabindex="5"]').type('{enter}')
 	 cy.wait(1000)
-	 cy.get('#edit-7 > i').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
+	 cy.get('#edit-8 > i').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
 	 cy.wait(1000)
 	 cy.get('#addNew > a > .fas').click()
 	 cy.wait(1000)
@@ -90,7 +91,7 @@ it('Edit newly added Tax Code', () => {
 	 cy.get('[tabindex="5"]').type('RG1_CTC')
      cy.get('[tabindex="5"]').type('{enter}')
 	 cy.wait(1000)
-	 cy.get('#edit-7 > i').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
+	 cy.get('#edit-8 > i').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
 	 cy.wait(1000)
 	 cy.get('[tabindex="6"]').type('07 Flat Amount, Max Wage')
      cy.get('[tabindex="6"]').type('{enter}')
@@ -164,7 +165,7 @@ it('Delete newly added Company', () => {
 	 cy.get('[tabindex="5"]').type('RG1_CTC')
      cy.get('[tabindex="5"]').type('{enter}')
 	 cy.wait(1000)
-	 cy.get('#edit-7 > .fas').click({ multiple: true, force: true })  
+	 cy.get('#edit-8 > .fas').click({ multiple: true, force: true })  
 	 cy.wait(1000)
 	 cy.get('[tabindex="6"]').type('07 Flat Amount, Max Wage')
      cy.get('[tabindex="6"]').type('{enter}')

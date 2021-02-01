@@ -27,7 +27,10 @@ it('launch Custom Tax Codes from Fav Menu', function () {
 })
 
 it('Verify Page Title', () => {
-		  
+	  cy.wait(2000)
+	  cy.get('#unselectAll-0').click()// Select All
+	  cy.wait(2000)
+	  cy.get('#selectAll-0').click()//Unselect All  
 	  cy.wait(1000)
       cy.get("#pageContainer > div:nth-child(1) > h1", { timeout: 30000 }).should('be.visible'); //Waiting 30 secs to have screen to load
 	  cy.get("#pageContainer > div:nth-child(1) > h1").should( "have.text","Custom Tax Codes")// verifying screen title
@@ -58,7 +61,7 @@ it('Edit newly added Custom Tax Code', () => {
 	 cy.get('[tabindex="5"]').type('DJTestTax')
      cy.get('[tabindex="5"]').type('{enter}')
 	 cy.wait(1000)
-	 cy.get('#edit-6 > i').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
+	 cy.get('#edit-7 > i').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
 	 cy.wait(1000)
 	 
  
@@ -82,7 +85,7 @@ it('Edit newly added Custom Tax Code', () => {
 	 cy.get('[tabindex="5"]').type('DJTestTax')
      cy.get('[tabindex="5"]').type('{enter}')
 	 cy.wait(1000)
-	 cy.get('#edit-6 > .fas').click({ multiple: true, force: true })  
+	 cy.get('#edit-7 > .fas').click({ multiple: true, force: true })  
 	 cy.wait(1000)
 	 cy.get("[name='name']").invoke('attr','value').should('contain','DJTestName2')//Verify selection 
 		 //verifying buttons

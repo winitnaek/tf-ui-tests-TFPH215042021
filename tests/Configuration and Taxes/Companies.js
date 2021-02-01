@@ -62,7 +62,7 @@ it('Add Company', () => {
 	 cy.wait(1000)
 	 cy.get('[tabindex="5"]').type('Honeywell')
 	 cy.wait(1000)
-	 cy.get('#edit-15 > .fas').click({ force: true }) // clicking on search element. Using until I can figure out how to move scrollbars
+	 cy.get('#edit-16 > .fas').click({ force: true }) // clicking on search element. Using until I can figure out how to move scrollbars
 	 cy.wait(1000)	  
 	 cy.get('input[name="companyName"]').clear()
 	 cy.get('input[name="companyName"]').type("AerospaceB")
@@ -82,7 +82,7 @@ it('Add Company', () => {
 	 cy.wait(1000)
 	 cy.get('[tabindex="6"]').type('{enter}')
 	 cy.wait(1000)	 
-  	 cy.get('#edit-15 > .fas').click({ force: true }) // clicking on search element. Using until I can figure out how to move scrollbars
+  	 cy.get('#edit-16 > .fas').click({ force: true }) // clicking on search element. Using until I can figure out how to move scrollbars
 	 cy.wait(1000)	  	 
 	 
 //verify data saved	 
@@ -115,7 +115,7 @@ it('Delete newly added Company', () => {
 	 cy.wait(1000)
 	 cy.get('[tabindex="6"]').type('{enter}')
 	 cy.wait(1000)	 
-  	 cy.get('#edit-15 > .fas').click({ force: true }) // clicking on search element. Using until I can figure out how to move scrollbars
+  	 cy.get('#edit-16 > .fas').click({ force: true }) // clicking on search element. Using until I can figure out how to move scrollbars
 	 cy.wait(1000)	  	 
 	 
 //verify data saved	 

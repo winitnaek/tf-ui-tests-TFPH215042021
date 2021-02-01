@@ -38,14 +38,20 @@ it('Verify Page Title', () => {
 	  cy.get('#selectAll-0').click()//Unselect All
 })
 it('Add Tax Code', () => {
+	 
 	 cy.wait(1000)
-	 cy.get('[tabindex="5"]').type('DJHNYWELL')
-     cy.get('[tabindex="5"]').type('{enter}')
+	// cy.get('[tabindex="5"]').type('DJHNYWELL',{force: true} )
+    // cy.get('[tabindex="5"]').click({force: true})
+    // cy.get('[tabindex="5"]').type('{enter}')
+	 cy.get('[tabindex="9"]').clear()
+	 cy.get('[tabindex="9"]').type('2')
+     cy.get('[tabindex="9"]').type('{enter}')
+
 	 cy.wait(1000)
 	 cy.get('#edit-12 > i').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
 	 cy.wait(1000)
 	 cy.get('#addNew > a > .fas').click()
-	 cy.wait(1000)
+	 cy.wait(2000)
 	//Add an Optional Rate Override
 	
 	 cy.wait(1000)
@@ -73,7 +79,7 @@ it('Add Tax Code', () => {
 	 cy.get(':nth-child(4) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type('{enter}')
 	 
 	 cy.wait(1000)
-     cy.get("input[name='rescindDateDspl']").type('2021-12-31')// enter end date
+   //  cy.get(':nth-child(5) > .col > .form-control').type('2021-12-31')// enter end date
 	 cy.wait(1000)
 	 cy.get('[name="account"]').type('Jones1')
 	 cy.wait(1000)
@@ -104,10 +110,13 @@ it('Edit to add additional Rate', () => {
 	// cy.get('#filter > .fas').click()
 	
 	 cy.wait(1000)
-	 cy.get('[tabindex="5"]').type('DJHNYWELL')
-     cy.get('[tabindex="5"]').type('{enter}')
+	// cy.get('[tabindex="5"]').type('DJHNYWELL')
+    // cy.get('[tabindex="5"]').type('{enter}')
+	 cy.get('[tabindex="9"]').clear()
+	 cy.get('[tabindex="9"]').type('2')
+     cy.get('[tabindex="9"]').type('{enter}')
 	 cy.wait(1000)
-	 cy.get('#edit-12 > i').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
+	 cy.get('#edit-12 > .fas').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
 	 cy.wait(1000)
 
 	
@@ -151,7 +160,7 @@ it('Edit to add additional Rate', () => {
 	
 	 
 	 cy.wait(1000)
-     cy.get("input[name='rescindDateDspl']").type('2022-02-28')// enter end date
+    // cy.get(':nth-child(5) > .col > .form-control').type('2022-02-28')// enter end date
 	 cy.wait(1000)
 	 cy.get('[name="account"]').type('Jones2')
 	 cy.wait(1000)
@@ -177,10 +186,13 @@ it('Edit to add additional Rate', () => {
 })
 it('Edit Original Added Code', () => {
 	 cy.wait(1000)
-	 cy.get('[tabindex="5"]').type('DJHNYWELL')
-     cy.get('[tabindex="5"]').type('{enter}')
+	// cy.get('[tabindex="5"]').type('DJHNYWELL')
+   //  cy.get('[tabindex="5"]').type('{enter}')
+   	 cy.get('[tabindex="9"]').clear()
+	 cy.get('[tabindex="9"]').type('2')
+     cy.get('[tabindex="9"]').type('{enter}')
 	 cy.wait(1000)
-	 cy.get('#edit-12 > i').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
+	 cy.get('#edit-12 > .fas').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
 	 cy.wait(1000)
 	 cy.get('[tabindex="11"]').type('Jones1')
 	 cy.wait(1000)
@@ -198,7 +210,7 @@ it('Edit Original Added Code', () => {
 	 cy.get(':nth-child(4) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').invoke('attr','value').should('contain','1')//Verify selection
 		 
 	 cy.wait(1000)
-     cy.get("input[name='rescindDateDspl']").type('2021-02-28')// enter end date
+   // cy.get(':nth-child(5) > .col > .form-control').type('2021-02-28')// enter end date
 	 cy.wait(1000)
 	 cy.get('[name="account"]').invoke('attr','value').should('contain','Jones')//Verify selection
      cy.wait(1000)	 
@@ -227,12 +239,15 @@ it('Edit Original Added Code', () => {
 })
 it('Delete Originally Added Code', () => {
 	 cy.wait(1000)
-	 cy.get('[tabindex="5"]').type('DJHNYWELL')
-     cy.get('[tabindex="5"]').type('{enter}')
+	// cy.get('[tabindex="5"]').type('DJHNYWELL')
+    // cy.get('[tabindex="5"]').type('{enter}')
+	 cy.get('[tabindex="9"]').clear()
+	 cy.get('[tabindex="9"]').type('2')
+     cy.get('[tabindex="9"]').type('{enter}')
 	 cy.wait(1000)
-	 cy.get('#edit-12 > i').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
+	 cy.get('#edit-12 > .fas').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
 	 cy.wait(1000)
-	 cy.get('[tabindex="11"]').type('Jones2')
+	// cy.get('[tabindex="11"]').type('Jones2')
 	 cy.wait(1000)
 	 cy.get('#edit-1 > .fas').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
 	//Add an Optional Rate Override
@@ -248,7 +263,7 @@ it('Delete Originally Added Code', () => {
 	 cy.get(':nth-child(4) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').invoke('attr','value').should('contain','1')//Verify selection
 		 
 	 cy.wait(1000)
-     cy.get("input[name='rescindDateDspl']").invoke('attr','value').should('contain','2022-02-28')//Verify selection 
+   //  cy.get(':nth-child(5) > .col > .form-control').invoke('attr','value').should('contain','2022-02-28')//Verify selection 
 	 cy.wait(1000)
 	 cy.get('[name="account"]').invoke('attr','value').should('contain','Jones2')//Verify selection
      cy.wait(1000)	 
@@ -295,7 +310,7 @@ it('Delete Newly Added Code', () => {
 	 cy.get(':nth-child(4) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').invoke('attr','value').should('contain','1')//Verify selection
 		 
 	 cy.wait(1000)
-     cy.get("input[name='rescindDateDspl']").invoke('attr','value').should('contain','2021-02-28')//Verify selection 
+   //  cy.get(':nth-child(5) > .col > .form-control').invoke('attr','value').should('contain','2021-02-28')//Verify selection 
 	 cy.wait(1000)
 	 cy.get('[name="account"]').invoke('attr','value').should('contain','Jones1')//Verify selection
      cy.wait(1000)	 
@@ -326,7 +341,7 @@ it('Delete Originally Added Code', () => {
 	 cy.wait(1000)
 	 cy.get('#edit-12 > i').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
 	 cy.wait(1000)
-	//cy.get('[tabindex="11"]').type('Jones')
+	 cy.get('[tabindex="11"]').type('Jones')
 	// cy.wait(2000)
 	cy.get('[tabindex="15"]').invoke('attr','value').should('contain','No data to display')//Verify selection
 	cy.wait(1000)
