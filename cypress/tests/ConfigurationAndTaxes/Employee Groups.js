@@ -56,7 +56,7 @@ it('Edit newly added Employee Groups', () => {
 	 cy.wait(1000)
 	 cy.get('[tabindex="5"]').type('DJTestEmp')
 	 cy.wait(1000)
-	 cy.get('#edit-2 > .fas').click({ force: true }) // clicking on search element. Using until I can figure out how to move scrollbars
+	 cy.get('#edit-4 > .fas').click({ force: true }) // clicking on search element. Using until I can figure out how to move scrollbars
 	 cy.wait(1000)	  	 
 	 
 //verify data saved	 
@@ -86,7 +86,7 @@ it('Delete newly added Employee Groups', () => {
 
     cy.get('[tabindex="5"]').type('DJTESTEMP')
 	 cy.wait(1000)
-	 cy.get('#edit-2 > .fas').click({ force: true }) // clicking on search element. Using until I can figure out how to move scrollbars
+	 cy.get('#edit-4 > .fas').click({ force: true }) // clicking on search element. Using until I can figure out how to move scrollbars
 	 cy.wait(1000)	  	 
 	 
 //verify data saved	 

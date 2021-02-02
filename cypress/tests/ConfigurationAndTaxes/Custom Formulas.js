@@ -43,7 +43,7 @@ it('Add Tax Code', () => {
 	 cy.get('[tabindex="5"]').type('RG1_CTC')
      cy.get('[tabindex="5"]').type('{enter}')
 	 cy.wait(1000)
-	 cy.get('#edit-8 > i').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
+	 cy.get('#edit-8 > .fas').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
 	 cy.wait(1000)
 	 cy.get('#addNew > a > .fas').click()
 	 cy.wait(1000)
@@ -91,7 +91,7 @@ it('Edit newly added Tax Code', () => {
 	 cy.get('[tabindex="5"]').type('RG1_CTC')
      cy.get('[tabindex="5"]').type('{enter}')
 	 cy.wait(1000)
-	 cy.get('#edit-8 > i').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
+	 cy.get('#edit-8 > .fas').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
 	 cy.wait(1000)
 	 cy.get('[tabindex="6"]').type('07 Flat Amount, Max Wage')
      cy.get('[tabindex="6"]').type('{enter}')
@@ -191,10 +191,13 @@ it('Delete newly added Company', () => {
 	  cy.get(".btn-danger").should('contain', 'Delete')
 	  cy.get("[type='submit']").should('contain', 'Save')// verify save button*/
 	  cy.get(".btn-danger").click()
+	  cy.wait(1000)
 	 cy.get('[tabindex="6"]').clear()
 	 cy.wait(1000)
 	 cy.get('#filter > .fas').click()
+	 cy.wait(1000)
 	  cy.get('[tabindex="5"]').clear()
+	  cy.wait(1000)
 	 cy.get('[tabindex="5"]').type('{enter}')
 	 
 })

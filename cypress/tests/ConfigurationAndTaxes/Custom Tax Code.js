@@ -27,17 +27,14 @@ it('launch Custom Tax Codes from Fav Menu', function () {
 })
 
 it('Verify Page Title', () => {
-	  cy.wait(2000)
+	  cy.wait(1000)
+      cy.get("#pageContainer > div:nth-child(1) > h1", { timeout: 30000 }).should('be.visible'); //Waiting 30 secs to have screen to load
+	  cy.get("#pageContainer > div:nth-child(1) > h1").should( "have.text","Custom Tax Codes")// verifying screen title
+       cy.wait(2000)
 	  cy.get('#unselectAll-0').click()// Select All
 	  cy.wait(2000)
 	  cy.get('#selectAll-0').click()//Unselect All  
 	  cy.wait(1000)
-      cy.get("#pageContainer > div:nth-child(1) > h1", { timeout: 30000 }).should('be.visible'); //Waiting 30 secs to have screen to load
-	  cy.get("#pageContainer > div:nth-child(1) > h1").should( "have.text","Custom Tax Codes")// verifying screen title
-      cy.wait(1000)
-	  cy.get('#unselectAll').click()// Select All
-	  cy.wait(1000)
-	  cy.get('#unselectAll').click()//Unselect All
 })
 it('Add Custom Tax Code', () => {
 	 cy.get('#addNew > a > .fas').click()

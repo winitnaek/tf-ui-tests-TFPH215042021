@@ -31,7 +31,11 @@ it('Verify Page Title', () => {
 	  cy.wait(1000)
 	   cy.get("#pageContainer > div:nth-child(1) > h1", { timeout: 30000 }).should('be.visible'); //Waiting 30 secs to have screen to load
 	  cy.get("#pageContainer > div:nth-child(1) > h1").should( "have.text","Custom Payments")// verifying screen title
-  
+       cy.wait(2000)
+	  cy.get('#unselectAll-0').click()// Select All
+	  cy.wait(2000)
+	  cy.get('#selectAll-0').click()//Unselect All  
+	  cy.wait(1000)
 })
 
 it('Add Custom Payments ', () => {
@@ -41,25 +45,25 @@ it('Add Custom Payments ', () => {
 	  cy.wait(1000)
 	  cy.get("#addNew > a > i").click()
 	  cy.wait(1000)	  
-	  cy.get('input[name="userCode"]').type("DJ_TestCode")	  
+	  cy.get("#userCode").type("DJ_TestCode")	  
 	  cy.wait(1000)	  
-	  cy.get('input[name="payType"]').select("Custom Earnings")	  
+	  cy.get('#payType').select("Custom Earnings")	  
 	  cy.wait(1000)	  
-	  cy.get('input[name="name"]').type("DJ_Testpayment")	  
+	 cy.get('#name').type("DJ_Testpayment")	  
 	  cy.wait(1000)
 	  
-	  cy.get('input[name="payType"]').select("Limit / QTD")	
+	  cy.get('#taxability').select("Limit / QTD")	
 	  
-	  cy.get('input[name="eemax"]').type("50.00")
+	  cy.get('#eemax').type("50.00")
 	  
 	  //verify buttons
-  	 ccy.wait(1000) 
+  	 cy.wait(1000) 
   	 cy.get("[type='reset']").should('contain', 'Reset')// verify Reset button
 	 cy.get('[type="button"]').should('contain', 'Cancel')// verify cancel button	
 	 cy.get("[type='submit']").should('contain', 'Save')// verify save button*/
 	 
-	 cy.get('[type="button"]').click(({ multiple: true, force: true }))// click cancel- using multiple because "button" used in several places
-	// cy.get("[type='submit']").click()// click save button
+	 //cy.get('[type="button"]').click(({ multiple: true, force: true }))// click cancel- using multiple because "button" used in several places
+    cy.get("[type='submit']").click()// click save button
 })
 //edit HONEYWELL
  it('Edit newly added Company', () => {
@@ -73,18 +77,18 @@ it('Add Custom Payments ', () => {
 	 cy.wait(1000)	  	 
 	 
 //verify data saved	 
-      cy.get('[name = "userCode"]').invoke('attr','value').should('contain','DJ_TESTCODE')//Verify selection 
+      cy.get('#userCode').invoke('attr','value').should('contain','DJ_TESTCODE')//Verify selection 
 	// cy.get('[name = "taxCode"]').invoke('attr','placeholder').should('contain','Enter Custom Tax Code')//Verify Custom Tax Code
 	 cy.wait(1000)
 	 
   
-	 cy.get("[name='name']").invoke('attr','value').should('contain','DJ_Testpayment')//Verify selection 
+	 cy.get('#name').invoke('attr','value').should('contain','DJ_Testpayment')//Verify selection 
 	 cy.wait(1000)
  
-	 cy.get("[name='eemax']").invoke('attr','value').should('contain','50.00')//Verify selection 
+	 cy.get('#eemax').invoke('attr','value').should('contain','50.00')//Verify selection 
 	 cy.wait(1000)
-	 cy.get('input[name="eemax"]').clear()
-	cy.get('input[name="eemax"]').type("75.00")
+	cy.get('#eemax').clear()
+	cy.get('#eemax').type("75.00")
      cy.wait(1000)
 
 //verifying buttons
@@ -92,8 +96,8 @@ it('Add Custom Payments ', () => {
 	  cy.get('.modal-footer > [type="button"]').should('contain', 'Cancel')// verify cancel button	
 	  cy.get(".btn-danger").should('contain', 'Delete')
 	  cy.get("[type='submit']").should('contain', 'Save')// verify save button*/
-	  cy.get('[type="button"]').click(({ multiple: true, force: true }))// click cancel- using multiple because "button" used in several places
-	 //  cy.get("[type='submit']").click()
+	//  cy.get('[type="button"]').click(({ multiple: true, force: true }))// click cancel- using multiple because "button" used in several places
+  cy.get("[type='submit']").click()
  }) 
  
  
@@ -111,7 +115,7 @@ it('Delete newly added Company', () => {
 	 cy.wait(1000)	  	 
 	 
 //verify data saved	 
-	   cy.get('input[name="eemax"]').invoke('attr','value').should('contain','75.00')//Verify selection 
+	   cy.get('#eemax').invoke('attr','value').should('contain','75.00')//Verify selection 
 	  cy.wait(1000)	   
 	
 

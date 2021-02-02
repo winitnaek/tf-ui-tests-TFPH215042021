@@ -42,7 +42,7 @@ it('fails to visit website 1', function () {
 	  cy.get('#myform > div > div > div > div > div.col > div > div.rbt-input-hint-container > input').type('{downarrow}')
 	  cy.get('#myform > div > div > div > div > div.col > div > div.rbt-input-hint-container > input').type('{enter}')
 	  
-	  cy.get('#myform > div > div > div > div > div.col > div > div.rbt-input-hint-container > input').invoke('attr','value').should('contain','DJones_Test_Company- (DJONES_TEST)') //Verify selection
+	  cy.get('#myform > div > div > div > div > div.col > div > div.rbt-input-hint-container > input').invoke('attr','value').should('contain','DJones_Test_Company1- (DJONES_TEST)') //Verify selection
 	  cy.wait(1000)
 	  cy.get("[type='submit']").click()// Click view buttons
 	  
