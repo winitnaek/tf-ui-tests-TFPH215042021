@@ -62,55 +62,55 @@ it('Add Tax Code', () => {
 	 cy.wait(1000)
 	 cy.get('[name="inputMethod"]').select('4- Use Gross Wages API Amount Reduced by Higher Priority Garnishments')
      cy.wait(1000)
-	 cy.get(':nth-child(5) > .col > .form-control').clear()
-	 cy.get(':nth-child(5) > .col > .form-control').type("7.000000000")
+	 cy.get("input[name='inputFlatAmount']").clear()
+	 cy.get("input[name='inputFlatAmount']").type("7.000000000")
 	 cy.wait(1000)
-	 cy.get(':nth-child(6) > .col > .form-control').clear()
-	 cy.get(':nth-child(6) > .col > .form-control').type("7.000000000")
+	 cy.get("input[name='inputPercent']").clear()
+	 cy.get("input[name='inputPercent']").type("7.000000000")
 	 cy.wait(1000)
-     cy.get(':nth-child(7) > .col > .form-control').clear()
-     cy.get(':nth-child(7) > .col > .form-control').type("1")
+     cy.get("input[name='inputPriority']").clear()
+     cy.get("input[name='inputPriority']").type("1")
 	 cy.wait(1000)
 	 //Exemption
 	  cy.get('[name="exemptionMethod"]').select('2- Subtract Exemption Amount')
 	  cy.wait(1000)
-     cy.get(':nth-child(9) > .col > .form-control').clear()
-	 cy.get(':nth-child(9) > .col > .form-control').type("7.00")//enter minimum wage
+    cy.get("input[name='exemptionFlatAmount']").clear()
+	cy.get("input[name='exemptionFlatAmount']").type("7.00")//enter minimum wage
 	 cy.wait(1000)
-	 cy.get(':nth-child(10) > .col > .form-control').clear()
-	 cy.get(':nth-child(10) > .col > .form-control').type("7.00")//enter maximum wage
+	 cy.get("input[name='exemptionAmount']").clear()
+	cy.get("input[name='exemptionAmount']").type("7.00")//enter maximum wage
 	 cy.wait(1000)
-	 cy.get(':nth-child(11) > .col > .form-control').clear()
-	 cy.get(':nth-child(11) > .col > .form-control').type("7.00")//enter maximum tax
+	cy.get("input[name='exemptionDependentAmount']").clear()
+    cy.get("input[name='exemptionDependentAmount']").type("7.00")//enter maximum tax
 	 cy.wait(1000)
 	  cy.get('[name="stmtOfException"]').select('Required')
 	  //Calculation Section
 	 cy.get('[name="calculationMethod"]').select('2- Take Greater of Calculation Amount or Calculation Percent')
 	 cy.wait(1000)
-	cy.get(':nth-child(14) > .col > .form-control').clear()
-	cy.get(':nth-child(14) > .col > .form-control').type("7.00")//enter flat amount
+	 cy.get("input[name='calculationPercent']").clear()
+	 cy.get("input[name='calculationPercent']").type("7.00")//enter flat amount
      cy.wait(1000)
-     cy.get(':nth-child(15) > .col > .form-control').clear()
-	 cy.get(':nth-child(15) > .col > .form-control').type("7.00")//enter flat amount
+     cy.get("input[name='calculationAmount']").clear()
+	 cy.get("input[name='calculationAmount']").type("7.00")//enter flat amount
      cy.wait(1000)
-     cy.get(':nth-child(16) > .col > .form-control').clear()
-	 cy.get(':nth-child(16) > .col > .form-control').type("7.00")//enter flat amount
+      cy.get("input[name='calculationLimit']").clear()
+	  cy.get("input[name='calculationLimit']").type("7.00")//enter flat amount
      cy.wait(1000)	 	
 
      //Deduction Section
 	 cy.get('[name="deductionMethod"]').select('1- Subtract Deduction Flat Amount')
 	 cy.wait(1000)
-	 //cy.get(':nth-child(17) > .col > .form-control').clear()
-	//cy.get(':nth-child(17) > .col > .form-control').type("7.00")//enter flat amount
+	 // cy.get("input[name='deductionFlatAmount']").clear()
+	//cy.get("input[name='deductionFlatAmount']").type("7.00")//enter flat amount
     // cy.wait(1000)
-     cy.get(':nth-child(18) > .col > .form-control').clear()
-	 cy.get(':nth-child(18) > .col > .form-control').type("7.00")//enter  amount
+     cy.get("input[name='deductionFlatAmount']").clear()
+	cy.get("input[name='deductionFlatAmount']").type("7.00")//enter  amount
      cy.wait(1000)
-    cy.get(':nth-child(19) > .col > .form-control').clear()
-     cy.get(':nth-child(19) > .col > .form-control').type("7.00")//enter amount
+     cy.get("input[name='deductionAmount']").clear()
+     cy.get("input[name='deductionAmount']").type("7.00")//enter amount
      cy.wait(1000)	 
-    cy.get(':nth-child(20) > .col > .form-control').clear()
-     cy.get(':nth-child(20) > .col > .form-control').type("7.00")//enter amount
+     cy.get("input[name='deductionDependentAmount']").clear()
+     cy.get("input[name='deductionDependentAmount']").type("7.00")//enter amount
      cy.wait(1000)	 
   	 cy.get("[type='reset']").should('contain', 'Reset')// verify Reset button
 	 cy.get('[type="button"]').should('contain', 'Cancel')// verify cancel button	
@@ -151,10 +151,10 @@ it('Edit newly added Tax Code', () => {
    //  cy.get("[name='rescind']").type('2021-12-31')// enter end date
 	 cy.get("[name='endDate']").invoke('attr','value').should('contain','2022-12-31')//Verify selection 
 	 cy.wait(1000)
-    cy.get(':nth-child(19) > .col > .form-control').invoke('attr','value').should('contain','7.00')//Verify selection 
+    cy.get("input[name='deductionAmount']").invoke('attr','value').should('contain','7.00')//Verify selection
 	  cy.wait(1000)
-	  cy.get(':nth-child(20) > .col > .form-control').clear()
-     cy.get(':nth-child(20) > .col > .form-control').type("8.00")//enter amount
+	   cy.get("input[name='deductionDependentAmount']").clear()
+      cy.get("input[name='deductionDependentAmount']").type("8.00")//enter amount
      cy.wait(1000)
 	 
 	 cy.wait(1000) 
@@ -188,7 +188,7 @@ it('Delete newly added Company', () => {
      cy.get('#edit-0 > i').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
 	 cy.wait(1000)
      cy.wait(1000)
-     cy.get(':nth-child(20) > .col > .form-control').invoke('attr','value').should('contain','8.00')//Verify selection 
+     cy.get("input[name='deductionDependentAmount']").invoke('attr','value').should('contain','8.00')//Verify selection 
 	  cy.wait(1000)
 	
 
@@ -197,7 +197,7 @@ it('Delete newly added Company', () => {
 	
 	 cy.wait(10000)
 	  
-	  cy.get(':nth-child(90) > :nth-child(1) > .modal > .modal-dialog > .modal-content > .modal-header > .close > span').click()
+	  cy.get('.modal-content > .modal-footer > .btn').click({force: true})
 	  
 	  //verifying buttons
 	  cy.get("[type='reset']").should('contain', 'Reset')// verify Reset button

@@ -44,7 +44,7 @@ it('fails to visit website 1', function () {
 	  
 	   cy.get("#myform > div > div:nth-child(2) > div > div > div.col > div > div.rbt-input-hint-container > input").type('{enter}') // selecting the enter key. ending of selecting from dropdown
 	   
-	   cy.get("#myform > div > div:nth-child(2) > div > div > div.col > div > div.rbt-input-hint-container > input").invoke('attr','value').should('contain','BSI00010014- (RED BAY)') 
+	   cy.get("#myform > div > div:nth-child(2) > div > div > div.col > div > div.rbt-input-hint-container > input").invoke('attr','value').should('contain','BSI00010014 - RED BAY') 
 	   
 	  
 	   cy.wait(1000)

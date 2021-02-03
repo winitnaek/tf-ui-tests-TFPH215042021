@@ -65,7 +65,7 @@ it('Add Custom Payments ', () => {
 	 //cy.get('[type="button"]').click(({ multiple: true, force: true }))// click cancel- using multiple because "button" used in several places
     cy.get("[type='submit']").click()// click save button
 })
-//edit HONEYWELL
+//edit 
  it('Edit newly added Company', () => {
 	 cy.wait(1000)
 	 cy.get("#pageContainer > div:nth-child(1) > h1", { timeout: 30000 }).should('be.visible'); //Waiting 30 secs to have screen to load

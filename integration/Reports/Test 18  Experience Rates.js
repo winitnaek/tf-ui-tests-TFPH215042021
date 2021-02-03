@@ -37,7 +37,7 @@ it('fails to visit website 1', function () {
 		  
 		  cy.get("#myform > div > div:nth-child(1) > div > div > div.col > div > div.rbt-input-hint-container > input").type('{enter}') // selecting the enter key. ending of selecting from dropdown
 		  cy.wait(1000)		  
-		  cy.get("#myform > div > div:nth-child(1) > div > div > div.col > div > div.rbt-input-hint-container > input").invoke('attr','value').should('contain','BSI00280000- (MISSISSIPPI)') 
+		  cy.get("#myform > div > div:nth-child(1) > div > div > div.col > div > div.rbt-input-hint-container > input").invoke('attr','value').should('contain','BSI00280000 - MISSISSIPPI') 
 		  cy.wait(1000)
 		  cy.get("[type='submit']").click()// Click view buttons
 		  cy.get("#pageContainer > div:nth-child(1) > h1", { timeout: 30000 }).should('be.visible'); //Waiting 30 secs to have screen to load
