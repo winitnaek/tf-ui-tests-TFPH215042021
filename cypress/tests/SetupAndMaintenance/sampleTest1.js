@@ -1,5 +1,5 @@
 /// <reference types="cypress" />
-describe("My TF Test Suite 1", function () {
+describe("My TF Test Suite 2", function () {
   before(() => {
     // runs once before all tests in the block
     cy.log("runs once before all tests in the block");
@@ -8,7 +8,7 @@ describe("My TF Test Suite 1", function () {
     // runs before each test in the block
     cy.log("runs before each test in the block");
   });
-  it("My TF Test 1", function () {
+  it("My TF Test 2", function () {
     cy.visit(Cypress.env('setupmaintenanceurl'));
     cy.get('.nav-link').click();
     cy.get(':nth-child(1) > :nth-child(1) > :nth-child(2) > .d-block').click();

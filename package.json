@@ -6,14 +6,27 @@
   "scripts": {
     "ots": "npx cypress open",
     "rts": "npx cypress run",
-    "udqtest": "npm run rts -- --spec cypress\\tests\\Reports\\*",
-    "configtest": "npm run rts -- --spec cypress\\tests\\ConfigurationAndTaxes\\*",
-    "setuptest": "npm run rts -- --spec cypress\\tests\\SetupAndMaintenance\\*"
+    "udqtest": "npm run cleanrpt && npm run rts -- --spec cypress\\tests\\Reports\\*",
+    "configtest": "npm run cleanrpt && npm run rts -- --spec cypress\\tests\\ConfigurationAndTaxes\\*",
+    "setuptest": "npm run cleanrpt && npm run rts -- --spec cypress\\tests\\SetupAndMaintenance\\* && npm run genrpt",
+    "cleanmrpt":"npx rimraf mochawesome-report/",
+    "cleanhrpt":"npx rimraf testreport/",
+    "cleanfile":"npx rimraf uitestsreport.json",
+    "cleanrpt":"npm run cleanhrpt && npm run cleanmrpt && npm run cleanfile",
+    "mergerpt":"mochawesome-merge --src mochawesome-report/*.json > uitestsreport.json",
+    "createrpt":"npx mochawesome-report-generator --reportDir testreport uitestsreport.json",
+    "genrpt":"npm run mergerpt && npm run createrpt"
   },
   "author": "Vinit Naik",
   "license": "ISC",
   "dependencies": {
     "cypress": "^6.2.1",
     "cypress-sql-server": "^1.0.0"
+  },
+  "devDependencies": {
+    "mocha": "^8.2.1",
+    "mochawesome": "^6.2.1",
+    "mochawesome-merge": "^4.2.0",
+    "mochawesome-report-generator": "^5.1.0"
   }
 }
