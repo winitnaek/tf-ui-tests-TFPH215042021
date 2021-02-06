@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "ots": "npx cypress open",
-    "rts": "npx cypress run",
-    "udqtest": "npm run cleanrpt && npm run rts -- --spec cypress\\tests\\Reports\\*",
-    "configtest": "npm run cleanrpt && npm run rts -- --spec cypress\\tests\\ConfigurationAndTaxes\\*",
+    "rts": "npx cypress run && npm run genrpt",
+    "udqtest": "npm run cleanrpt && npm run rts -- --spec cypress\\tests\\Reports\\* && npm run genrpt",
+    "configtest": "npm run cleanrpt && npm run rts -- --spec cypress\\tests\\ConfigurationAndTaxes\\* && npm run genrpt",
     "setuptest": "npm install && npm run cleanrpt && npm run rts -- --spec cypress\\tests\\SetupAndMaintenance\\* && npm run genrpt",
     "cleanmrpt": "npx rimraf mochawesome-report/",
     "cleanhrpt": "npx rimraf testreport/",
