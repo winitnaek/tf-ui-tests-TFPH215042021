@@ -6,6 +6,7 @@
   "scripts": {
     "ots": "npx cypress open",
     "rts": "npm run cleanrpt && npx cypress run",
+    "alltest": "npm run cleanrpt && npx cypress run -- --spec cypress\\tests\\* && npm run genrpt",
     "udqtest": "npm run cleanrpt && npm run rts -- --spec cypress\\tests\\Reports\\* && npm run genrpt",
     "configtest": "npm run cleanrpt && npm run rts -- --spec cypress\\tests\\ConfigurationAndTaxes\\* && npm run genrpt",
     "setuptest": "npm run cleanrpt && npm run rts -- --spec cypress\\tests\\SetupAndMaintenance\\* && npm run genrpt",
