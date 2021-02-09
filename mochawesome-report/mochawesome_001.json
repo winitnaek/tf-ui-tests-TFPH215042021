@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2021-02-06T20:16:10.360Z",
-    "end": "2021-02-06T20:16:14.909Z",
-    "duration": 4549,
+    "start": "2021-02-09T16:25:18.050Z",
+    "end": "2021-02-09T16:25:31.276Z",
+    "duration": 13226,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "eface5e6-7034-440b-b38f-d9ae975725d2",
+      "uuid": "8e84be28-cfa2-4af1-9885-63afa300ad41",
       "title": "",
       "fullFile": "cypress\\tests\\SetupAndMaintenance\\sampleTest1.js",
       "file": "cypress\\tests\\SetupAndMaintenance\\sampleTest1.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "243c82b9-a401-4b36-83ae-cc64faeb0bf6",
+          "uuid": "4a9582aa-ffc0-4911-aabc-aac5eedcf3ef",
           "title": "My TF Test Suite 2",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "My TF Test 2",
               "fullTitle": "My TF Test Suite 2 My TF Test 2",
               "timedOut": null,
-              "duration": 3201,
+              "duration": 10893,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -47,20 +47,20 @@
               "context": null,
               "code": "cy.visit(Cypress.env('setupmaintenanceurl'));\ncy.get('.nav-link').click();\ncy.get(':nth-child(1) > :nth-child(1) > :nth-child(2) > .d-block').click();",
               "err": {},
-              "uuid": "5b31ab12-ec51-457f-9e4b-9579f3a4abdd",
-              "parentUUID": "243c82b9-a401-4b36-83ae-cc64faeb0bf6",
+              "uuid": "77b79d02-2c2d-4c01-9ab9-5ad75f6d2b1e",
+              "parentUUID": "4a9582aa-ffc0-4911-aabc-aac5eedcf3ef",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "5b31ab12-ec51-457f-9e4b-9579f3a4abdd"
+            "77b79d02-2c2d-4c01-9ab9-5ad75f6d2b1e"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 3201,
+          "duration": 10893,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

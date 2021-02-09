@@ -5,9 +5,9 @@
     "passes": 2,
     "pending": 0,
     "failures": 0,
-    "start": "2021-02-06T20:16:00.730Z",
-    "end": "2021-02-06T20:16:14.909Z",
-    "duration": 6518,
+    "start": "2021-02-09T16:24:56.712Z",
+    "end": "2021-02-09T16:25:31.276Z",
+    "duration": 23021,
     "testsRegistered": 2,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "eface5e6-7034-440b-b38f-d9ae975725d2",
+      "uuid": "8e84be28-cfa2-4af1-9885-63afa300ad41",
       "title": "",
       "fullFile": "cypress\\tests\\SetupAndMaintenance\\sampleTest1.js",
       "file": "cypress\\tests\\SetupAndMaintenance\\sampleTest1.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "243c82b9-a401-4b36-83ae-cc64faeb0bf6",
+          "uuid": "4a9582aa-ffc0-4911-aabc-aac5eedcf3ef",
           "title": "My TF Test Suite 2",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "My TF Test 2",
               "fullTitle": "My TF Test Suite 2 My TF Test 2",
               "timedOut": null,
-              "duration": 3201,
+              "duration": 10893,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -47,20 +47,20 @@
               "context": null,
               "code": "cy.visit(Cypress.env('setupmaintenanceurl'));\ncy.get('.nav-link').click();\ncy.get(':nth-child(1) > :nth-child(1) > :nth-child(2) > .d-block').click();",
               "err": {},
-              "uuid": "5b31ab12-ec51-457f-9e4b-9579f3a4abdd",
-              "parentUUID": "243c82b9-a401-4b36-83ae-cc64faeb0bf6",
+              "uuid": "77b79d02-2c2d-4c01-9ab9-5ad75f6d2b1e",
+              "parentUUID": "4a9582aa-ffc0-4911-aabc-aac5eedcf3ef",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "5b31ab12-ec51-457f-9e4b-9579f3a4abdd"
+            "77b79d02-2c2d-4c01-9ab9-5ad75f6d2b1e"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 3201,
+          "duration": 10893,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
@@ -76,7 +76,7 @@
       "_timeout": 2000
     },
     {
-      "uuid": "8454bfed-b665-4e1f-a3d4-b8bac52658d4",
+      "uuid": "03c63cf5-ac01-4bab-a085-ed609cde9dfa",
       "title": "",
       "fullFile": "cypress\\tests\\SetupAndMaintenance\\sampleTest.js",
       "file": "cypress\\tests\\SetupAndMaintenance\\sampleTest.js",
@@ -85,7 +85,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "c70b7f3d-53c6-4f47-80a4-cf33b323769d",
+          "uuid": "47347ea7-7d90-4ced-aa22-57c59e4f5054",
           "title": "My TF Test Suite 1",
           "fullFile": "",
           "file": "",
@@ -96,7 +96,7 @@
               "title": "My TF Test 1",
               "fullTitle": "My TF Test Suite 1 My TF Test 1",
               "timedOut": null,
-              "duration": 3317,
+              "duration": 12128,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -105,20 +105,20 @@
               "context": null,
               "code": "cy.visit(Cypress.env('setupmaintenanceurl'));\ncy.get('.nav-link').click();\ncy.get(':nth-child(1) > :nth-child(1) > :nth-child(2) > .d-block').click();",
               "err": {},
-              "uuid": "4d16e5e7-6252-43e7-adec-538660e2a4a7",
-              "parentUUID": "c70b7f3d-53c6-4f47-80a4-cf33b323769d",
+              "uuid": "28fce4f0-66fc-42ea-81e6-9284b1d6d28c",
+              "parentUUID": "47347ea7-7d90-4ced-aa22-57c59e4f5054",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "4d16e5e7-6252-43e7-adec-538660e2a4a7"
+            "28fce4f0-66fc-42ea-81e6-9284b1d6d28c"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 3317,
+          "duration": 12128,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
