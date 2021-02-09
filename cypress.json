@@ -7,5 +7,12 @@
     "setupmaintenanceurl":"http://ssqa01:2023",
     "sslaburl":"",
     "produrl":""
+  },
+  "reporter": "mochawesome",
+  "reporterOptions": {
+    "quite": true,
+    "overwrite": false,
+    "html": false,
+    "json": true
   }
 }
