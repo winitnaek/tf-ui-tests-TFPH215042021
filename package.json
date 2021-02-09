@@ -16,7 +16,8 @@
     "cleanrpt": "npm run cleanhrpt && npm run cleanmrpt && npm run cleanfile",
     "mergerpt": "mochawesome-merge --src mochawesome-report/*.json > uitestsreport.json",
     "createrpt": "npx mochawesome-report-generator --reportDir testreport uitestsreport.json",
-    "genrpt": "npm run mergerpt && npm run createrpt"
+    "genrpt": "npm run mergerpt && npm run createrpt",
+    "getmods": "npm install"
   },
   "author": "Vinit Naik",
   "license": "ISC",
