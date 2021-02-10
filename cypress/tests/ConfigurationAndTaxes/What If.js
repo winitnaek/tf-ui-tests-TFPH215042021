@@ -42,7 +42,7 @@ it('Adding Employee', ()=> {
 	  
 	 cy.get("#addNew > a > i").click()//add button
 	 cy.wait(1000)	 
-	 cy.get("input[name='checkDate']").type('2020-11-13')
+	 cy.get("input[name='checkDate']").type('2020-03-13')
 	 cy.wait(1000)
 	 cy.get("input[name='empCode']").type('DJONES_TEST') 
 	 cy.wait (1000)
@@ -67,7 +67,7 @@ it('Adding Employee', ()=> {
        cy.get('[name="payPeriodHours"]').clear()
 	  cy.get('[name="payPeriodHours"]').type('40')	  
 	  cy.wait(1000)
-      cy.get('[name="grossUpInd"]').select('2 - Garnishment Gross-Up') 
+    //  cy.get('[name="grossUpInd"]').select('2 - Garnishment Gross-Up') 
 	  cy.wait(1000)
 	  cy.get('[name="netWages"]').clear()
 	  cy.get('[name="netWages"]').type('2500.00')
@@ -75,14 +75,16 @@ it('Adding Employee', ()=> {
 	  cy.get('[name="estAnnualGrossAmt"]').clear()
 	  cy.get('[name="estAnnualGrossAmt"]').type('82000.63')
 	    cy.wait(1000)
-      cy.get('[name="contribAlloc"]').select('0 - Do not Override')
+	//	cy.get('[name="reciprocalCode"]').click()
+		cy.wait(1000)
+    //  cy.get('[name="contribAlloc"]').select('0 - Do not Override')
 	  cy.wait(1000)
 	 
-	  cy.get(':nth-child(17) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type('GA - GEORGIA')
+	//  cy.get(':nth-child(17) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type('GA - GEORGIA')
 	  cy.wait(1000)	  
-	  cy.get(':nth-child(17) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type('{downarrow}')
+	//  cy.get(':nth-child(17) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type('{downarrow}')
 	  cy.wait(1000)
-	  cy.get(':nth-child(17) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type('{enter}')
+	//  cy.get(':nth-child(17) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type('{enter}')
 	  cy.wait(1000)
 	  
 	//  cy.get('[name="ytdPayPeriod"]').invoke('attr','value').should('contain','0')//Verify selection
@@ -98,13 +100,15 @@ it('Adding Employee', ()=> {
 	   cy.get('[name="avgWkGross"]').clear()
 	  cy.get('[name="avgWkGross"]').type('1255.05')
      cy.wait(1000)
-	  cy.get('[name="garnishment"]').select('1 - Do Garnishments and Tax Calculation')  
+	  cy.get('[name="garnishment"]').select('0 - Do not Process Garnishments')  
 	 cy.wait(1000)
-	  cy.get(':nth-child(22) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type('GA - GEORGIA')
+	// cy.get('[name="garnishmentGrp"]').select('DJGARN2- (GARN2)')  
+	 cy.wait(1000)
+	//  cy.get(':nth-child(22) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type('GA - GEORGIA')
 	  cy.wait(1000)	  
-	 cy.get(':nth-child(22) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type('{downarrow}')
+	// cy.get(':nth-child(22) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type('{downarrow}')
 	  cy.wait(1000)
-	  cy.get(':nth-child(22) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type('{enter}')
+	//  cy.get(':nth-child(22) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type('{enter}')
 	  cy.wait(1000)
 	   cy.get('[name="calcType"]').select('1 - Wage Assessment And Taxes')
 	  cy.wait(1000)
@@ -121,60 +125,13 @@ it('Adding Employee', ()=> {
 	  cy.wait(1000)
 	   cy.get("[name='foreignEarnedIncome']").select('0 - No')
 	  cy.wait(1000)
-	  cy.get(':nth-child(36) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').clear()
-	  cy.get(':nth-child(36) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type('GA')	
+	
+	// cy.get(':nth-child(36) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type('GA')	
 	  cy.wait(2000)
-	  cy.get(':nth-child(36) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type('{downarrow}')
+	//  cy.get(':nth-child(36) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type('{downarrow}')
 	  cy.wait(1000)
-	 cy.get(':nth-child(36) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type('{enter}')
-	  cy.wait(1000)
-	 // cy.get('[name="grossWages"]').invoke('attr','value').should('contain','2506.06')//Verify selection
-	  
-	  cy.wait(1000)
-	
-	  cy.wait(1000)
-	 // cy.get('[name="avgWkGross"]').invoke('attr','value').should('contain','1255.05')//Verify selection
-	  //  cy.get('[placeholder="Enter Resident State"]').invoke('attr','value').should('contain','GA - GEORGIA')//Verify selection
-
-	
-	  
-
-	  
-      cy.wait(1000)
-	
-	  
-	   
-	  
-	
-	  cy.wait(1000)
-	 // cy.get('[name="estSpousalIncome"]').invoke('attr','value').should('contain','1550.00')//Verify selection 
-	  
-	   cy.wait(1000)
-	  
-
-	  cy.wait(1000)
-	  
-   
-	  
-      //  cy.get("input[name='birthDate']").clear()
-	//  cy.get("input[name='birthDate']").type('1988-11-13')
-	 // cy.wait(1000)
-	
-	  
-	  //cy.get("input[name='formulaEffectiveDateYYYYMMDD']").clear()
-	 //  cy.get("input[name='formulaEffectiveDateYYYYMMDD']").type('2020-12-01')
-
-	
-	  
-
-	//  cy.get('[placeholder="Exempt Military Location"]').invoke('attr','value').should('contain','GA - GEORGIA')//Verify selection */
-	  
-	  
-	//  cy.get("[type='reset']").should('contain', 'Reset')// verify Reset button
-	//  cy.get('.modal-footer > [type="button"]').should('contain', 'Cancel')// verify cancel button	 
-	 //  cy.get("[type='submit']").should('contain', 'Save')// verify save button*/
-	   
-	   cy.wait(2000)
+	// cy.get(':nth-child(36) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type('{enter}')
+	cy.wait(1000)
 	 cy.get("[type='submit']").click()// verify save button
 	// cy.get('.modal-footer > [type="button"]').should('contain', 'Cancel').click()// verify cancel button
      cy.wait(1000)
@@ -182,12 +139,6 @@ it('Adding Employee', ()=> {
 })
 
 
-it('Edit Employee Code Taxes', ()=> { 
 
-cy.get('[columnindex="6"] > #edit-5>').click({ force: true })
-
-	 
- 
- })
 }) 
 	
