@@ -2,7 +2,7 @@
 
 describe("Configuration and Taxes Companies", function ()
 {
- it("Companies", function()
+ it("Worksites", function()
   {
 	  Cypress.on('uncaught:exception', (err, runnable) => {
   // returning false here prevents Cypress from
@@ -10,44 +10,52 @@ describe("Configuration and Taxes Companies", function ()
   return false
 })
 })
-it('launch Companies from Config Page', function () {
+it('launch Worksites from Config Page', function () {
 	  cy.visit(Cypress.env('configntaxesurl')) //Opens the URL	 
 	  cy.get("#appAreaSideMenu > li > a").click() // using force:true to click the Hidden fav icon.	  
-	  cy.get(':nth-child(1) > :nth-child(1) > :nth-child(2) > .fav-icon').click({force: true})
+	  cy.get(':nth-child(6) > .fav-icon').click({force: true})
 	  cy.wait(1000)
-      cy.get(':nth-child(1) > :nth-child(1) > :nth-child(2) > .d-block').click()
+      cy.get(':nth-child(6) > .d-block').click()
 	  cy.wait(1000)
-	  cy.get('.btn > .fas').click(1000)
+	  cy.get('.fas.fa-caret-down').click()
+
 	  
 })
 
 it('launch Custom Tax Codes from Fav Menu', function () {
 	  cy.wait(1000)
-      cy.get("#jumpto-company").click() // selecting Custom Tax from favorite menu
+      cy.get("#jumpto-worksites").click() // selecting Custom Tax from favorite menu
 })
 
 it('Verify Page Title', () => {
 		  
 	  cy.wait(1000)
 	   cy.get("#pageContainer > div:nth-child(1) > h1", { timeout: 30000 }).should('be.visible'); //Waiting 30 secs to have screen to load
-	  cy.get("#pageContainer > div:nth-child(1) > h1").should( "have.text","Companies")// verifying screen title
+	  cy.get("#pageContainer > div:nth-child(1) > h1").should( "have.text","Worksites")// verifying screen title
   
 })
 
-it('Add Company', () => {
+it('Add Worksites', () => {
 	
-	 
+	 cy.wait(1000)
+	 cy.get('#edit-0 > .fas').click({ force: true })
 	  
 	  cy.wait(1000)
 	  cy.get("#addNew > a > i").click()
 	  cy.wait(1000)	  
-	  cy.get('input[name="company"]').type("0001BSI")	  
+	  cy.get('input[name="location"]').type("GA-000001")	  
 	  cy.wait(1000)	  
-	  cy.get('input[name="companyName"]').type("BSI Automation1")	  
+	  cy.get('input[name="street1"]').type("155 Technology Pkwy")	  
 	  cy.wait(1000)	  
-	  cy.get('input[name="fein"]').type("012345678")	  
+	  cy.get('input[name="street2"]').type("Suite A")	  
 	  cy.wait(1000)
-	  cy.get('input[name="courtesy"]').click()
+	  cy.get('input[name="city"]').type("Norcross")
+	  cy.wait(1000)
+	  cy.get('input[name="county"]').type("Gwinnett")
+	  cy.wait(1000)
+	  cy.get('[name="state"]').select("GA - GEORGIA")
+	  cy.wait(1000)
+	 cy.get('input[name="zip"]').type('30092')
 	  cy.wait(1000)
 	  //verify buttons
   	  cy.get("[type='reset']").should('contain', 'Reset')// verify Reset button
@@ -58,41 +66,37 @@ it('Add Company', () => {
  it('Edit newly added Company', () => {
 	 cy.wait(1000)
 	 cy.get("#pageContainer > div:nth-child(1) > h1", { timeout: 30000 }).should('be.visible'); //Waiting 30 secs to have screen to load
-	 cy.get("#pageContainer > div:nth-child(1) > h1").should( "have.text","Companies")// verifying screen title
+	 cy.get("#pageContainer > div:nth-child(1) > h1").should( "have.text","Worksites")// verifying screen title
 	 cy.wait(1000)
-	 cy.get('[tabindex="5"]').type('0001BSI')
+	 cy.get('[tabindex="5"]').type('0002BSI')
 	 cy.wait(1000)
 	 cy.get('#edit-0 > .fas').click({ force: true }) // clicking on search element. Using until I can figure out how to move scrollbars
 	 cy.wait(1000)	  
-	 cy.get('input[name="companyName"]').clear()
-	 cy.get('input[name="companyName"]').type("BSI Automation2")
+	 cy.get('input[name="street2"]').clear()
+	 cy.get('input[name="street2"]').type("Suite B")
 	 cy.wait(1000)
 	 cy.get(".btn-success").click()
 	 cy.wait(1000)
 	 cy.get("#pageContainer > div:nth-child(1) > h1", { timeout: 30000 }).should('be.visible'); //Waiting 30 secs to have screen to load
-	 cy.get("#pageContainer > div:nth-child(1) > h1").should( "have.text","Companies")// verifying screen title
+	 cy.get("#pageContainer > div:nth-child(1) > h1").should( "have.text","Worksites")// verifying screen title
 
 	 cy.wait(1000)
-	 cy.get('[tabindex="6"]').type('BSI Automation1')
+	 cy.get('[tabindex="7"]').type('Suite A')
 	 cy.wait(1000)
-	 cy.get('[tabindex="6"]').type('{enter}')
-	 cy.get('[tabindex="10"]').should("have.text","No data to display")
+	 cy.get('[tabindex="7"]').type('{enter}')
+	 cy.get('[tabindex="13"]').should("have.text","No data to display")
 	 cy.wait(1000)
-	 cy.get('[tabindex="6"]').clear()
-	 cy.get('[tabindex="6"]').type('BSI Automation2')
+	 cy.get('[tabindex="7"]').clear()
+	 cy.get('[tabindex="7"]').type('Suite B')
 	 cy.wait(1000)
-	 cy.get('[tabindex="6"]').type('{enter}')
+	 cy.get('[tabindex="7"]').type('{enter}')
 	 cy.wait(1000)	 
   	 cy.get('#edit-0 > .fas').click({ force: true }) // clicking on search element. Using until I can figure out how to move scrollbars
 	 cy.wait(1000)	  	 
 	 
 //verify data saved	 
-	   cy.get('input[name="company"]').invoke('attr','value').should('contain','0001BSI')//Verify selection 
+	   cy.get('input[name="street2"]').invoke('attr','value').should('contain','Suite B')//Verify selection 
 	  cy.wait(1000)	   
-	  cy.get('input[name="companyName"]').invoke('attr','value').should('contain','BSI Automation2')//Verify selection 	  
-	  cy.wait(1000)	  	
-	  cy.get('input[name="fein"]').invoke('attr','value').should('contain','012345678')//Verify selection 	
-	  cy.wait(1000)
 
 //verifying buttons
 	  cy.get("[type='reset']").should('contain', 'Reset')// verify Reset button
@@ -108,25 +112,22 @@ it('Add Company', () => {
 it('Delete newly added Company', () => {	
      cy.wait(1000)
 	 cy.get("#pageContainer > div:nth-child(1) > h1", { timeout: 30000 }).should('be.visible'); //Waiting 30 secs to have screen to load
-	 cy.get("#pageContainer > div:nth-child(1) > h1").should( "have.text","Companies")// verifying screen title
+	 cy.get("#pageContainer > div:nth-child(1) > h1").should( "have.text","Worksites")// verifying screen title
 	 cy.wait(1000)
 	 cy.get('[tabindex="5"]').clear()
 	 cy.wait(1000)
 
-     cy.get('[tabindex="6"]').clear()
-	 cy.get('[tabindex="6"]').type('BSI Automation2')
+     cy.get('[tabindex="7"]').clear()
+	 cy.get('[tabindex="7"]').type('Suite B')
 	 cy.wait(1000)
-	 cy.get('[tabindex="6"]').type('{enter}')
+	 cy.get('[tabindex="7"]').type('{enter}')
 	 cy.wait(1000)	 
   	 cy.get('#edit-0 > .fas').click({ force: true }) // clicking on search element. Using until I can figure out how to move scrollbars
 	 cy.wait(1000)	  	 
 	 
 //verify data saved	 
-	   cy.get('input[name="company"]').invoke('attr','value').should('contain','0001BSI')//Verify selection 
-	  cy.wait(1000)	   
-	  cy.get('input[name="companyName"]').invoke('attr','value').should('contain','BSI Automation2')//Verify selection 	  
-	  cy.wait(1000)	  	
-	  cy.get('input[name="fein"]').invoke('attr','value').should('contain','012345678')//Verify selection 	
+	   cy.get('input[name="street2"]').invoke('attr','value').should('contain','Suite B')//Verify selection 
+	
 	  cy.wait(1000)
 
 
@@ -141,15 +142,15 @@ it('Delete newly added Company', () => {
 //Verify Deletion
      cy.wait(1000)
 	 cy.get("#pageContainer > div:nth-child(1) > h1", { timeout: 30000 }).should('be.visible'); //Waiting 30 secs to have screen to load
-	 cy.get("#pageContainer > div:nth-child(1) > h1").should( "have.text","Companies")// verifying screen title
+	 cy.get("#pageContainer > div:nth-child(1) > h1").should( "have.text","Worksites")// verifying screen title
 	 cy.wait(1000)
 	 cy.get('[tabindex="5"]').clear()
 	 cy.wait(1000)	 
-      cy.get('[tabindex="6"]').clear()
+      cy.get('[tabindex="7"]').clear()
 	 cy.wait(1000)
-	 cy.get('[tabindex="5"]').type('0001BSI')
+	 cy.get('[tabindex="5"]').type('0002BSI')
 	 cy.wait(1000)	
-     cy.get('[tabindex="10"]').should("have.text","No data to display")
+     cy.get('[tabindex="13"]').should("have.text","No data to display")
 	 cy.wait(1000)
 	 cy.get('[tabindex="5"]').clear()
 	 

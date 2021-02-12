@@ -17,8 +17,11 @@ it('launch Pension What-If Test from Config Page', function () {
 	  cy.get(':nth-child(3) > :nth-child(1) > :nth-child(5) > .fav-icon').click({force: true})//got by using cypress ui test app
 	  cy.wait(1000)
       cy.get(':nth-child(3) > :nth-child(1) > :nth-child(5) > .d-block').click()
-	  cy.wait(1000)
-	  cy.get('.btn > .fas').click(1000)
+	  cy.wait(2000)
+	//  cy.get('.btn > .fas').click() 
+	cy.get('.fas.fa-caret-down').click()
+	
+	 
 	  
 })
 it('launch Pension What-IF from Fav Menu', function () {
@@ -44,7 +47,7 @@ it('Adding Employee', ()=> {
 	 cy.wait(1000)	 
 	 cy.get("input[name='checkDate']").type('2020-03-13')
 	 cy.wait(1000)
-	 cy.get("input[name='empCode']").type('DJONES_TEST') 
+	 cy.get("input[name='empCode']").type('0001BSI') 
 	 cy.wait (1000)
      cy.get('[name="empGroup"]').select("DJEMPWhatIF- (DJEMP)")
 	  cy.wait(1000)
@@ -74,69 +77,80 @@ it('Adding Employee', ()=> {
 	  cy.wait(1000)
 	  cy.get('[name="estAnnualGrossAmt"]').clear()
 	  cy.get('[name="estAnnualGrossAmt"]').type('82000.63')
-	    cy.wait(1000)
-	//	cy.get('[name="reciprocalCode"]').click()
-		cy.wait(1000)
-    //  cy.get('[name="contribAlloc"]').select('0 - Do not Override')
-	  cy.wait(1000)
-	 
-	//  cy.get(':nth-child(17) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type('GA - GEORGIA')
-	  cy.wait(1000)	  
-	//  cy.get(':nth-child(17) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type('{downarrow}')
-	  cy.wait(1000)
-	//  cy.get(':nth-child(17) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type('{enter}')
-	  cy.wait(1000)
 	  
-	//  cy.get('[name="ytdPayPeriod"]').invoke('attr','value').should('contain','0')//Verify selection
-	 // cy.get('[name="payPeriodHours"]').invoke('attr','value').should('contain','40')//Verify selection
-	
-	//  cy.get('[name="netWages"]').invoke('attr','value').should('contain','2500.00')//Verify selection
-	//   cy.get('[name="estAnnualGrossAmt"]').invoke('attr','value').should('contain','82000.63')//Verify selection
-	 cy.wait(1000)
-	  cy.get('[name="grossWages"]').clear()
+	  cy.wait(1000)
+	    cy.get('[name="grossWages"]').clear()
 	  cy.get('[name="grossWages"]').type('2506.06')
-      
+	    
 	  cy.wait(1000)
 	   cy.get('[name="avgWkGross"]').clear()
 	  cy.get('[name="avgWkGross"]').type('1255.05')
-     cy.wait(1000)
+	   cy.wait(1000)
 	  cy.get('[name="garnishment"]').select('0 - Do not Process Garnishments')  
-	 cy.wait(1000)
-	// cy.get('[name="garnishmentGrp"]').select('DJGARN2- (GARN2)')  
-	 cy.wait(1000)
-	//  cy.get(':nth-child(22) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type('GA - GEORGIA')
-	  cy.wait(1000)	  
-	// cy.get(':nth-child(22) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type('{downarrow}')
+	  	 cy.wait(1000)
+	     cy.get('[name="calcType"]').select('1 - Wage Assessment And Taxes')
 	  cy.wait(1000)
-	//  cy.get(':nth-child(22) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type('{enter}')
-	  cy.wait(1000)
-	   cy.get('[name="calcType"]').select('1 - Wage Assessment And Taxes')
-	  cy.wait(1000)
-	  cy.get('[name="wageProcCode"]').select('0 - Assess Earnings And Contributions')
-	  cy.wait(1000)
-	  cy.get('[name="estSpousalIncome"]').clear()
-	  cy.get('[name="estSpousalIncome"]').type('1550.00')	   
-	  cy.wait(1000)
-	  cy.get('[name="empType"]').select('0 - N/A')
-	  cy.wait(1000)
-	  cy.get('[name="emplType"]').select('0 - Active Regular Employee')
-	  cy.wait(1000)
-	  cy.get("[name='calculatedLocalTaxIn']").select('2 - Resident Tax Records win tie')
-	  cy.wait(1000)
-	   cy.get("[name='foreignEarnedIncome']").select('0 - No')
-	  cy.wait(1000)
-	
-	// cy.get(':nth-child(36) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type('GA')	
-	  cy.wait(2000)
-	//  cy.get(':nth-child(36) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type('{downarrow}')
-	  cy.wait(1000)
-	// cy.get(':nth-child(36) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type('{enter}')
-	cy.wait(1000)
-	 cy.get("[type='submit']").click()// verify save button
-	// cy.get('.modal-footer > [type="button"]').should('contain', 'Cancel').click()// verify cancel button
-     cy.wait(1000)
+	 
+	 	  //verify buttons
+  	  cy.get("[type='reset']").should('contain', 'Reset')// verify Reset button
+	  cy.get('.modal-footer > [type="button"]').should('contain', 'Cancel')// verify cancel button
+     // cy.get('[type="button"]').click(({ multiple: true, force: true }))// click cancel- using multiple because "button" used in several places  
+	  cy.get(".btn-success").click()
+	 
      
 })
+it('Edit newly Recipient Code', () => {
+	 cy.wait(1000)
+	 cy.get('[tabindex="5"]').type('0001BSI')
+   	 cy.wait(1000)
+	 
+	cy.get('[columnindex="6"] > #edit-0 > .fas').click({ force: true })
+	cy.wait(1000)
+	
+	  cy.get('.modal-footer > :nth-child(4)').should('contain', 'PDF')
+      cy.get('.modal-footer > :nth-child(4)').click()
+	  
+	  cy.wait(10000)
+	  
+	  cy.get('.modal-content > .modal-footer > .btn').click({force: true})
+	  
+	  cy.wait(1000)
+	  
+ 	 cy.get("[name='empName']").invoke('attr','value').should('contain','EMPLOYEE 0001BSI')//Verify selection 
+	 cy.wait(1000)
+	  cy.get("[name='empCode']").invoke('attr','value').should('contain','0001BSI')//Verify selection 
+	 cy.wait(1000)
+	 cy.get("input[name='vacHours']").invoke('attr','value').should('contain','8')//Verify selection 
+	 cy.wait(1000)
+     cy.get('[name="prorationFreq"]').invoke('attr','value').should('contain','0')//Verify selection 
+	 cy.wait(1000)
+	 cy.get("[name='ytdPayPeriod']").invoke('attr','value').should('contain','0')//Verify selection 
+	 cy.wait(1000)
+	 cy.get('[name="payPeriodHours"]').invoke('attr','value').should('contain','0')//Verify selection 
+	 cy.wait(1000)
+	cy.get('[name="netWages"]').invoke('attr','value').should('contain','2500')//Verify selection 
+	 cy.wait(1000)
+	 cy.get('[name="estAnnualGrossAmt"]').invoke('attr','value').should('contain','82000.63')//Verify selection 
+	 cy.wait(1000)
+	  cy.get('[name="grossWages"]').invoke('attr','value').should('contain','2506.06')//Verify selection 
+	 cy.wait(1000)
+	cy.get('[name="avgWkGross"]').invoke('attr','value').should('contain','1255.05')//Verify selection 
+	 cy.wait(1000)	 
+     
+	 cy.get('[name="payPeriodHours"]').clear()
+	 cy.get('[name="payPeriodHours"]').type("37.5")
+
+	  
+	  //verifying buttons
+	  cy.get("[type='reset']").should('contain', 'Reset')// verify Reset button
+	  cy.get('.modal-footer > [type="button"]').should('contain', 'Cancel')// verify cancel button	
+	  cy.get("[type='submit']").should('contain', 'Save')// verify save button*
+	  cy.get("[type='submit']").click()
+	 
+	 cy.wait(1000)
+	 cy.get('[tabindex="5"]').clear()
+	  
+})	
 
 
 

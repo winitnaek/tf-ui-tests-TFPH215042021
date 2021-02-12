@@ -24,8 +24,8 @@ it('launch Pension What-If Test from Config Page', function () {
 it('launch Pension What-IF from Fav Menu', function () {
 	  cy.wait(1000)
       cy.get('#jumpto-pensionWhatIfTest').click() // selecting Custom Tax from favorite menu
+	  cy.wait(1000)
 })
-
 it('Verify Page Title', () => {
 		  
 	  cy.wait(1000)
@@ -43,7 +43,7 @@ it('Add Pension What IF Test', () => {
 	  cy.wait(1000)
 	  cy.get('#addNew > a > .fas').click()
 	  cy.wait(1000)	  
-	  cy.get('[name="empCode"]').type("DJTest")
+	  cy.get('[name="empCode"]').type("0001BSI")
 	  cy.wait(1000)
 	  cy.get('[name="empGroup"]').select("DJEMPWhatIF- (DJEMP)")
 	  cy.wait(1000)
@@ -79,10 +79,10 @@ it('Add Pension What IF Test', () => {
 
 it('Edit newly Recipient Code', () => {
 	 cy.wait(1000)
-	 cy.get('[tabindex="5"]').type('DJTEST')
+	 cy.get('[tabindex="5"]').type('0001BSI')
    	 cy.wait(1000)
 	 
-	cy.get('#edit-4 > .fas').click({ force: true })
+	cy.get('[columnindex="16"] > #edit-0 > .fas').click({ force: true })
 	cy.wait(1000)
 	
 	  cy.get('.modal-footer > :nth-child(4)').should('contain', 'PDF')
@@ -94,9 +94,9 @@ it('Edit newly Recipient Code', () => {
 	  
 	  cy.wait(1000)
 	  
- 	 cy.get("[name='empName']").invoke('attr','value').should('contain','EMPLOYEE DJTest')//Verify selection 
+ 	 cy.get("[name='empName']").invoke('attr','value').should('contain','EMPLOYEE 0001BSI')//Verify selection 
 	 cy.wait(1000)
-	  cy.get("[name='empCode']").invoke('attr','value').should('contain','DJTEST')//Verify selection 
+	  cy.get("[name='empCode']").invoke('attr','value').should('contain','0001BSI')//Verify selection 
 	 cy.wait(1000)
 	 cy.get("[name='payFreq']").invoke('attr','value').should('contain','12')//Verify selection 
 	 cy.wait(1000)
@@ -131,9 +131,9 @@ it('Edit newly Recipient Code', () => {
 })	
 it('add taxes to newly Recipient Code', () => {
 	 cy.wait(1000)
-	 cy.get('[tabindex="5"]').type('DJTEST')
+	 cy.get('[tabindex="5"]').type('0001BSI')
    	 cy.wait(1000)
-     cy.get('[columnindex="17"] > #edit-4 >').click({ multiple: true, force: true })
+     cy.get('[columnindex="17"] > #edit-0 > .fas').click({force: true})
 	 cy.wait(1000)
 	 cy.get('#addNew > a > .fas').click()
 	 cy.wait(1000)
@@ -150,7 +150,7 @@ it('add taxes to newly Recipient Code', () => {
 	 cy.wait(1000)
 	  cy.get('[name="residency"]').select("Resident")
 	 cy.wait(1000)
-	 cy.get('[name="taxExempt"]').select("ResidentNon Exempt")
+	 cy.get('[name="taxExempt"]').select("Non Exempt")
 	 cy.wait(1000)
 	 cy.get('[name="selfAdjust"]').select("Use Formula Default")
 	 cy.wait(1000)
@@ -217,14 +217,15 @@ it('add taxes to newly Recipient Code', () => {
 	 cy.wait(1000)
 	 cy.get('#filter > .fas').click()
 	 cy.wait(1000)
+	  cy.get('[tabindex="5"]').clear()
 	 
 })	
 it('edit taxes to newly Recipient Code', () => {
-     cy.get('[tabindex="5"]').type('DJTEST')
+     cy.get('[tabindex="5"]').type('0001BSI')
    	 cy.wait(1000)
-     cy.get('#edit-2 > i').click({ force: true })
+     cy.get('[columnindex="17"] > #edit-0 > .fas').click({ force: true })
 	 cy.wait(1000)
-	   cy.get('[tabindex="5"]').type('BSI00010000')
+	   cy.get('[tabindex="6"]').type('ALABAMA')
 	  cy.wait(1000)
      cy.get('#edit-0 > .fas').click({ force: true })
    	 cy.wait(1000)
@@ -239,13 +240,13 @@ it('edit taxes to newly Recipient Code', () => {
 	// taxes	 
 	 cy.get('.rbt-input-main').invoke('attr','value').should('contain','00010000')//Verify selection 
 	 cy.wait(1000)
-     cy.get('[name="taxTypeUserTaxType"]').select("070 - PENSION PERIODIC WITHHOLDING")
-	 cy.wait(1000)
-	 cy.get('[name="pensionFormula"]').select("1 - WITHHOLDING FORMULA-FED REG")
+  //   cy.get('[name="taxTypeUserTaxType"]').select("070 - PENSION PERIODIC WITHHOLDING")
+//	 cy.wait(1000)
+	// cy.get('[name="pensionFormula"]').select("1 - WITHHOLDING FORMULA-FED REG")
 	 cy.wait(1000)
 	  cy.get('[name="residency"]').select("Resident")
 	 cy.wait(1000)
-	 cy.get('[name="taxExempt"]').select("ResidentNon Exempt")
+	 cy.get('[name="taxExempt"]').select("Non Exempt")
 	 cy.wait(1000)
 	 cy.get('[name="selfAdjust"]').select("Use Formula Default")
 	 cy.wait(1000)
@@ -280,50 +281,58 @@ it('edit taxes to newly Recipient Code', () => {
  	 cy.wait(1000)
 	 // Additional Taxes
 	 //Voluntary
-  	  cy.get('[name="additionalTax"]').invoke('attr','value').should('contain','None')//Verify selection
+  //	  cy.get('[name="additionalTax"]').invoke('attr','value').should('contain','None')//Verify selection
 	 cy.wait(1000)
-	 cy.get('[name="additionalAmount"]').invoke('attr','value').should('contain','1.00')//Verify selection
+	 cy.get('[name="additionalAmount"]').invoke('attr','value').should('contain','1')//Verify selection
 	 cy.wait(1000)
-	 cy.get('[name="additionalTaxRate"]').invoke('attr','value').should('contain','1.00')//Verify selection
+	 cy.get('[name="additionalTaxRate"]').invoke('attr','value').should('contain','0.5')//Verify selection
 	 cy.wait(1000)
 	//Supplemental 
-	 cy.get('[name="supplementalCode"]').invoke('attr','value').should('contain','Rate Table')//Verify selection
+	// cy.get('[name="supplementalCode"]').invoke('attr','value').should('contain','Rate Table')//Verify selection
 	 cy.wait(1000)
 	 cy.get('[name="baseWages"]').invoke('attr','value').should('contain','2')//Verify selection
 	 cy.wait(1000)
 	 //Pay Period
-	 cy.get('[name="payPeriodTax"]').invoke('attr','value').should('contain','1.00')//Verify selection
+	 cy.get('[name="payPeriodTax"]').invoke('attr','value').should('contain','1')//Verify selection
 	 cy.wait(1000)
- 	cy.get('[name="payPeriodToDateWages"]').invoke('attr','value').should('contain','1.00')//Verify selection
+ 	cy.get('[name="payPeriodToDateWages"]').invoke('attr','value').should('contain','1')//Verify selection
 	 cy.wait(1000)
-	 cy.get('[name="monthToDateWages"]').invoke('attr','value').should('contain','1.00')//Verify selection
+	 cy.get('[name="monthToDateWages"]').invoke('attr','value').should('contain','1')//Verify selection
 	 cy.wait(1000)
-	 cy.get('[name="monthToDateTax"]').invoke('attr','value').should('contain','1.00')//Verify selection
+	 cy.get('[name="monthToDateTax"]').invoke('attr','value').should('contain','1')//Verify selection
 	 cy.wait(1000)
-	 cy.get('[name="quarterToDateWages"]').invoke('attr','value').should('contain','1.00')//Verify selection
+	 cy.get('[name="quarterToDateWages"]').invoke('attr','value').should('contain','1')//Verify selection
 	 cy.wait(1000)
-	 cy.get('[name="quarterToDateTax"]').invoke('attr','value').should('contain','3.00')//Verify selection
+	 cy.get('[name="quarterToDateTax"]').invoke('attr','value').should('contain','3')//Verify selection
 	 cy.wait(1000)
 	 
 	 // editing
-	  cy.get('[name="quarterToDateTax"]').type("4.00")
+	// cy.get('[name="quarterToDateTax"]').clear()
+	//  cy.get('[name="quarterToDateTax"]').type("4.00")
 	 
 	  //verify buttons
   	  cy.get("[type='reset']").should('contain', 'Reset')// verify Reset button
 	  cy.get('.modal-footer > [type="button"]').should('contain', 'Cancel')// verify cancel button
      // cy.get('[type="button"]').click(({ multiple: true, force: true }))// click cancel- using multiple because "button" used in several places  
-	  cy.get(".btn-success").click()
+	  cy.get("[type='submit']").click()
+	 cy.wait(1000)
+	 cy.get('[tabindex="6"]').clear()
 	 cy.wait(1000)
 	 cy.get('#filter > .fas').click()
 	 cy.wait(1000)
+	  cy.get('[tabindex="5"]').clear()
+	  cy.wait(1000)
+	  
 })
+
 it('Delete newly added taxes', () => {
- cy.wait(1000)
-     cy.get('[tabindex="5"]').type('DJTEST')
+
+	  
+     cy.get('[tabindex="5"]').type('0001BSI')
    	 cy.wait(1000)
-     cy.get('#edit-2 > i').click({ force: true })
+     cy.get('[columnindex="17"] > #edit-0 > .fas').click({ force: true })
 	 cy.wait(1000)
-	  cy.get('[tabindex="5"]').type('BSI00010000')
+	   cy.get('[tabindex="6"]').type('ALABAMA')
 	  cy.wait(1000)
      cy.get('#edit-0 > .fas').click({ force: true })
    	 cy.wait(1000)
@@ -337,7 +346,7 @@ it('Delete newly added taxes', () => {
 	  
 	  cy.wait(1000)
 	
-	 cy.get('[name="quarterToDateTax"]').invoke('attr','value').should('contain','4.00')//Verify selection
+	// cy.get('[name="quarterToDateTax"]').invoke('attr','value').should('contain','4')//Verify selection
 
 	  
 	  //verifying buttons
@@ -348,23 +357,28 @@ it('Delete newly added taxes', () => {
 	  
 	  cy.get(".btn-danger").click()
   	 cy.wait(1000)
-	 cy.get('[tabindex="5"]').clear()
+	 cy.get('[tabindex="6"]').clear()
+	 cy.wait(1000)
+	  cy.get('#filter > .fas').click()
 	 cy.wait(1000)
 
 })
 it('Delete Pension What-If Test', () => {
- cy.wait(1000)
-     cy.get('[tabindex="5"]').type('DJTEST')
-   	 cy.wait(1000)
-     cy.get('#edit-2 > .fas').click({ force: true })
+   	 cy.get('[tabindex="5"]').clear()
 	 cy.wait(1000)
+	 cy.wait(1000)
+	 cy.get('[tabindex="5"]').type('0001BSI')
+   	 cy.wait(1000)
+	 
+	cy.get('[columnindex="16"] > #edit-0 > .fas').click({ force: true })
+	cy.wait(1000)
 	  //verifying buttons
 	  cy.get("[type='reset']").should('contain', 'Reset')// verify Reset button
 	  cy.get('.modal-footer > [type="button"]').should('contain', 'Cancel')// verify cancel button	
 	  cy.get(".btn-danger").should('contain', 'Delete')
 	  cy.get("[type='submit']").should('contain', 'Save')// verify save button*
 	  
-	  cy.get(".btn-danger").click()
+	  cy.get(".btn-danger").click({ force: true })
   	 cy.wait(1000)
 	 cy.get('[tabindex="5"]').clear()
 	 cy.wait(1000)
