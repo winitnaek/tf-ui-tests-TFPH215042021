@@ -68,7 +68,7 @@ it('Add Worksites', () => {
 	 cy.get("#pageContainer > div:nth-child(1) > h1", { timeout: 30000 }).should('be.visible'); //Waiting 30 secs to have screen to load
 	 cy.get("#pageContainer > div:nth-child(1) > h1").should( "have.text","Worksites")// verifying screen title
 	 cy.wait(1000)
-	 cy.get('[tabindex="5"]').type('0002BSI')
+	 cy.get('[tabindex="7"]').type('Suite A')
 	 cy.wait(1000)
 	 cy.get('#edit-0 > .fas').click({ force: true }) // clicking on search element. Using until I can figure out how to move scrollbars
 	 cy.wait(1000)	  
@@ -79,7 +79,8 @@ it('Add Worksites', () => {
 	 cy.wait(1000)
 	 cy.get("#pageContainer > div:nth-child(1) > h1", { timeout: 30000 }).should('be.visible'); //Waiting 30 secs to have screen to load
 	 cy.get("#pageContainer > div:nth-child(1) > h1").should( "have.text","Worksites")// verifying screen title
-
+	 cy.wait(1000)
+     cy.get('[tabindex="7"]').clear()
 	 cy.wait(1000)
 	 cy.get('[tabindex="7"]').type('Suite A')
 	 cy.wait(1000)
@@ -105,7 +106,7 @@ it('Add Worksites', () => {
 	  cy.get("[type='submit']").should('contain', 'Save')// verify save button*/
 	   cy.get("[type='submit']").click()
 	   cy.wait(1000)
-	 cy.get('[tabindex="5"]').clear()
+	 cy.get('[tabindex="7"]').clear()
  }) 
  
  
@@ -114,7 +115,7 @@ it('Delete newly added Company', () => {
 	 cy.get("#pageContainer > div:nth-child(1) > h1", { timeout: 30000 }).should('be.visible'); //Waiting 30 secs to have screen to load
 	 cy.get("#pageContainer > div:nth-child(1) > h1").should( "have.text","Worksites")// verifying screen title
 	 cy.wait(1000)
-	 cy.get('[tabindex="5"]').clear()
+	 cy.get('[tabindex="7"]').clear()
 	 cy.wait(1000)
 
      cy.get('[tabindex="7"]').clear()

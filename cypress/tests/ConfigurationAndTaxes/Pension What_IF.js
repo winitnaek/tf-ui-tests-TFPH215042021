@@ -378,7 +378,7 @@ it('Delete Pension What-If Test', () => {
 	  cy.get(".btn-danger").should('contain', 'Delete')
 	  cy.get("[type='submit']").should('contain', 'Save')// verify save button*
 	  
-	  cy.get(".btn-danger").click({ force: true })
+	  cy.get(".btn-danger").click()
   	 cy.wait(1000)
 	 cy.get('[tabindex="5"]').clear()
 	 cy.wait(1000)
