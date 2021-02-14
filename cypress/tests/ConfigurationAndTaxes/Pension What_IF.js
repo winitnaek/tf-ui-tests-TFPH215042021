@@ -74,7 +74,9 @@ it('Add Pension What IF Test', () => {
 	  cy.get('.modal-footer > [type="button"]').should('contain', 'Cancel')// verify cancel button
      // cy.get('[type="button"]').click(({ multiple: true, force: true }))// click cancel- using multiple because "button" used in several places  
 	  cy.get(".btn-success").click()
-	 
+	  cy.wait(1000)
+	 cy.get('.modal-footer > .btn').click()
+	  cy.wait(1000)
 })
 
 it('Edit newly Recipient Code', () => {
@@ -124,7 +126,8 @@ it('Edit newly Recipient Code', () => {
 	  cy.get('.modal-footer > [type="button"]').should('contain', 'Cancel')// verify cancel button	
 	  cy.get("[type='submit']").should('contain', 'Save')// verify save button*
 	  cy.get("[type='submit']").click()
-	 
+	 cy.wait(1000)
+	 cy.get('.modal-footer > .btn').click()
 	 cy.wait(1000)
 	 cy.get('[tabindex="5"]').clear()
 	  
@@ -214,7 +217,9 @@ it('add taxes to newly Recipient Code', () => {
 	  cy.get('.modal-footer > [type="button"]').should('contain', 'Cancel')// verify cancel button
      // cy.get('[type="button"]').click(({ multiple: true, force: true }))// click cancel- using multiple because "button" used in several places  
 	  cy.get(".btn-success").click()
-	 cy.wait(1000)
+ cy.wait(1000)
+	 cy.get('.modal-footer > .btn').click()
+	  cy.wait(1000)
 	 cy.get('#filter > .fas').click()
 	 cy.wait(1000)
 	  cy.get('[tabindex="5"]').clear()
@@ -316,6 +321,8 @@ it('edit taxes to newly Recipient Code', () => {
      // cy.get('[type="button"]').click(({ multiple: true, force: true }))// click cancel- using multiple because "button" used in several places  
 	  cy.get("[type='submit']").click()
 	 cy.wait(1000)
+	 cy.get('.modal-footer > .btn').click()
+	  cy.wait(1000)
 	 cy.get('[tabindex="6"]').clear()
 	 cy.wait(1000)
 	 cy.get('#filter > .fas').click()
@@ -356,7 +363,9 @@ it('Delete newly added taxes', () => {
 	  cy.get("[type='submit']").should('contain', 'Save')// verify save button*
 	  
 	  cy.get(".btn-danger").click()
-  	 cy.wait(1000)
+  		  cy.wait(1000)
+	 cy.get('.modal-footer > .btn').click()
+	  cy.wait(1000)
 	 cy.get('[tabindex="6"]').clear()
 	 cy.wait(1000)
 	  cy.get('#filter > .fas').click()
@@ -379,7 +388,9 @@ it('Delete Pension What-If Test', () => {
 	  cy.get("[type='submit']").should('contain', 'Save')// verify save button*
 	  
 	  cy.get(".btn-danger").click()
-  	 cy.wait(1000)
+  	  cy.wait(1000)
+	 cy.get('.modal-footer > .btn').click()
+	  cy.wait(1000)
 	 cy.get('[tabindex="5"]').clear()
 	 cy.wait(1000)
 

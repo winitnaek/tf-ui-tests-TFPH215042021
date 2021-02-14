@@ -96,7 +96,7 @@ it('Adding Employee', ()=> {
 	  cy.get(".btn-success").click()
 	 
       cy.wait(1000)
-	 cy.get('.modal-footer > .btn').click()	
+	// cy.get('.modal-footer > .btn').click()	
 	 cy.wait(1000)
 	 
 })
@@ -148,7 +148,7 @@ it('Edit newly Recipient Code', () => {
 	  cy.get("[type='submit']").should('contain', 'Save')// verify save button*
 	  cy.get("[type='submit']").click()
 	  cy.wait(1000)
-	 cy.get('.modal-footer > .btn').click()	
+//	 cy.get('.modal-footer > .btn').click()	
 	 cy.wait(1000)
 	 
 	 cy.wait(1000)
@@ -162,7 +162,7 @@ it('Add taxes for Employee', () => {
    	 cy.wait(1000)
 	 
 	cy.get('[columnindex="7"] > #edit-0 > .fas').click({ force: true })
-	cy.wait(1000)
+	cy.wait(5000)
 	
 
 cy.get('#addNew > a > .fas').click()
@@ -322,7 +322,7 @@ cy.get('[name="ynd"]').type("2021")
 	 cy.get("[type='submit']").click()// click save button
 	 
 	  cy.wait(1000)
-	 cy.get('.modal-footer > .btn').click()	
+	// cy.get('.modal-footer > .btn').click()	
 	 cy.wait(1000)
 	 
 	 
@@ -486,7 +486,7 @@ cy.get('[name="ynd"]').type("2021")
 	 cy.get("[type='submit']").click()// click save button
 	 
 	  cy.wait(1000)
-	 cy.get('.modal-footer > .btn').click()	
+	// cy.get('.modal-footer > .btn').click()	
 	 cy.wait(1000)
 	 
 
@@ -523,7 +523,7 @@ it('Add wage details for Federal and Georgia', () => {
 	 //cy.get('[type="button"]').click(({ multiple: true, force: true }))// click cancel- using multiple because "button" used in several places
 	 cy.get("[type='submit']").click()// click save button
 	     cy.wait(1000)
-	 cy.get('.modal-footer > .btn').click()	
+	// cy.get('.modal-footer > .btn').click()	
 	 cy.wait(1000)
 	 cy.wait(1000)
 	 
@@ -561,7 +561,7 @@ it('Add wage details for Federal and Georgia', () => {
 	 cy.get("[type='submit']").click()// click save button
 	 
     cy.wait(1000)
-	 cy.get('.modal-footer > .btn').click()	
+	// cy.get('.modal-footer > .btn').click()	
 	 cy.wait(1000)
 	 
 	 
@@ -693,7 +693,7 @@ cy.get('[name="garnGross"]').type('125.00')
 	 //cy.get('[type="button"]').click(({ multiple: true, force: true }))// click cancel- using multiple because "button" used in several places
 	 cy.get("[type='submit']").click()// click save button
 	 cy.wait(1000)
-	 cy.get('.modal-footer > .btn').click()	
+	// cy.get('.modal-footer > .btn').click()	
 	 cy.wait(1000)
 })
 it('Add Deduction and Benefits for Employee', () => {
@@ -734,7 +734,7 @@ it('Add Deduction and Benefits for Employee', () => {
 	 cy.get("[type='submit']").click()// click save button
 	 
 	 cy.wait(1000)
-	 cy.get('.modal-footer > .btn').click()	
+//	 cy.get('.modal-footer > .btn').click()	
 	 cy.wait(1000)
 	 
 	 cy.get('#filter > .fas').click()
