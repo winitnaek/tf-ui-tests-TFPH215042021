@@ -35,39 +35,41 @@ it('Verify Page Title', () => {
 	  cy.wait(2000)
 	  cy.get('#selectAll-0').click()//Unselect All  
 	  cy.wait(1000)
+
+
 })
 it('Add Custom Tax Code', () => {
 	 cy.get('#addNew > a > .fas').click()
 	 cy.wait(1000)
-	 cy.get('[name = "taxCode"]').type("DJTestTax")//Custom Tax Code
+	 cy.get('[name = "taxCode"]').type("0_01BSI")//Custom Tax Code
 	 cy.wait(1000)
-     cy.get("[name='name']").type('DJTestName')// enter Custom Tax Name
+     cy.get("[name='name']").type('BSI Automation')// enter Custom Tax Name
 	 cy.wait(1000) 
   	 cy.get("[type='reset']").should('contain', 'Reset')// verify Reset button
 	 cy.get('[type="button"]').should('contain', 'Cancel')// verify cancel button	
 	 cy.get("[type='submit']").should('contain', 'Save')// verify save button*/
-	 
+	 cy.wait(1000)	  
+     cy.get('.modal-footer > .btn').click()
 	// cy.get('[type="button"]').click(({ multiple: true, force: true }))// click cancel- using multiple because "button" used in several places
 	cy.get("[type='submit']").click()// click save button
+		  cy.wait(1000)	  
+      cy.get('.modal-footer > .btn').click() 
 })
 it('Edit newly added Custom Tax Code', () => {
 	// cy.wait(1000)
 	// cy.get("#jumpto-customTaxCodes").click() // selecting Custom Tax from favorite menu
 	// cy.wait(1000)
-	 cy.get('[tabindex="5"]').clear()
-	 cy.get('[tabindex="5"]').type('DJTestTax')
-     cy.get('[tabindex="5"]').type('{enter}')
 	 cy.wait(1000)
-	 cy.get('#edit-7 > i').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
+	 cy.get('#edit-0 > i').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
 	 cy.wait(1000)
 	 
  
-	  cy.get('[name = "taxCode"]').invoke('attr','value').should('contain','DJTESTTAX')//Verify selection 
+	//  cy.get('[name = "taxCode"]').invoke('attr','value').should('contain','0_01BSI')//Verify selection 
 	  cy.wait(1000)
-  	  cy.get("[name='name']").invoke('attr','value').should('contain','DJTestName')//Verify selection 
+  //	  cy.get("[name='name']").invoke('attr','value').should('contain','BSI Automation')//Verify selection 
 	  cy.wait(1000)
 	 cy.get("[name='name']").clear()
-	 cy.get("[name='name']").type('DJTestName2')
+	 cy.get("[name='name']").type('BSI Automation2')
 	 cy.wait(1000)
 	  cy.get("[type='reset']").should('contain', 'Reset')// verify Reset button
 	 cy.get('[type="button"]').should('contain', 'Cancel')// verify cancel button	
@@ -75,27 +77,28 @@ it('Edit newly added Custom Tax Code', () => {
 	 
 	//cy.get('[type="button"]').click(({ multiple: true, force: true }))// click cancel- using multiple because "button" used in several places
 	 cy.get("[type='submit']").click()// click save button
+	 cy.wait(1000)	  
+     cy.get('.modal-footer > .btn').click()
 })
  it('Delete newly added Custom Tax Code', () => {	
      cy.wait(1000)
-     cy.get('[tabindex="5"]').clear()
-	 cy.get('[tabindex="5"]').type('DJTestTax')
-     cy.get('[tabindex="5"]').type('{enter}')
+  
+	 cy.get('#edit-0 > .fas').click({ multiple: true, force: true })  
 	 cy.wait(1000)
-	 cy.get('#edit-7 > .fas').click({ multiple: true, force: true })  
-	 cy.wait(1000)
-	 cy.get("[name='name']").invoke('attr','value').should('contain','DJTestName2')//Verify selection 
+	 cy.get("[name='name']").invoke('attr','value').should('contain','BSI Automation2')//Verify selection 
 		 //verifying buttons
 	  cy.get("[type='reset']").should('contain', 'Reset')// verify Reset button
 	  cy.get('.modal-footer > [type="button"]').should('contain', 'Cancel')// verify cancel button	
 	  cy.get(".btn-danger").should('contain', 'Delete')
 	  cy.get("[type='submit']").should('contain', 'Save')// verify save button*/
 	  cy.get(".btn-danger").click()
+	  cy.wait(1000)	  
+      cy.get('.modal-footer > .btn').click()  
 
    //verify delete
      cy.wait(1000)
      cy.get('[tabindex="5"]').clear()
-	 cy.get('[tabindex="5"]').type('DJTestTax')
+	 cy.get('[tabindex="5"]').type('0_01BSI')
      cy.get('[tabindex="5"]').type('{enter}')
      cy.get('[tabindex="8"]').should("have.text","No data to display")	 
  })	

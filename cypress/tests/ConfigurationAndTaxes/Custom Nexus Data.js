@@ -46,7 +46,7 @@ it('Add Custom Nexus Data', () => {
 	  cy.get("#addNew > a > i").click()
 	  cy.wait(1000)	  
 	cy.wait(1000)
-	cy.get(':nth-child(1) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type("GEO")
+	cy.get(':nth-child(1) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type("001300")
 	cy.wait(2000)
 	cy.get(':nth-child(1) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type('{downarrow}')
 	cy.wait(1000)

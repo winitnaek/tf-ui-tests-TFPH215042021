@@ -53,6 +53,8 @@ it('Add Company', () => {
   	  cy.get("[type='reset']").should('contain', 'Reset')// verify Reset button
 	  cy.get('.modal-footer > [type="button"]').should('contain', 'Cancel')// verify cancel button	
 	  cy.get(".btn-success").click()
+	  cy.wait(1000)
+	  cy.get('.modal-footer > .btn').click()
 })
 //edit 0001BSI
  it('Edit newly added Company', () => {
@@ -68,6 +70,8 @@ it('Add Company', () => {
 	 cy.get('input[name="companyName"]').type("BSI Automation2")
 	 cy.wait(1000)
 	 cy.get(".btn-success").click()
+	  cy.wait(1000)
+	  cy.get('.modal-footer > .btn').click()
 	 cy.wait(1000)
 	 cy.get("#pageContainer > div:nth-child(1) > h1", { timeout: 30000 }).should('be.visible'); //Waiting 30 secs to have screen to load
 	 cy.get("#pageContainer > div:nth-child(1) > h1").should( "have.text","Companies")// verifying screen title
@@ -100,6 +104,8 @@ it('Add Company', () => {
 	  cy.get(".btn-danger").should('contain', 'Delete')
 	  cy.get("[type='submit']").should('contain', 'Save')// verify save button*/
 	   cy.get("[type='submit']").click()
+	    cy.wait(1000)
+	  cy.get('.modal-footer > .btn').click()
 	   cy.wait(1000)
 	 cy.get('[tabindex="5"]').clear()
  }) 
@@ -137,7 +143,8 @@ it('Delete newly added Company', () => {
 	  cy.get(".btn-danger").should('contain', 'Delete')
 	  cy.get("[type='submit']").should('contain', 'Save')// verify save button*/
 	  cy.get(".btn-danger").click()
-	  
+	   cy.wait(1000)
+	  cy.get('.modal-footer > .btn').click()
 //Verify Deletion
      cy.wait(1000)
 	 cy.get("#pageContainer > div:nth-child(1) > h1", { timeout: 30000 }).should('be.visible'); //Waiting 30 secs to have screen to load

@@ -38,16 +38,14 @@ it('Verify Page Title', () => {
 	  cy.get('#selectAll-0').click()//Unselect All
 })
 it('Add Tax Code', () => {
+
 	 cy.wait(1000)
-	 cy.get('[tabindex="5"]').type('DJCUSGARFRM')
-     cy.get('[tabindex="5"]').type('{enter}')
-	 cy.wait(1000)
-	 cy.get('#edit-6 > i').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
+	 cy.get('#edit-0 > i').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
 	 cy.wait(1000)
 	 cy.get('#addNew > a > .fas').click()
 	 cy.wait(1000)
 	//Enter Garnishment Formulas 
-	cy.get('.rbt-input-main').type('DJCUSFRM')
+	cy.get('.rbt-input-main').type('0_01BSI')
 	cy.wait(1000)
 	cy.get('.rbt-input-main').type('{downarrow}')// select the downarrow 
 	cy.wait(1000)
@@ -118,7 +116,8 @@ it('Add Tax Code', () => {
 	 
 	 //cy.get('[type="button"]').click(({ multiple: true, force: true }))// click cancel- using multiple because "button" used in several places
 	 cy.get("[type='submit']").click()// click save button
-	 cy.wait(1000)
+     cy.wait(1000)	  
+     cy.get('.modal-footer > .btn').click()
 	
 	 cy.get('#filter > .fas').click
 	 
@@ -130,9 +129,8 @@ it('Edit newly added Tax Code', () => {
 	// cy.wait(1000)
 	// cy.get('#filter > .fas').click()
 	
-	 cy.wait(1000)
-	 cy.get('[tabindex="5"]').type('DJCUSFRM')
-     cy.get('[tabindex="5"]').type('{enter}')
+
+
 	 cy.wait(1000)
 	 cy.get('#edit-0 > i').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
 	 cy.wait(1000)
@@ -166,7 +164,9 @@ it('Edit newly added Tax Code', () => {
 	 
 	// cy.get('[type="button"]').click(({ multiple: true, force: true }))// click cancel- using multiple because "button" used in several places
 	 cy.get("[type='submit']").click()// click save button
-	 cy.wait(1000)
+	   cy.wait(1000)	  
+     cy.get('.modal-footer > .btn').click()
+	 cy.wait(1000)	  
 	 cy.get('[tabindex="5"]').clear()
 	 cy.wait(1000)
 	 cy.get('#filter > .fas').click()
@@ -175,15 +175,8 @@ it('Edit newly added Tax Code', () => {
 
 })
 it('Delete newly added Company', () => {
-	 cy.wait(1000)
-	 cy.get('[tabindex="5"]').type('DJCUSGARFRM')
-     cy.get('[tabindex="5"]').type('{enter}')
-	 cy.wait(1000)
-	 cy.get('#edit-6 > i').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars	
-	 cy.wait(1000)
-	 cy.get('[tabindex="5"]').clear
-	 cy.get('[tabindex="5"]').type('DJCUSFRM')
-     cy.get('[tabindex="5"]').type('{enter}')
+	cy.wait(1000)
+	 cy.get('#edit-0 > i').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars	
 	 cy.wait(1000)
      cy.get('#edit-0 > i').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
 	 cy.wait(1000)
@@ -206,6 +199,8 @@ it('Delete newly added Company', () => {
 	  cy.get("[type='submit']").should('contain', 'Save')// verify save button*
 	  
 	  cy.get(".btn-danger").click()
+	     cy.wait(1000)	  
+     cy.get('.modal-footer > .btn').click()
 })
 
 

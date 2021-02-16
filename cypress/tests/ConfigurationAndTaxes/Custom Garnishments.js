@@ -36,16 +36,18 @@ it('Add Custom Garnishments', function () {
 	  cy.wait(1000)
 	  cy.get("#addNew > a > i").click()
 	  cy.wait(1000)	  
-	  cy.get('input[name="code"]').type("DJTestGarn")
+	  cy.get('input[name="code"]').type("0_01BSI")
 	  cy.wait(1000)
-	  cy.get('input[name="name"]').type("DJGARN")
+	  cy.get('input[name="name"]').type("BSI Automation")
 	//verifying buttons
-	  cy.get("[type='reset']").should('contain', 'Reset')// verify Reset button
+	  cy.get("[type='reset']").should('contain', 'Reset')// veurify Reset button
 	  cy.get('.modal-footer > [type="button"]').should('contain', 'Cancel')// verify cancel button	
 	  cy.get("[type='submit']").should('contain', 'Save')// verify save button*/
 	 // cy.get('[type="button"]').click(({ multiple: true, force: true }))// click cancel- using multiple because "button" used in several places
-	  cy.get("[type='submit']").click()  
-	
+	  cy.get("[type='submit']").click() 
+     cy.wait(1000)	  
+     cy.get('.modal-footer > .btn').click()	  
+	 
 })
 it('Edit newly added Custom Garnishments', () => {
 	  cy.wait(1000)
@@ -54,17 +56,16 @@ it('Edit newly added Custom Garnishments', () => {
 	 cy.get("#pageContainer > div:nth-child(1) > h1", { timeout: 30000 }).should('be.visible'); //Waiting 30 secs to have screen to load
 	 cy.get("#pageContainer > div:nth-child(1) > h1").should( "have.text","Custom Garnishments")// verifying screen title
 	 cy.wait(1000)
-	 cy.get('[tabindex="5"]').type('DJTestGarn')
-	 cy.wait(1000)
-	 cy.get('#edit-5 > .fas').click({ force: true }) // clicking on search element. Using until I can figure out how to move scrollbars
+
+	 cy.get('#edit-0 > .fas').click({ force: true }) // clicking on search element. Using until I can figure out how to move scrollbars
 	 cy.wait(1000)	  	 
 	 
 //verify data saved	 
-      cy.get('[name = "name"]').invoke('attr','value').should('contain','DJGARN')//Verify selection 
+      cy.get('[name = "name"]').invoke('attr','value').should('contain','BSI Automation')//Verify selection 
 	 cy.wait(1000)
 
 	 cy.get('input[name="name"]').clear()
-	cy.get('input[name="name"]').type("DJGARN2")
+	cy.get('input[name="name"]').type("BSI Automation2")
      cy.wait(1000)
 	 	//verifying buttons
 	  cy.get("[type='reset']").should('contain', 'Reset')// verify Reset button
@@ -73,6 +74,8 @@ it('Edit newly added Custom Garnishments', () => {
 	  cy.get("[type='submit']").should('contain', 'Save')// verify save button*/
 //  cy.get('[type="button"]').click(({ multiple: true, force: true }))// click cancel- using multiple because "button" used in several places
 	  cy.get("[type='submit']").click()  
+	cy.wait(1000)	  
+     cy.get('.modal-footer > .btn').click()
 })
 it('Delete newly added Custom Garnishments', () => {
 	  cy.wait(1000)
@@ -81,16 +84,13 @@ it('Delete newly added Custom Garnishments', () => {
 	 cy.get("#pageContainer > div:nth-child(1) > h1", { timeout: 30000 }).should('be.visible'); //Waiting 30 secs to have screen to load
 	 cy.get("#pageContainer > div:nth-child(1) > h1").should( "have.text","Custom Garnishments")// verifying screen title
 	 cy.wait(1000)
-	 cy.get('[tabindex="5"]').clear()
-	 cy.wait(1000)
 
-    cy.get('[tabindex="5"]').type('DJTESTGARN')
 	 cy.wait(1000)
-	 cy.get('#edit-5 > .fas').click({ force: true }) // clicking on search element. Using until I can figure out how to move scrollbars
+	 cy.get('#edit-0 > .fas').click({ force: true }) // clicking on search element. Using until I can figure out how to move scrollbars
 	 cy.wait(1000)	  	 
 	 
 //verify data saved	 
-	   cy.get('input[name="name"]').invoke('attr','value').should('contain','DJGARN2')//Verify selection 
+	   cy.get('input[name="name"]').invoke('attr','value').should('contain','BSI Automation2')//Verify selection 
 	  cy.wait(1000)	   
 	
 
@@ -102,6 +102,8 @@ it('Delete newly added Custom Garnishments', () => {
 	  cy.get(".btn-danger").should('contain', 'Delete')
 	  cy.get("[type='submit']").should('contain', 'Save')// verify save button*/
 	  cy.get(".btn-danger").click()
+	  cy.wait(1000)	  
+      cy.get('.modal-footer > .btn').click()
 	  
 //Verify Deletion
      cy.wait(1000)
@@ -110,7 +112,7 @@ it('Delete newly added Custom Garnishments', () => {
 	 cy.wait(1000)
 	 cy.get('[tabindex="5"]').clear()
 	 cy.wait(1000)
-	 cy.get('[tabindex="5"]').type('DJ_TESTGARN')
+	 cy.get('[tabindex="5"]').type('0_01BSI')
 	 cy.wait(1000)	
      cy.get('[tabindex="8"]').should("have.text","No data to display")	 
 })

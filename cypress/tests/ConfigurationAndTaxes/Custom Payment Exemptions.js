@@ -39,16 +39,11 @@ it('Verify Page Title', () => {
 })
 it('Add Tax Code', () => {
 	 
-	 cy.wait(1000)
-	 cy.get('[tabindex="5"]').type('DJCUSPAY')
-     cy.get('[tabindex="5"]').type('{enter}')
-	// cy.get('[tabindex="9"]').clear()
-	 //cy.get('[tabindex="9"]').type('2')
-    // cy.get('[tabindex="9"]').type('{enter}')
+
 
 	 cy.wait(1000)
-	 cy.get('#edit-9 > i').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
-	 cy.wait(1000)
+	 cy.get('#edit-0 > i').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
+	 cy.wait(2000)
 	 cy.get('#addNew > a > .fas').click()
 	 cy.wait(2000)
 	//Add a Custom Payment Exemptions
@@ -91,6 +86,8 @@ it('Add Tax Code', () => {
 	 
 	 //cy.get('[type="button"]').click(({ multiple: true, force: true }))// click cancel- using multiple because "button" used in several places
 	 cy.get("[type='submit']").click()// click save button
+	 cy.wait(1000)	  
+     cy.get('.modal-footer > .btn').click()
 	 cy.wait(1000)
 	 cy.get('#filter > .fas').click({force: true})
 	 cy.wait(1000)
@@ -98,14 +95,11 @@ it('Add Tax Code', () => {
 })
 
 it('Edit Original Added Code', () => {
+
 	 cy.wait(1000)
-	 cy.get('[tabindex="5"]').type('DJCUSPAY')
-     cy.get('[tabindex="5"]').type('{enter}')
+	 cy.get('#edit-0 > .fas').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
 	 cy.wait(1000)
-	 cy.get('#edit-9 > .fas').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
-	 cy.wait(1000)
-	 cy.get('[tabindex="5"]').type('BSI00000000')
-	 cy.wait(1000)
+
 	 cy.get('#edit-0 > .fas').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
 	//Add an Optional Rate Override
 	 cy.wait(1000)
@@ -138,6 +132,8 @@ it('Edit Original Added Code', () => {
 	 
 	 //cy.get('[type="button"]').click(({ multiple: true, force: true }))// click cancel- using multiple because "button" used in several places
 	 cy.get("[type='submit']").click()// click save button
+	 cy.wait(1000)	  
+     cy.get('.modal-footer > .btn').click()
 	 cy.wait(2000)
 	 cy.get('[tabindex="5"]').clear()
 	 cy.wait(1000)
@@ -148,12 +144,10 @@ it('Edit Original Added Code', () => {
 
 it('Delete Newly Added Code', () => {
 	 cy.wait(1000)
-	 cy.get('[tabindex="5"]').type('DJCUSPAY')
-     cy.get('[tabindex="5"]').type('{enter}')
+
+	 cy.get('#edit-0 > i').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
 	 cy.wait(1000)
-	 cy.get('#edit-9 > i').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
-	 cy.wait(1000)
-	 cy.get('[tabindex="5"]').type('BSI00000000')
+
 	 cy.wait(1000)
 	 cy.get('#edit-0 > .fas').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
 	//Add an Optional Rate Override
@@ -170,6 +164,8 @@ it('Delete Newly Added Code', () => {
 	  cy.get("[type='submit']").should('contain', 'Save')// verify save button*
 	  
 	  cy.get(".btn-danger").click()
+	  cy.wait(1000)	  
+      cy.get('.modal-footer > .btn').click()
 	  cy.wait(1000)
 	 cy.get('[tabindex="5"]').clear() 
 	 cy.wait(1000)
@@ -179,10 +175,8 @@ it('Delete Newly Added Code', () => {
 })
 it('Delete Originally Added Code', () => {
 	 cy.wait(1000)
-     cy.get('[tabindex="5"]').type('DJCUSPAY')
-     cy.get('[tabindex="5"]').type('{enter}')
-	 cy.wait(1000)
-	 cy.get('#edit-9 > i').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
+  
+	 cy.get('#edit-0 > i').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
 	 cy.wait(1000)
 	// cy.get('[tabindex="11"]').type('Jones')
 	// cy.wait(2000)

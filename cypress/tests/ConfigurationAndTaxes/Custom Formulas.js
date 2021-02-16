@@ -39,11 +39,9 @@ it('Verify Page Title', () => {
 	  cy.get('#selectAll-0').click()//Unselect All
 })
 it('Add Tax Code', () => {
+	
 	 cy.wait(1000)
-	 cy.get('[tabindex="5"]').type('RG1_CTC')
-     cy.get('[tabindex="5"]').type('{enter}')
-	 cy.wait(1000)
-	 cy.get('#edit-8 > .fas').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
+	 cy.get('#edit-0 > .fas').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
 	 cy.wait(1000)
 	 cy.get('#addNew > a > .fas').click()
 	 cy.wait(1000)
@@ -79,19 +77,19 @@ it('Add Tax Code', () => {
 	 
 	 //cy.get('[type="button"]').click(({ multiple: true, force: true }))// click cancel- using multiple because "button" used in several places
 	 cy.get("[type='submit']").click()// click save button
+	 cy.wait(1000)
+	 cy.get('.modal-footer > .btn').click()
 })
 it('Edit newly added Tax Code', () => {
 	 cy.wait(1000)
 	// cy.get("#jumpto-customFormulas").click() // selecting Companies from favorite menu
-	 	 cy.get('[tabindex="6"]').clear()
+	// 	 cy.get('[tabindex="6"]').clear()
 	 cy.wait(1000)
 	 cy.get('#filter > .fas').click()
 	 cy.wait(1000)
-	 cy.get('[tabindex="5"]').clear()
-	 cy.get('[tabindex="5"]').type('RG1_CTC')
-     cy.get('[tabindex="5"]').type('{enter}')
+	
 	 cy.wait(1000)
-	 cy.get('#edit-8 > .fas').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
+	 cy.get('#edit-0 > .fas').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
 	 cy.wait(1000)
 	 cy.get('[tabindex="6"]').type('07 Flat Amount, Max Wage')
      cy.get('[tabindex="6"]').type('{enter}')
@@ -100,7 +98,7 @@ it('Edit newly added Tax Code', () => {
 	
 	
 	 cy.wait(1000)
-	 cy.get('[name = "taxCode"]').invoke('attr','value').should('contain','RG1_CTC')//Verify selection 
+	 //cy.get('[name = "taxCode"]').invoke('attr','value').should('contain','RG1_CTC')//Verify selection 
 	// cy.get('[name = "taxCode"]').invoke('attr','placeholder').should('contain','Enter Custom Tax Code')//Verify Custom Tax Code
 	 cy.wait(1000)
 	 
@@ -154,6 +152,8 @@ it('Edit newly added Tax Code', () => {
 	 
 	// cy.get('[type="button"]').click(({ multiple: true, force: true }))// click cancel- using multiple because "button" used in several places
 	 cy.get("[type='submit']").click()// click save button
+	 	 cy.wait(1000)
+	 cy.get('.modal-footer > .btn').click()
 	 cy.wait(1000)
 	 cy.get('[tabindex="6"]').clear()
 	 cy.wait(1000)
@@ -161,19 +161,17 @@ it('Edit newly added Tax Code', () => {
 })
 it('Delete newly added Company', () => {	
      cy.wait(1000)
-     cy.get('[tabindex="5"]').clear()
-	 cy.get('[tabindex="5"]').type('RG1_CTC')
-     cy.get('[tabindex="5"]').type('{enter}')
+   
 	 cy.wait(1000)
-	 cy.get('#edit-8 > .fas').click({ multiple: true, force: true })  
+	 cy.get('#edit-0 > .fas').click({ multiple: true, force: true })  
 	 cy.wait(1000)
 	 cy.get('[tabindex="6"]').type('07 Flat Amount, Max Wage')
      cy.get('[tabindex="6"]').type('{enter}')
 	 cy.wait(1000)
 	 cy.get('#edit-0 > .fas').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
 	//verify tax code 
-	  cy.wait(1000)
-	  cy.get('[name = "taxCode"]').invoke('attr','value').should('contain','RG1_CTC')//Verify tax code  
+	//  cy.wait(1000)
+	 // cy.get('[name = "taxCode"]').invoke('attr','value').should('contain','RG1_CTC')//Verify tax code  
 	cy.wait(1000)  
 	cy.get('[name = "minWage"]').invoke('attr','value').should('contain','8')//Verify selection 
 	 cy.wait(1000)
@@ -191,6 +189,8 @@ it('Delete newly added Company', () => {
 	  cy.get(".btn-danger").should('contain', 'Delete')
 	  cy.get("[type='submit']").should('contain', 'Save')// verify save button*/
 	  cy.get(".btn-danger").click()
+	   	 cy.wait(1000)
+	 cy.get('.modal-footer > .btn').click()
 	  cy.wait(1000)
 	 cy.get('[tabindex="6"]').clear()
 	 cy.wait(1000)
