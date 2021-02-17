@@ -36,9 +36,9 @@ it('Add Custom Garnishments', function () {
 	  cy.wait(1000)
 	  cy.get("#addNew > a > i").click()
 	  cy.wait(1000)	  
-	  cy.get('input[name="code"]').type("0_01BSI")
+	  cy.get('input[name="code"]').type("00_1BSI")
 	  cy.wait(1000)
-	  cy.get('input[name="name"]').type("BSI Automation")
+	  cy.get('input[name="name"]').type("_BSI Automation")
 	//verifying buttons
 	  cy.get("[type='reset']").should('contain', 'Reset')// veurify Reset button
 	  cy.get('.modal-footer > [type="button"]').should('contain', 'Cancel')// verify cancel button	
@@ -61,11 +61,11 @@ it('Edit newly added Custom Garnishments', () => {
 	 cy.wait(1000)	  	 
 	 
 //verify data saved	 
-      cy.get('[name = "name"]').invoke('attr','value').should('contain','BSI Automation')//Verify selection 
+      cy.get('[name = "name"]').invoke('attr','value').should('contain','_BSI Automation')//Verify selection 
 	 cy.wait(1000)
 
 	 cy.get('input[name="name"]').clear()
-	cy.get('input[name="name"]').type("BSI Automation2")
+	cy.get('input[name="name"]').type("_BSI Automation2")
      cy.wait(1000)
 	 	//verifying buttons
 	  cy.get("[type='reset']").should('contain', 'Reset')// verify Reset button
@@ -90,7 +90,7 @@ it('Delete newly added Custom Garnishments', () => {
 	 cy.wait(1000)	  	 
 	 
 //verify data saved	 
-	   cy.get('input[name="name"]').invoke('attr','value').should('contain','BSI Automation2')//Verify selection 
+	   cy.get('input[name="name"]').invoke('attr','value').should('contain','_BSI Automation2')//Verify selection 
 	  cy.wait(1000)	   
 	
 
@@ -112,8 +112,25 @@ it('Delete newly added Custom Garnishments', () => {
 	 cy.wait(1000)
 	 cy.get('[tabindex="5"]').clear()
 	 cy.wait(1000)
-	 cy.get('[tabindex="5"]').type('0_01BSI')
+	 cy.get('[tabindex="5"]').type('00_1BSI')
 	 cy.wait(1000)	
      cy.get('[tabindex="8"]').should("have.text","No data to display")	 
+})
+it('Re-add Custom Garnishments', function () {
+	  cy.wait(1000)
+	  cy.get("#addNew > a > i").click()
+	  cy.wait(1000)	  
+	  cy.get('input[name="code"]').type("00_1BSI")
+	  cy.wait(1000)
+	  cy.get('input[name="name"]').type("_BSI Automation")
+	//verifying buttons
+	  cy.get("[type='reset']").should('contain', 'Reset')// veurify Reset button
+	  cy.get('.modal-footer > [type="button"]').should('contain', 'Cancel')// verify cancel button	
+	  cy.get("[type='submit']").should('contain', 'Save')// verify save button*/
+	 // cy.get('[type="button"]').click(({ multiple: true, force: true }))// click cancel- using multiple because "button" used in several places
+	  cy.get("[type='submit']").click() 
+     cy.wait(1000)	  
+     cy.get('.modal-footer > .btn').click()	  
+	 
 })
 })

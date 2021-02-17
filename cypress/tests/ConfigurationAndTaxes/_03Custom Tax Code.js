@@ -43,17 +43,17 @@ it('Add Custom Tax Code', () => {
 	 cy.wait(1000)
 	 cy.get('[name = "taxCode"]').type("0_01BSI")//Custom Tax Code
 	 cy.wait(1000)
-     cy.get("[name='name']").type('BSI Automation')// enter Custom Tax Name
+     cy.get("[name='name']").type('_BSI Automation')// enter Custom Tax Name
 	 cy.wait(1000) 
   	 cy.get("[type='reset']").should('contain', 'Reset')// verify Reset button
 	 cy.get('[type="button"]').should('contain', 'Cancel')// verify cancel button	
 	 cy.get("[type='submit']").should('contain', 'Save')// verify save button*/
 	 cy.wait(1000)	  
-     cy.get('.modal-footer > .btn').click()
+     
 	// cy.get('[type="button"]').click(({ multiple: true, force: true }))// click cancel- using multiple because "button" used in several places
 	cy.get("[type='submit']").click()// click save button
-		  cy.wait(1000)	  
-      cy.get('.modal-footer > .btn').click() 
+	cy.wait(2000)	  
+    cy.get('.modal-footer > .btn').click() 
 })
 it('Edit newly added Custom Tax Code', () => {
 	// cy.wait(1000)
@@ -69,7 +69,7 @@ it('Edit newly added Custom Tax Code', () => {
   //	  cy.get("[name='name']").invoke('attr','value').should('contain','BSI Automation')//Verify selection 
 	  cy.wait(1000)
 	 cy.get("[name='name']").clear()
-	 cy.get("[name='name']").type('BSI Automation2')
+	 cy.get("[name='name']").type('_BSI Automation2')
 	 cy.wait(1000)
 	  cy.get("[type='reset']").should('contain', 'Reset')// verify Reset button
 	 cy.get('[type="button"]').should('contain', 'Cancel')// verify cancel button	
@@ -85,7 +85,7 @@ it('Edit newly added Custom Tax Code', () => {
   
 	 cy.get('#edit-0 > .fas').click({ multiple: true, force: true })  
 	 cy.wait(1000)
-	 cy.get("[name='name']").invoke('attr','value').should('contain','BSI Automation2')//Verify selection 
+	 cy.get("[name='name']").invoke('attr','value').should('contain','_BSI Automation2')//Verify selection 
 		 //verifying buttons
 	  cy.get("[type='reset']").should('contain', 'Reset')// verify Reset button
 	  cy.get('.modal-footer > [type="button"]').should('contain', 'Cancel')// verify cancel button	
@@ -102,4 +102,21 @@ it('Edit newly added Custom Tax Code', () => {
      cy.get('[tabindex="5"]').type('{enter}')
      cy.get('[tabindex="8"]').should("have.text","No data to display")	 
  })	
+ it('Re-add Custom Tax Code', () => {
+	 cy.get('#addNew > a > .fas').click()
+	 cy.wait(1000)
+	 cy.get('[name = "taxCode"]').type("0_01BSI")//Custom Tax Code
+	 cy.wait(1000)
+     cy.get("[name='name']").type('_BSI Automation')// enter Custom Tax Name
+	 cy.wait(1000) 
+  	 cy.get("[type='reset']").should('contain', 'Reset')// verify Reset button
+	 cy.get('[type="button"]').should('contain', 'Cancel')// verify cancel button	
+	 cy.get("[type='submit']").should('contain', 'Save')// verify save button*/
+	 cy.wait(1000)	  
+     
+	// cy.get('[type="button"]').click(({ multiple: true, force: true }))// click cancel- using multiple because "button" used in several places
+	cy.get("[type='submit']").click()// click save button
+	cy.wait(2000)	  
+    cy.get('.modal-footer > .btn').click() 
+})
 })

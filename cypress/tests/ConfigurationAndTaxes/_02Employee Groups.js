@@ -36,9 +36,9 @@ it('Add Employee Groups', function () {
 	  cy.wait(1000)
 	  cy.get("#addNew > a > i").click()
 	  cy.wait(1000)	  
-	  cy.get('input[name="id"]').type("DJTestEmp")
+	  cy.get('input[name="id"]').type("001BSI")
 	  cy.wait(1000)
-	  cy.get('input[name="groupName"]').type("DJEmp")
+	  cy.get('input[name="groupName"]').type("BSI Automation Test")
 	//verifying buttons
 	  cy.get("[type='reset']").should('contain', 'Reset')// verify Reset button
 	  cy.get('.modal-footer > [type="button"]').should('contain', 'Cancel')// verify cancel button	id
@@ -60,11 +60,11 @@ it('Edit newly added Employee Groups', () => {
 	 cy.wait(1000)	  	 
 	 
 //verify data saved	 
-      cy.get('[name = "groupName"]').invoke('attr','value').should('contain','DJEmp')//Verify selection 
+      cy.get('[name = "groupName"]').invoke('attr','value').should('contain','BSI Automation Test')//Verify selection 
 	 cy.wait(1000)
 //Edit Data
 	 cy.get('input[name="groupName"]').clear()
-	cy.get('input[name="groupName"]').type("DJEMP2")
+	cy.get('input[name="groupName"]').type("BSI Automation2")
      cy.wait(1000)
 	 	//verifying buttons
 	  cy.get("[type='reset']").should('contain', 'Reset')// verify Reset button
@@ -90,7 +90,7 @@ it('Delete newly added Employee Groups', () => {
 	 cy.wait(1000)	  	 
 	 
 //verify data saved	 
-	   cy.get('input[name="groupName"]').invoke('attr','value').should('contain','DJEMP2')//Verify selection 
+	   cy.get('input[name="groupName"]').invoke('attr','value').should('contain','BSI Automation2')//Verify selection 
 	  cy.wait(1000)	   
 	
 
