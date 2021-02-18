@@ -161,4 +161,26 @@ it('Delete newly added Company', () => {
 	 cy.get('[tabindex="5"]').clear()
 	 
 })
+it('Add Company', () => {
+	
+	 
+	  
+	  cy.wait(1000)
+	  cy.get("#addNew > a > i").click()
+	  cy.wait(1000)	  
+	  cy.get('input[name="company"]').type("0001BSI")	  
+	  cy.wait(1000)	  
+	  cy.get('input[name="companyName"]').type("BSI Automation1")	  
+	  cy.wait(1000)	  
+	  cy.get('input[name="fein"]').type("012345678")	  
+	  cy.wait(1000)
+	  cy.get('input[name="courtesy"]').click()
+	  cy.wait(1000)
+	  //verify buttons
+  	  cy.get("[type='reset']").should('contain', 'Reset')// verify Reset button
+	  cy.get('.modal-footer > [type="button"]').should('contain', 'Cancel')// verify cancel button	
+	  cy.get(".btn-success").click()
+	  cy.wait(1000)
+	  cy.get('.modal-footer > .btn').click()
+})
 })

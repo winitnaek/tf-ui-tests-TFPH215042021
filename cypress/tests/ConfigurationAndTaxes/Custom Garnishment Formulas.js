@@ -45,7 +45,7 @@ it('Add Tax Code', () => {
 	 cy.get('#addNew > a > .fas').click()
 	 cy.wait(1000)
 	//Enter Garnishment Formulas 
-	cy.get('.rbt-input-main').type('0_01BSI')
+	cy.get('.rbt-input-main').type('00_1BSI')
 	cy.wait(1000)
 	cy.get('.rbt-input-main').type('{downarrow}')// select the downarrow 
 	cy.wait(1000)

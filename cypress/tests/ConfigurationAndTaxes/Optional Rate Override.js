@@ -40,15 +40,9 @@ it('Verify Page Title', () => {
 it('Add Tax Code', () => {
 	 
 	 cy.wait(1000)
-	// cy.get('[tabindex="5"]').type('DJHNYWELL',{force: true} )
-    // cy.get('[tabindex="5"]').click({force: true})
-    // cy.get('[tabindex="5"]').type('{enter}')
-	 cy.get('[tabindex="9"]').clear()
-	 cy.get('[tabindex="9"]').type('2')
-     cy.get('[tabindex="9"]').type('{enter}')
 
 	 cy.wait(1000)
-	 cy.get('#edit-12 > i').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
+	 cy.get('#edit-0 > i').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
 	 cy.wait(1000)
 	 cy.get('#addNew > a > .fas').click()
 	 cy.wait(2000)
@@ -58,10 +52,10 @@ it('Add Tax Code', () => {
      cy.get("input[name='startDateDspl']").type('2021-01-12')// enter start date
 	 cy.wait(1000)
 	 
-	 cy.get(':nth-child(2) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type("0000")
+	 cy.get(':nth-child(2) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type("BSI0000")
 	 cy.wait(2000)
 	 cy.get(':nth-child(2) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type('{downarrow}')
-	 cy.wait(1000)
+	 cy.wait(2000)
 	 cy.get(':nth-child(2) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type('{enter}')
 	  
 	  cy.wait(1000)
@@ -110,13 +104,9 @@ it('Edit to add additional Rate', () => {
 	// cy.get('#filter > .fas').click()
 	
 	 cy.wait(1000)
-	// cy.get('[tabindex="5"]').type('DJHNYWELL')
-    // cy.get('[tabindex="5"]').type('{enter}')
-	 cy.get('[tabindex="9"]').clear()
-	 cy.get('[tabindex="9"]').type('2')
-     cy.get('[tabindex="9"]').type('{enter}')
+
 	 cy.wait(1000)
-	 cy.get('#edit-12 > .fas').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
+	 cy.get('#edit-0 > .fas').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
 	 cy.wait(1000)
 
 	
@@ -140,7 +130,7 @@ it('Edit to add additional Rate', () => {
 	 cy.wait(1000)
 	 cy.get(':nth-child(3) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').clear()
 	  cy.wait(1000)
-	 cy.get(':nth-child(3) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type("EMPLOYEE")
+	 cy.get(':nth-child(3) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type("EMPLOY")
 	 cy.wait(2000)
 	 cy.get(':nth-child(3) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type('{downarrow}')
 	 cy.wait(1000)
@@ -186,15 +176,11 @@ it('Edit to add additional Rate', () => {
 })
 it('Edit Original Added Code', () => {
 	 cy.wait(1000)
-	// cy.get('[tabindex="5"]').type('DJHNYWELL')
-   //  cy.get('[tabindex="5"]').type('{enter}')
-   	 cy.get('[tabindex="9"]').clear()
-	 cy.get('[tabindex="9"]').type('2')
-     cy.get('[tabindex="9"]').type('{enter}')
+
 	 cy.wait(1000)
-	 cy.get('#edit-12 > .fas').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
+	 cy.get('#edit-0 > .fas').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
 	 cy.wait(1000)
-	 cy.get('[tabindex="11"]').type('Jones1')
+	// cy.get('[tabindex="11"]').type('Jones1')
 	 cy.wait(1000)
 	 cy.get('#edit-0 > .fas').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
 	//Add an Optional Rate Override
@@ -239,13 +225,9 @@ it('Edit Original Added Code', () => {
 })
 it('Delete Originally Added Code', () => {
 	 cy.wait(1000)
-	// cy.get('[tabindex="5"]').type('DJHNYWELL')
-    // cy.get('[tabindex="5"]').type('{enter}')
-	 cy.get('[tabindex="9"]').clear()
-	 cy.get('[tabindex="9"]').type('2')
-     cy.get('[tabindex="9"]').type('{enter}')
+
 	 cy.wait(1000)
-	 cy.get('#edit-12 > .fas').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
+	 cy.get('#edit-0 > .fas').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
 	 cy.wait(1000)
 	// cy.get('[tabindex="11"]').type('Jones2')
 	 cy.wait(1000)
@@ -292,7 +274,7 @@ it('Delete Newly Added Code', () => {
 	 cy.get('[tabindex="5"]').type('DJHNYWELL')
      cy.get('[tabindex="5"]').type('{enter}')
 	 cy.wait(1000)
-	 cy.get('#edit-12 > i').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
+	 cy.get('#edit-0 > i').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
 	 cy.wait(1000)
 	 cy.get('[tabindex="11"]').type('Jones1')
 	 cy.wait(1000)
@@ -339,7 +321,7 @@ it('Delete Originally Added Code', () => {
 	 cy.get('[tabindex="5"]').type('DJHNYWELL')
      cy.get('[tabindex="5"]').type('{enter}')
 	 cy.wait(1000)
-	 cy.get('#edit-12 > i').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
+	 cy.get('#edit-0 > i').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
 	 cy.wait(1000)
 	 cy.get('[tabindex="11"]').type('Jones')
 	// cy.wait(2000)

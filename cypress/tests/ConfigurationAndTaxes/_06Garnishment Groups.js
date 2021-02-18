@@ -121,7 +121,7 @@ it('Delete newly added Garnishment Group', () => {
 	 cy.wait(1000)
 
 })
-it('ReAdd Company', () => {
+it('ReAdd Group', () => {
 	
 	 
 	  
