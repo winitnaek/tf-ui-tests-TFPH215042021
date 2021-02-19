@@ -154,6 +154,7 @@ it('Manage Work Locations Code', () => {
       cy.wait(1000)
       cy.get('#runLocatorService').click(0)
 	  cy.wait(5000)
-	  cy.get('#body > div:nth-child(171) > div > div.modal.fade.show > div > div > div.modal-header > button').click({force: true})
+	//  cy.get('#body > div:nth-child(155) > div > div.modal.fade.show > div > div > div.modal-header > button.close').click({force: true})
+	cy.get('.close > span').click({force: true})
 })
 })
