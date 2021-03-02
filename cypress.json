@@ -5,7 +5,7 @@
     "configntaxesurl": "http://ssqa01:2022",
     "reportsurl": "http://ssqa01:2021",
     "setupmaintenanceurl":"http://ssqa01:2023",
-    "sslaburl":"",
+    "sslaburl":"https://sslab.bsi.com:41001/?t=VINIT",
     "produrl":""
   },
   "reporter": "mochawesome",

@@ -164,10 +164,24 @@ cy.wait(1000)
 	  cy.get('.modal-footer > .btn').click()
       cy.wait(3000)
 	  cy.get('.close > span').click({force: true})
+	 
+
+})
+it('Emp1 Get Address From Worksite button', () => {
+cy.wait(1000)
+      cy.get('#addressFromWorksite').click()
+	  cy.get(".modal-title", { timeout: 30000 }).should('be.visible'); //Waiting 30 secs to have screen to load
+	  cy.get('.modal-title').should( "have.text","Get Address From Worksite")// verifying screen title  
+	//  cy.wait(3000)
+	//  cy.get('.fa').click()
+	 // cy.wait(3000)
+	//  cy.get('.modal-footer > .btn').click()
+      cy.wait(3000)
+	  cy.get('.close > span').click({force: true})
 	    cy.wait(1000)
 	  cy.get('#filter > .fas').click()
 
-})	
+})
 
 
 it('Add 2nd employee Code', () => {
@@ -301,6 +315,20 @@ cy.wait(1000)
 
 })	
 
+it('Emp 2 Get Address From Worksite button', () => {
+cy.wait(1000)
+      cy.get('#addressFromWorksite').click()
+	  cy.get(".modal-title", { timeout: 30000 }).should('be.visible'); //Waiting 30 secs to have screen to load
+	  cy.get('.modal-title').should( "have.text","Get Address From Worksite")// verifying screen title  
+	//  cy.wait(3000)
+	//  cy.get('.fa').click()
+	 // cy.wait(3000)
+	//  cy.get('.modal-footer > .btn').click()
+      cy.wait(3000)
+	  cy.get('.close > span').click({force: true})
+
+})	
+
 it('Delete Emp2 Live/Work', () => {
       cy.wait(1000)
       cy.get('#deleteAll').click()
@@ -315,7 +343,7 @@ it('Delete Emp2 Live/Work', () => {
 })	
 it('Delete Emp2 ', () => {
       cy.wait(1000)
-      cy.get('[columnindex="7"] > #edit-1 > .fas').click()
+    cy.get('[columnindex="6"] > #edit-1 > .fas').click({ force: true }) // clicking on search element. Using until I can figure out how to move scrollbars
       cy.wait(1000)
 	  cy.get('.modal-footer > :nth-child(4)').click()
 	  cy.wait(10000)
@@ -328,7 +356,7 @@ it('Delete Emp2 ', () => {
 })	
 it('Delete Emp1 ', () => {
       cy.wait(1000)
-      cy.get('[columnindex="7"] > #edit-0 > .fas').click()
+   cy.get('[columnindex="6"] > #edit-0 > .fas').click({ force: true }) // clicking on search element. Using until I can figure out how to move scrollbars
       cy.wait(1000)
 	  cy.get('.modal-footer > :nth-child(4)').click()
 	  cy.wait(10000)
