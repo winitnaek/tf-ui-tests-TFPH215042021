@@ -29,6 +29,7 @@ it('launch Unemployment Override', function () {
 it('launch Unemployment Override from Fav Menu', function () {
 	  cy.wait(1000)
       cy.get("#jumpto-unemploymentOverrides").click() // selecting Unemployment Override from favorite menu 
+	  cy.wait(1000)
 	  cy.get('.btn-success').click({force: true})
 	 cy.wait(1000)
 	  
@@ -38,7 +39,7 @@ it('Verify Page Title', () => {
 	  cy.wait(1000)
 	   cy.get("#pageContainer > div:nth-child(1) > h1", { timeout: 30000 }).should('be.visible'); //Waiting 30 secs to have screen to load
 	  cy.get("#pageContainer > div:nth-child(1) > h1").should( "have.text","Unemployment Overrides")// verifying screen title
-	  cy.get('p').should('have.text','Click the magnifying glass in the view column on the appropriate row to manage the formula')//verifying the 
+	  cy.get('p').should('have.text','Create and manage Unemployment Overrides.')//verifying the 
       cy.wait(2000)
 	  cy.get('#unselectAll-0').click()// Select All
 	  cy.wait(2000)
@@ -50,19 +51,19 @@ it('Add Tax Code', () => {
 	// cy.get('[tabindex="5"]').type('DJHNYWELL',{force: true} )
     // cy.get('[tabindex="5"]').click({force: true})
     // cy.get('[tabindex="5"]').type('{enter}')
-	 cy.get('[tabindex="9"]').clear()
-	 cy.get('[tabindex="9"]').type('2')
-     cy.get('[tabindex="9"]').type('{enter}')
+	// cy.get('[tabindex="9"]').clear()
+	// cy.get('[tabindex="9"]').type('2')
+     //cy.get('[tabindex="9"]').type('{enter}')
 
 	 cy.wait(1000)
-	 cy.get('#edit-15 > .fas').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
+	 cy.get('#edit-0 > .fas').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
 	 cy.wait(1000)
 	 cy.get('#addNew > a > .fas').click()
 	 cy.wait(2000)
 	//Add an Unemployment Override
 	
 	 cy.wait(1000)
-   //  cy.get("input[name='startDate']").type('2021-02-01')// enter start date
+     cy.get("input[name='startDate']").type('2021-02-01')// enter start date
 	 cy.wait(1000)
 	 
 	 cy.get(':nth-child(2) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type("0000")
@@ -104,93 +105,16 @@ it('Add Tax Code', () => {
 	 
 	 //cy.get('[type="button"]').click(({ multiple: true, force: true }))// click cancel- using multiple because "button" used in several places
 	 cy.get("[type='submit']").click()// click save button
-     cy.wait(1000)
+    	  cy.wait(1000)
+	  cy.get('.modal-footer > .btn').click()
+	  cy.wait(1000)
 	 cy.get('#filter > .fas').click({force: true})
 	 cy.wait(1000)
 	// cy.get('[tabindex="5"]').clear()
 })
-it('Edit to add additional Rate', () => {
-	  cy.wait(1000)
-   	 cy.get('.btn-success').click({force: true})
-	 cy.get('[tabindex="6"]').clear()
-	// cy.wait(1000)
-	// cy.get('#filter > .fas').click()
-	
-	 cy.wait(1000)
-	// cy.get('[tabindex="5"]').type('DJHNYWELL')
-    // cy.get('[tabindex="5"]').type('{enter}')
-	 cy.get('[tabindex="9"]').clear()
-	 cy.get('[tabindex="9"]').type('2')
-     cy.get('[tabindex="9"]').type('{enter}')
-	 cy.wait(1000)
-	 cy.get('#edit-15 > .fas').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
-	 cy.wait(1000)
 
-	
-	 cy.get('#edit-0 > .fas').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
-	 cy.wait(1000)
-	 cy.get("#saveAsNew").click()// click save button
-	 
-	 cy.wait(1000)
-     cy.get("input[name='startDate']").type('2022-05-01')// enter start date
-	 cy.wait(1000)
-	 cy.get(':nth-child(2) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').clear()
-	 cy.wait(1000)
-	 cy.get(':nth-child(2) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type("0009")
-	 cy.wait(2000)
-	 cy.get(':nth-child(2) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type('{downarrow}')
-	 cy.wait(1000)
-	 cy.get(':nth-child(2) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type('{enter}')
-	 cy.wait(1000)
-	 cy.get(':nth-child(2) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').invoke('attr','value').should('contain','00090000- (BSI00090000- CONNECTICUT)')//Verify selection 
-	 
-	 cy.wait(1000)
-	 cy.get(':nth-child(3) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').clear()
-	  cy.wait(1000)
-	 cy.get(':nth-child(3) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type("EMPLOYER U")
-	 cy.wait(2000)
-	 cy.get(':nth-child(3) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type('{downarrow}')
-	 cy.wait(1000)
-	 cy.get(':nth-child(3) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type('{enter}')
-	 cy.wait(1000)
-	 cy.get(':nth-child(3) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').invoke('attr','value').should('contain','EMPLOYER UNEMPLOYMENT TAX')//Verify selection 
-	  cy.wait(1000)
-	 cy.get(':nth-child(4) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').clear() 
-	  cy.wait(1000)
-	 cy.get(':nth-child(4) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type("EMPLOYER U")
-	 cy.wait(2000)
-	 cy.get(':nth-child(4) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type('{downarrow}')
-	 cy.wait(1000)
-	 cy.get(':nth-child(4) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type('{enter}')
-	  cy.wait(1000)
-	 cy.get(':nth-child(4) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').invoke('attr','value').should('contain','EMPLOYER UNEMPLOYMENT FORMULA')//Verify selection 
-	
-	 
-	 cy.wait(1000)
-        cy.get("input[name='endDate']").type('2022-06-30')// enter end date
-	 cy.wait(1000)
-	 cy.get('[name="account"]').type('DJUnEmp2')
-	 cy.wait(1000)
-	 cy.get('[name="rate"]').clear()
-	 cy.get('[name="rate"]').type('2.00')
-	  cy.wait(1000)
-	  cy.get('[name="maxWage"]').clear()
-	  cy.get('[name="maxWage"]').type('2.00')
-	 cy.wait(1000)
-	 //verify buttons
-	 cy.wait(1000)	 
-  	 cy.get("[type='reset']").should('contain', 'Reset')// verify Reset button
-	 cy.get('[type="button"]').should('contain', 'Cancel')// verify cancel button	
-	 cy.get("[type='submit']").should('contain', 'Save')// verify save button*/
-	 
-	 //cy.get('[type="button"]').click(({ multiple: true, force: true }))// click cancel- using multiple because "button" used in several places
-	 cy.get("[type='submit']").click()// click save button
-	 cy.wait(2000)
-	 cy.get('#filter > .fas').click({force: true})
-	 cy.wait(1000)
-	//cy.get('[tabindex="5"]').clear() 
 
-})
+
 it('Edit Original Added Code', () => {
 	
 	// cy.get('[tabindex="5"]').type('DJHNYWELL')
@@ -199,18 +123,18 @@ it('Edit Original Added Code', () => {
       cy.wait(1000)
    	 cy.get('.btn-success').click({force: true})
 	 
-   	 cy.get('[tabindex="9"]').clear()
-	 cy.get('[tabindex="9"]').type('2')
-     cy.get('[tabindex="9"]').type('{enter}')
+   	// cy.get('[tabindex="9"]').clear()
+	// cy.get('[tabindex="9"]').type('2')
+   //  cy.get('[tabindex="9"]').type('{enter}')
 	 cy.wait(1000)
-	 cy.get('#edit-15 > .fas').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
+	 cy.get('#edit-0 > .fas').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
 	 cy.wait(1000)
 	 cy.get('[tabindex="5"]').type('BSI00000000')
 	 cy.wait(1000)
 	 cy.get('#edit-0 > .fas').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
 	//Add an Unemployment Override
 	 cy.wait(1000)
-     cy.get("input[name='startDate']").invoke('attr','value').should('contain','2021-02-02')//Verify selection 
+     cy.get("input[name='startDate']").invoke('attr','value').should('contain','2021-02-01')//Verify selection 
 	 cy.wait(1000)
 	 cy.get(':nth-child(2) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container >.rbt-input-main') .invoke('attr','value').should('contain','BSI00000000')//Verify selection 
 
@@ -241,7 +165,9 @@ it('Edit Original Added Code', () => {
 	 
 	 //cy.get('[type="button"]').click(({ multiple: true, force: true }))// click cancel- using multiple because "button" used in several places
 	 cy.get("[type='submit']").click()// click save button
-	 cy.wait(2000)
+	  cy.wait(1000)
+	  cy.get('.modal-footer > .btn').click()
+	  cy.wait(1000)
 	 cy.get('[tabindex="5"]').clear()
 	 cy.wait(1000)
 	 cy.get('#filter > .fas').click({force: true})
@@ -256,11 +182,11 @@ it('Delete Originally Added Code', () => {
       cy.wait(1000)
    	 cy.get('.btn-success').click({force: true})
 	
-	 cy.get('[tabindex="9"]').clear()
-	 cy.get('[tabindex="9"]').type('2')
-     cy.get('[tabindex="9"]').type('{enter}')
+	// cy.get('[tabindex="9"]').clear()
+	// cy.get('[tabindex="9"]').type('2')
+  //   cy.get('[tabindex="9"]').type('{enter}')
 	 cy.wait(1000)
-	 cy.get('#edit-15 > .fas').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
+	 cy.get('#edit-0 > .fas').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
 	 cy.wait(1000)
 	cy.get('[tabindex="5"]').type('BSI00000000')
 	 cy.wait(1000)
@@ -296,67 +222,14 @@ it('Delete Originally Added Code', () => {
 	  
 	  cy.get(".btn-danger").click()
 	  cy.wait(1000)
+	  cy.get('.modal-footer > .btn').click()
 	 cy.get('[tabindex="5"]').clear() 
 	 cy.wait(1000)
 	 cy.get('#filter > .fas').click({force: true})
 	 cy.wait(1000)
-	// cy.get('[tabindex="5"]').clear()
+	 cy.get('.modal-footer > .btn').click()
+	  cy.wait(1000)
 })
-it('Delete Newly Added Code', () => {
-	 cy.wait(1000)
-	// cy.get('[tabindex="5"]').type('DJHNYWELL')
-   //  cy.get('[tabindex="5"]').type('{enter}')
-      
-      cy.wait(1000)
-   	 cy.get('.btn-success').click({force: true})
-   
-   	 cy.get('[tabindex="9"]').clear()
-	 cy.get('[tabindex="9"]').type('2')
-     cy.get('[tabindex="9"]').type('{enter}')
-	 cy.wait(1000)
-	 cy.get('#edit-15 > .fas').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
-	 cy.wait(1000)
-	// cy.get('[tabindex="11"]').type('DJUnemp')
-	 cy.wait(1000)
-	 cy.get('#edit-0 > .fas').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
-	//Add an Unemployment Override
-	 cy.wait(1000)
-   //  cy.get("input[name='startDate']").invoke('attr','value').should('contain','2021-01-12')//Verify selection 
-	 cy.wait(1000)
-	 cy.get(':nth-child(2) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container >.rbt-input-main') .invoke('attr','value').should('contain','BSI00090000')//Verify selection 
 
-	 cy.wait(1000)
-	 cy.get(':nth-child(3) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').invoke('attr','value').should('contain','010')//Verify selection 
-	  
-	  cy.wait(1000)
-	 cy.get(':nth-child(4) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').invoke('attr','value').should('contain','1')//Verify selection
-		 
-	 cy.wait(1000)
-   //  cy.get(':nth-child(5) > .col > .form-control').invoke('attr','value').should('contain','2021-02-28')//Verify selection 
-	 cy.wait(1000)
-	 cy.get('[name="account"]').invoke('attr','value').should('contain','DJUnEmp2')//Verify selection
-     cy.wait(1000)	 
-	 cy.get('[name="rate"]').invoke('attr','value').should('contain','2.000000000')//Verify selection
-
-	  cy.wait(1000)
-	  cy.get('[name="maxWage"]').invoke('attr','value').should('contain','2')//Verify selection
-
-	 cy.wait(1000)
-	  //verifying buttons
-	  cy.get("[type='reset']").should('contain', 'Reset')// verify Reset button
-	  cy.get('.modal-footer > [type="button"]').should('contain', 'Cancel')// verify cancel button	
-	  cy.get(".btn-danger").should('contain', 'Delete')
-	  cy.get("[type='submit']").should('contain', 'Save')// verify save button*
-	  
-	  cy.get(".btn-danger").click()
-	  cy.wait(1000)
-	 cy.get('[tabindex="5"]').clear() 
-	 cy.wait(1000)
-	 cy.get('#filter > .fas').click({force: true})
-	 cy.wait(1000)
-	// cy.get('[tabindex="5"]').clear()
-		   cy.get('.btn-success').click({force: true})
-	 cy.wait(1000)
-})
 
 })

@@ -36,7 +36,7 @@ it('fails to visit website 1', function () {
 	   
 	    cy.wait(3000)
 		
-		cy.get(".fa-arrow-up").click()
+	cy.get('#filter > .fas').click()
 		
 	  cy.wait(3000)
 	

@@ -45,11 +45,11 @@ it('Add Custom Payments ', () => {
 	  cy.wait(1000)
 	  cy.get("#addNew > a > i").click()
 	  cy.wait(1000)	  
-	  cy.get("#userCode").type("DJ_TestCode")	  
+	  cy.get("#userCode").type("_001BSI")	  
 	  cy.wait(1000)	  
 	  cy.get('#payType').select("Custom Earnings")	  
 	  cy.wait(1000)	  
-	 cy.get('#name').type("DJ_Testpayment")	  
+	 cy.get('#name').type("BSI Automation")	  
 	  cy.wait(1000)
 	  
 	  cy.get('#taxability').select("Limit / QTD")	
@@ -115,7 +115,7 @@ it('Delete newly added Company', () => {
 
     cy.get('[tabindex="5"]').type('_001BSI')
 	 cy.wait(1000)
-	 cy.get('#edit-9 > .fas').click({ force: true }) // clicking on search element. Using until I can figure out how to move scrollbars
+	 cy.get('#edit-0 > .fas').click({ force: true }) // clicking on search element. Using until I can figure out how to move scrollbars
 	 cy.wait(1000)	  	 
 	 
 //verify data saved	 

@@ -50,9 +50,9 @@ it('Adding Employee', ()=> {
 	 cy.wait(1000)
 	 cy.get("input[name='empCode']").type('0001BSI') 
 	 cy.wait (1000)
-     cy.get('[name="empGroup"]').select("DJEMPWhatIF- (DJEMP)")
+     cy.get('[name="empGroup"]').select("BSI Automation Test- (001BSI)")
 	  cy.wait(1000)
-	  cy.get('[name="companyCode"]').select("Dj Honeyell- (DJHNYWELL)")
+	  cy.get('[name="companyCode"]').select("BSI Automation1- (0001BSI)")
 	  cy.wait(1000)
 	  cy.get('[name="paymentType"]').select("0 - Regular")
 	  cy.wait(1000)
@@ -96,14 +96,12 @@ it('Adding Employee', ()=> {
 	  cy.get(".btn-success").click()
 	 
       cy.wait(1000)
-	// cy.get('.modal-footer > .btn').click()	
+     cy.get('.modal-footer > .btn').click()	
 	 cy.wait(1000)
 	 
 })
 it('Edit newly Recipient Code', () => {
-	 cy.wait(1000)
-	 cy.get('[tabindex="5"]').type('0001BSI')
-   	 cy.wait(1000)
+	cy.wait(1000)
 	 
 	cy.get('[columnindex="6"] > #edit-0 > .fas').click({ force: true })
 	cy.wait(1000)
@@ -148,7 +146,7 @@ it('Edit newly Recipient Code', () => {
 	  cy.get("[type='submit']").should('contain', 'Save')// verify save button*
 	  cy.get("[type='submit']").click()
 	  cy.wait(1000)
-//	 cy.get('.modal-footer > .btn').click()	
+	 cy.get('.modal-footer > .btn').click()	
 	 cy.wait(1000)
 	 
 	 cy.wait(1000)
@@ -322,7 +320,7 @@ cy.get('[name="ynd"]').type("2021")
 	 cy.get("[type='submit']").click()// click save button
 	 
 	  cy.wait(1000)
-	// cy.get('.modal-footer > .btn').click()	
+	 cy.get('.modal-footer > .btn').click()	
 	 cy.wait(1000)
 	 
 	 
@@ -486,7 +484,7 @@ cy.get('[name="ynd"]').type("2021")
 	 cy.get("[type='submit']").click()// click save button
 	 
 	  cy.wait(1000)
-	// cy.get('.modal-footer > .btn').click()	
+   cy.get('.modal-footer > .btn').click()	
 	 cy.wait(1000)
 	 
 
@@ -523,7 +521,10 @@ it('Add wage details for Federal and Georgia', () => {
 	 //cy.get('[type="button"]').click(({ multiple: true, force: true }))// click cancel- using multiple because "button" used in several places
 	 cy.get("[type='submit']").click()// click save button
 	     cy.wait(1000)
-	// cy.get('.modal-footer > .btn').click()	
+	cy.get('.modal-title').click({ force: true })
+	cy.wait(1000)
+	   
+	 cy.get('.modal-footer > .btn').click()	
 	 cy.wait(1000)
 	 cy.wait(1000)
 	 
@@ -561,7 +562,9 @@ it('Add wage details for Federal and Georgia', () => {
 	 cy.get("[type='submit']").click()// click save button
 	 
     cy.wait(1000)
-	// cy.get('.modal-footer > .btn').click()	
+	cy.get('.modal-title').click({ force: true })
+	cy.wait(1000)
+	 cy.get('.modal-footer > .btn').click()	
 	 cy.wait(1000)
 	 
 	 
@@ -693,7 +696,7 @@ cy.get('[name="garnGross"]').type('125.00')
 	 //cy.get('[type="button"]').click(({ multiple: true, force: true }))// click cancel- using multiple because "button" used in several places
 	 cy.get("[type='submit']").click()// click save button
 	 cy.wait(1000)
-	// cy.get('.modal-footer > .btn').click()	
+	cy.get('.modal-footer > .btn').click()	
 	 cy.wait(1000)
 })
 it('Add Deduction and Benefits for Employee', () => {
@@ -732,9 +735,10 @@ it('Add Deduction and Benefits for Employee', () => {
 	 
 	 //cy.get('[type="button"]').click(({ multiple: true, force: true }))// click cancel- using multiple because "button" used in several places
 	 cy.get("[type='submit']").click()// click save button
-	 
 	 cy.wait(1000)
-//	 cy.get('.modal-footer > .btn').click()	
+	cy.get('.modal-title').click({ force: true })
+	cy.wait(1000)
+     cy.get('.modal-footer > .btn').click()	
 	 cy.wait(1000)
 	 
 	 cy.get('#filter > .fas').click()
@@ -748,7 +752,19 @@ it('Add Deduction and Benefits for Employee', () => {
 	 cy.wait(1000)
 	 
 })
-	
+	it('Delete Emp1 ', () => {
+      cy.wait(1000)
+   cy.get('[columnindex="6"] > #edit-0 > .fas').click({ force: true }) // clicking on search element. Using until I can figure out how to move scrollbars
+      cy.wait(1000)
+	  cy.get('.modal-footer > :nth-child(4)').click()
+	  cy.wait(10000)
+	  cy.get('.modal-content > .modal-footer > .btn').click()
+	  cy.wait(1000)
+	  cy.get('.btn-danger').click()
+	  cy.wait(1000)
+	  cy.get('.modal-footer > .btn').click()
+	  cy.wait(1000)
+})
 
 
 

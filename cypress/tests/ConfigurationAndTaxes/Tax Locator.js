@@ -36,7 +36,7 @@ it('Verify Page Title', () => {
 		  
 	  cy.wait(1000)
 	   cy.get("#pageContainer > div:nth-child(1) > h1", { timeout: 30000 }).should('be.visible'); //Waiting 30 secs to have screen to load
-	  cy.get("#pageContainer > div:nth-child(1) > h1").should( "have.text","TaxLocator")// verifying screen title
+	  cy.get("#pageContainer > div:nth-child(1) > h1").should( "have.text","Tax Locator")// verifying screen title
       cy.wait(2000)
 	  cy.get('#unselectAll-0').click()// Select All
 	  cy.wait(2000)

@@ -1,6 +1,6 @@
 ///<reference types="cypress"/>
 
-describe("Configuration and Taxes Companies", function ()
+describe("Configuration and Taxes Worksites", function ()
 {
  it("Worksites", function()
   {

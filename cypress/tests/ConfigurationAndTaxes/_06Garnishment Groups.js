@@ -2,7 +2,7 @@
 
 describe("Configuration and Taxes Garnishment Group", function ()
 {
- it("Companies", function()
+ it("Garnishment Group", function()
   {
 	  Cypress.on('uncaught:exception', (err, runnable) => {
   // returning false here prevents Cypress from
