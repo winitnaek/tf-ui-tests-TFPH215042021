@@ -1,12 +1,12 @@
 {
   "integrationFolder": "cypress/tests",
-  "uncaught":"exception",
+  "uncaught": "exception",
   "env": {
     "configntaxesurl": "http://ssqa01:2022",
     "reportsurl": "http://ssqa01:2021",
-    "setupmaintenanceurl":"http://ssqa01:2023",
-    "sslaburl":"https://sslab.bsi.com:41001/?t=VINIT",
-    "produrl":""
+    "setupmaintenanceurl": "http://ssqa01:2023",
+    "sslaburl": "https://sslab.bsi.com:41001/?t=VINIT",
+    "produrl": ""
   },
   "reporter": "mochawesome",
   "reporterOptions": {
@@ -14,5 +14,6 @@
     "overwrite": false,
     "html": false,
     "json": true
-  }
+  },
+  "projectId": "qaejx1"
 }

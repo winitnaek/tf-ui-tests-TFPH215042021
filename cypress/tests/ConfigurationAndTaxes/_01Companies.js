@@ -53,7 +53,7 @@ it('Add Company', () => {
   	  cy.get("[type='reset']").should('contain', 'Reset')// verify Reset button
 	  cy.get('.modal-footer > [type="button"]').should('contain', 'Cancel')// verify cancel button	
 	  cy.get(".btn-success").click()
-	  cy.wait(5000)
+	  cy.wait(1000)
 	  cy.get('.modal-footer > .btn').click()
 })
 //edit 0001BSI
