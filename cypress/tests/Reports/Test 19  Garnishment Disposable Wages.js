@@ -35,7 +35,7 @@ it('fails to visit website 1', function () {
 	  cy.get(".btn-link").contains("Garnishment Disposable Wages").click()// clicking the Garnishment Disposable Wages Report link
 	  cy.wait(1000)
 	  cy.get(':nth-child(1) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type('00040000')
-	  cy.wait(1000)
+	  cy.wait(2000)
 	  cy.get(':nth-child(1) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type('{downarrow}')
 	  cy.get(':nth-child(1) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type('{enter}')
 	  cy.get(':nth-child(1) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').invoke('attr','value').should('contain','00040000 - ARIZONA')

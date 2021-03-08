@@ -38,7 +38,7 @@ it('fails to visit website 1', function () {
 	  cy.get(':nth-child(2) > :nth-child(1) > :nth-child(8) > .d-block').click()// clicking the Companies Report link. Selector selected using Cypress Playground
 	  cy.wait(1000)
 	  cy.get('#myform > div > div > div > div > div.col > div > div.rbt-input-hint-container > input').type("Djones")
-	  cy.wait(1000)
+	  cy.wait(2000)
 	  cy.get('#myform > div > div > div > div > div.col > div > div.rbt-input-hint-container > input').type('{downarrow}')
 	  cy.get('#myform > div > div > div > div > div.col > div > div.rbt-input-hint-container > input').type('{enter}')
 	  

@@ -30,7 +30,7 @@ it('fails to visit website 1', function () {
 	  cy.get('.btn > .fas').click()
 	  cy.get(':nth-child(3) > :nth-child(1) > :nth-child(2) > .d-block').click()// clicking the Garnishment Groups Report link
 	  cy.get('.rbt-input-main').type('RG1')
-      cy.wait(1000)	  
+      cy.wait(2000)	  
 	  cy.get('.rbt-input-main').type('{downarrow}')
 	  cy.get('.rbt-input-main').type('{enter}')
 	  cy.get('.rbt-input-main').invoke('attr','value').should('contain','RG1_Garnishmentdsds- (RG1_GG)')
