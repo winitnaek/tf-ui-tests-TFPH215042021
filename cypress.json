@@ -1,5 +1,5 @@
 {
-  "integrationFolder": "cypress/tests",
+  "integrationFolder": "cypress/sslab",
   "uncaught": "exception",
   "env": {
     "configntaxesurl": "http://ssqa01:2022",

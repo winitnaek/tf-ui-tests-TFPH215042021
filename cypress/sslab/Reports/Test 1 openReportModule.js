@@ -38,9 +38,16 @@ it('fails to visit website 1', function () {
  
  //  cy.get(':nth-child(2) > :nth-child(1) > :nth-child(8) > .d-block').click()// clicking the Companies Report link. Selector selected with Cypress Playground
 	
+    cy.wait(5000)
+	
+	  cy.get(':nth-child(2) > :nth-child(1) > :nth-child(8) > .d-block').click()// clicking the Companies Report link. Selector selected with Cypress Playground
+	  
+	  cy.wait(5000)
+	  
+	  
+	   cy.get("[type='submit']").click()// Click view buttons
  
- 
- 
+   cy.wait(5000)
  
   })
 });
