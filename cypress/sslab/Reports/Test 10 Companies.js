@@ -13,7 +13,7 @@ describe("Report Module", function ()
 it('fails to visit website 1', function () {
   
 })
-    //  cy.visit('https://sslab.bsi.com:41001/dash.html') //Opens the URL
+      //cy.request('POST','https://sslab.bsi.com:41001/api/tfws/r/v1/UserDataQueriesService/userDataQueries' ) //Opens the URL
 	  
 	 // cy.get("#appAreaSideMenu > li > a").click()
 	// cy.wait(5000)
@@ -21,13 +21,13 @@ it('fails to visit website 1', function () {
 	//	cy.get(".d-inline-block", { timeout: 30000 }).should('be.visible'); //Waiting 30 secs to have screen to load
 	
 	//cy.reload()  
-	  cy.get('#home > .fa').click()
-	  cy.wait(1000)
-	    cy.get(':nth-child(2) > .text-light',{ timeout: 30000 }).should('be.visible' )
+	//  cy.get('#home > .fa').click()
+	//  cy.wait(1000)
+	//    cy.get(':nth-child(2) > .text-light',{ timeout: 30000 }).should('be.visible' )
 	cy.wait(5000)  
-  cy.get(':nth-child(2) > #renderTFHome > .fa').click()
-  cy.wait(1000)
-  cy.get(".d-inline-block", { timeout: 60000 }).should('be.visible'); //Waiting 30 secs to have screen to load
+//  cy.get(':nth-child(2) > #renderTFHome > .fa').click()
+ // cy.wait(1000)
+ // cy.get(".d-inline-block", { timeout: 60000 }).should('be.visible'); //Waiting 30 secs to have screen to load
  // cy.get(".d-inline-block").should( "have.text","Reports")
 	
 	   cy.wait(1000)
@@ -39,7 +39,7 @@ it('fails to visit website 1', function () {
 	  
 	   cy.get("[type='submit']").click()// Click view buttons
 	   
-	
+	//      cy.request('POST','https://sslab.bsi.com:41001/api/tfws/r/v1/UserDataQueriesService/userDataQueries' ) //Opens the URL
 	  
 	  cy.get("#pageContainer > div:nth-child(1) > h1", { timeout: 30000 }).should('be.visible'); //Waiting 30 secs to have screen to load
 	  
