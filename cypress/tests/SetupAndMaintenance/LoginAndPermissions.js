@@ -34,7 +34,7 @@ it('Verify Page Title', () => {
   
 })
 
-it('Add Company', () => {
+it('Add Login', () => {
 	
 	 
 	  
@@ -98,9 +98,13 @@ it('Incorrect Password', () => {
 	 cy.get('#resetDefaultLogin > .fas').click()	 
 	   cy.wait(1000)	  
 	 cy.get('#checkAll').click()
+	   cy.wait(1000)
+	  cy.get('.justify-content-center > :nth-child(4)').click({ multiple: true, force: true })
+	   cy.wait(10000)
+	  cy.get('.modal-footer > .btn').click()
 	  cy.wait(1000)
 	  cy.get('#saveCheck').click()
- 	 cy.wait(1000)	 
+ 	 cy.wait(1000)		 
 	 cy.get('#resetDefaultLogin > .fas').click()
 	    cy.wait(1000)	  
 	 cy.get('#uncheckAll').click()
@@ -108,9 +112,76 @@ it('Incorrect Password', () => {
 	  cy.get('.justify-content-center > :nth-child(4)').click({ multiple: true, force: true })
 	  cy.wait(10000)
 	  cy.get('.modal-footer > .btn').click()
+	   cy.wait(1000)	  
+	 cy.get('#checkAll').click()
 	  cy.wait(1000)
 	  cy.get('#filter > .fas').click()
 
- }) 
- 
+ })
+it('Delete Login', () => {
+		 cy.wait(1000)
+	 cy.get('[columnindex="3"] > #edit-0 > .fas').click({ force: true }) // clicking on search element. Using until I can figure out how to move scrollbars
+	 cy.wait(1000)	  
+	 cy.get('input[name="loginName"]').invoke('attr','value').should('contains','_0001BSI')
+	 //verifying buttons
+	  cy.get("[type='reset']").should('contain', 'Reset')// verify Reset button
+	  cy.get('.modal-footer > [type="button"]').should('contain', 'Cancel')// verify cancel button	
+	  cy.get(".btn-danger").should('contain', 'Delete')
+	  cy.get("[type='submit']").should('contain', 'Save')// verify save button*/
+	  cy.get(".btn-danger").click()
+	  cy.wait(1000)
+	  cy.get('.modal-title',{ timeout: 30000 }).should('be.visible')
+	  cy.wait(1000)
+	  cy.get('.modal-footer > .btn').click()
+//Verify Deletion
+     cy.wait(1000)
+	 cy.get("#pageContainer > div:nth-child(1) > h1", { timeout: 30000 }).should('be.visible'); //Waiting 30 secs to have screen to load
+	 cy.get("#pageContainer > div:nth-child(1) > h1").should( "have.text","Logins")// verifying screen title
+	 cy.wait(1000)
+	 cy.get('[tabindex="5"]').clear()	
+	 cy.wait(1000)
+	 cy.get('[tabindex="5"]').type('_0001BSI')
+	 cy.wait(1000)	
+     cy.get('[tabindex="10"]').should("have.text","No data to display")
+	 cy.wait(1000)
+	 cy.get('[tabindex="5"]').clear()
+	
+})
+
+it('Re-Adding Login', () => {
+ cy.wait(1000)
+	  cy.get("#addNew > a > i").click()
+	  cy.wait(3000)	  
+	  cy.get('input[name="loginName"]').type("_0001BSI")	  
+	  cy.wait(1000)	  
+	  cy.get('input[name="password"]').type("bsi")	  
+	  cy.wait(1000)	  
+	  cy.get('input[name="confirmPassword"]').type("bsi")	  
+	  cy.wait(1000)	  
+	  cy.get('[name="manageLogins"]').select('Yes')	  
+	  cy.wait(1000)
+	  cy.get('[name="manageDatasets"]').select('Yes')
+	  cy.wait(1000)
+	  //verify buttons
+  	  cy.get("[type='reset']").should('contain', 'Reset')// verify Reset button
+	  cy.get('.modal-footer > [type="button"]').should('contain', 'Cancel')// verify cancel button	
+	  cy.get(".btn-success").click()
+	  cy.wait(1000)
+	  cy.get('.modal-title',{ timeout: 30000 }).should('be.visible')
+	  cy.wait(1000)
+	  cy.get('.modal-footer > .btn').click()
+	  cy.wait(1000)	
+		 cy.get('[columnindex="4"] > #edit-0 > .fas').click({ force: true }) // clicking on search element. Using until I can figure out how to move scrollbars
+	  cy.wait(1000)
+	 cy.get("#pageContainer > div:nth-child(1) > h1", { timeout: 30000 }).should('be.visible'); //Waiting 30 secs to have screen to load
+	 cy.get("#pageContainer > div:nth-child(1) > h1").should( "have.text","Permissions")// verifying screen title
+	 cy.wait(1000)	  
+	 cy.get('#checkAll').click()
+	 cy.wait(1000)	 
+	 cy.get('#resetDefaultLogin > .fas').click()	 
+	   cy.wait(1000)	  
+	 cy.get('#checkAll').click()
+	 cy.wait(1000)
+	  cy.get('#filter > .fas').click()
+})
 })
