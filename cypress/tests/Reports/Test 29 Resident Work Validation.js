@@ -24,33 +24,33 @@ it('fails to visit website 1', function () {
 	 
 	 //Tax Code
 	  cy.wait(1000)
-	  cy.get("#myform > div > div:nth-child(2) > div > div > div.rbt-input-hint-container > input").type('BSI00100')//selecting Alabama
+	  cy.get(':nth-child(2) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type('BSI00100')//selecting Alabama
 	 
 	  cy.wait(1000)
 	  
-	  cy.get("#myform > div > div:nth-child(2) > div > div > div.rbt-input-hint-container > input").type('{downarrow}')// select the downarrow 
+	  cy.get(':nth-child(2) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type('{downarrow}')// select the downarrow 
 	  
-	  cy.get("#myform > div > div:nth-child(2) > div > div > div.rbt-input-hint-container > input").type('{enter}') // selecting the enter key. ending of selecting from dropdown
+	  cy.get(':nth-child(2) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type('{enter}') // selecting the enter key. ending of selecting from dropdown
 	  
 	   cy.wait(1000)
 	   
 	   //Tax Type
-	   cy.get("#myform > div > div:nth-child(3) > div > div > div.rbt-input-hint-container > input").type("001 ")
+	  cy.get(':nth-child(3) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type("001 ")
 	   cy.wait(1000)
 	  	  
-	   cy.get("#myform > div > div:nth-child(3) > div > div > div.rbt-input-hint-container > input").type('{downarrow}')// select the downarrow 
+	   cy.get(':nth-child(3) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type('{downarrow}')// select the downarrow 
 	  
-	   cy.get("#myform > div > div:nth-child(3) > div > div > div.rbt-input-hint-container > input").type('{enter}') // selecting the enter key. ending of selecting from dropdown
+	  cy.get(':nth-child(3) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type('{enter}') // selecting the enter key. ending of selecting from dropdown
 	  
 	   cy.wait(1000)
 	   
 	    //Formula
 	   
-	     cy.get("#myform > div > div:nth-child(4) > div > div > div.rbt-input-hint-container > input").type("1 - WITHH")
+	     cy.get(':nth-child(4) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type("1 - WITHH")
 		 cy.wait(1000)
-		 cy.get("#myform > div > div:nth-child(4) > div > div > div.rbt-input-hint-container > input").type('{downarrow}')// select the downarrow 
+		 cy.get(':nth-child(4) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type('{downarrow}')// select the downarrow 
 	  
-	      cy.get("#myform > div > div:nth-child(4) > div > div > div.rbt-input-hint-container > input").type('{enter}') // selecting the enter key. ending of selecting from dropdown
+	     cy.get(':nth-child(4) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type('{enter}') // selecting the enter key. ending of selecting from dropdown
 	  
 	   cy.wait(1000)
 		

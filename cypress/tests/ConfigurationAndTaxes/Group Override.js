@@ -43,7 +43,7 @@ it('Add Group Override', () => {
 	 cy.wait(1000)
 	 cy.get('#edit-0 > i').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
 	 cy.wait(1000)
-	 cy.get('#addNew > a > .fas').click()
+	 cy.get('#addNew > a > .fas', { timeout: 30000 }).click()
 	 cy.wait(2000)
 	//Add an Group Override
 	
