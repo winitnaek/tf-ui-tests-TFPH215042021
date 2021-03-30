@@ -39,8 +39,7 @@ it('fails to visit website 1', function () {
 	  
 	   cy.get("[type='submit']").click()// Click view buttons
 	   
-	
-	  
+
 	  cy.get("#pageContainer > div:nth-child(1) > h1", { timeout: 30000 }).should('be.visible'); //Waiting 30 secs to have screen to load
 	  
 	  cy.get("#pageContainer > div:nth-child(1) > h1").should( "have.text","Companies")// verifying screen title
