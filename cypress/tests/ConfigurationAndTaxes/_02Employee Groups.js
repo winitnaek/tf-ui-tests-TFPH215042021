@@ -36,7 +36,7 @@ it('Add Employee Groups', function () {
 	  cy.wait(1000)
 	  cy.get("#addNew > a > i").click()
 	  cy.wait(1000)	  
-	  cy.get('input[name="id"]').type("001BSI")
+	  cy.get('input[name="id"]').type("_001BSI")
 	  cy.wait(1000)
 	  cy.get('input[name="groupName"]').type("BSI Automation Test")
 	//verifying buttons
@@ -58,7 +58,7 @@ it('Edit newly added Employee Groups', () => {
 	 cy.get("#pageContainer > div:nth-child(1) > h1", { timeout: 30000 }).should('be.visible'); //Waiting 30 secs to have screen to load
 	 cy.get("#pageContainer > div:nth-child(1) > h1").should( "have.text","Employee Groups")// verifying screen title
 	 cy.wait(1000)
-	 cy.get('[tabindex="5"]').type('001BSI')
+	 cy.get('[tabindex="5"]').type('_001BSI')
 	 cy.wait(1000)
 	 cy.get('#edit-0 > .fas').click({ force: true }) // clicking on search element. Using until I can figure out how to move scrollbars
 	 cy.wait(1000)	  	 
@@ -122,7 +122,7 @@ it('Delete newly added Employee Groups', () => {
 	 cy.wait(1000)
 	 cy.get('[tabindex="5"]').clear()
 	 cy.wait(1000)
-	 cy.get('[tabindex="5"]').type('001BSI')
+	 cy.get('[tabindex="5"]').type('_001BSI')
 	 cy.wait(1000)	
      cy.get('[tabindex="8"]').should("have.text","No data to display")	 
 })
@@ -131,7 +131,7 @@ it('Add Employee Groups', function () {
 	  cy.wait(1000)
 	  cy.get("#addNew > a > i").click()
 	  cy.wait(1000)	  
-	  cy.get('input[name="id"]').type("001BSI")
+	  cy.get('input[name="id"]').type("_001BSI")
 	  cy.wait(1000)
 	  cy.get('input[name="groupName"]').type("BSI Automation Test")
 	//verifying buttons

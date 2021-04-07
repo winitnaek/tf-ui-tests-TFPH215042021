@@ -49,7 +49,7 @@ it('Add Custom Payments ', () => {
 	  cy.wait(1000)	  
 	  cy.get('#payType').select("Custom Earnings")	  
 	  cy.wait(1000)	  
-	 cy.get('#name').type("BSI Automation")	  
+	 cy.get('#name').type("_BSI Automation")	  
 	  cy.wait(1000)
 	  
 	  cy.get('#taxability').select("Limit / QTD")	
@@ -64,11 +64,13 @@ it('Add Custom Payments ', () => {
 	 
 	 //cy.get('[type="button"]').click(({ multiple: true, force: true }))// click cancel- using multiple because "button" used in several places
     cy.get("[type='submit']").click()// click save button
-	  cy.wait(1000)
-	  cy.get('.modal-footer > .btn').click()
+	cy.wait(1000)
+	    cy.get('.modal-title',{ timeout: 30000 }).should('be.visible')	
+	cy.wait(1000)
+	 cy.get('.modal-footer > .btn').click()
 })
 //edit 
- it('Edit newly added Company', () => {
+ it('Edit newly added Custom Payment', () => {
 	 cy.wait(1000)
 	 cy.get("#pageContainer > div:nth-child(1) > h1", { timeout: 30000 }).should('be.visible'); //Waiting 30 secs to have screen to load
 	 cy.get("#pageContainer > div:nth-child(1) > h1").should( "have.text","Custom Payments")// verifying screen title
@@ -105,7 +107,7 @@ it('Add Custom Payments ', () => {
  }) 
  
  
-it('Delete newly added Company', () => {	
+it('Delete newly added Custom Payment', () => {	
      cy.wait(1000)
 	 cy.get("#pageContainer > div:nth-child(1) > h1", { timeout: 30000 }).should('be.visible'); //Waiting 30 secs to have screen to load
 	 cy.get("#pageContainer > div:nth-child(1) > h1").should( "have.text","Custom Payments")// verifying screen title

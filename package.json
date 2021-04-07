@@ -25,7 +25,7 @@
     "cypress-sql-server": "^1.0.0"
   },
   "devDependencies": {
-    "cypress": "^6.6.0",
+    "cypress": "^7.0.0",
     "cypress-file-upload": "^5.0.3",
     "mocha": "^8.2.1",
     "mochawesome": "^6.2.1",

@@ -73,8 +73,8 @@ it('Add Tax Code', () => {
 	 cy.get(':nth-child(4) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type('{enter}')
 	 
 	 cy.wait(1000)
-     cy.get('[name="endDate"]'.type('2021-12-31')// enter end date
-	 cy.wait(1000)
+     cy.get('[name="endDate"]').type('2021-12-31')// enter end date
+	cy.wait(1000)
 	 cy.get('[name="aggStatus"]').select('Aggregate to Highest Maximum')
 	 cy.wait(1000)
 	 cy.get('[name="exprateDspl"]').clear()
