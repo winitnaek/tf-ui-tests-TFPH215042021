@@ -52,37 +52,42 @@ it('Add Tax Code', () => {
 	
 	 cy.wait(1000)
 	 
-	 cy.get(':nth-child(2) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type("00130000")
-	 cy.wait(2000)
+	 cy.get(':nth-child(2) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type("BSI00130000")
+	 cy.wait(5000)
 	 cy.get(':nth-child(2) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type('{downarrow}')
 	 cy.wait(2000)
 	 cy.get(':nth-child(2) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type('{enter}')
 	  
 	  cy.wait(1000)
 	 cy.get(':nth-child(3) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type("001")
-	 cy.wait(2000)
+	 cy.wait(5000)
 	 cy.get(':nth-child(3) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type('{downarrow}')
 	 cy.wait(1000)
 	 cy.get(':nth-child(3) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type('{enter}')
 	  
 	  cy.wait(1000)
 	 cy.get(':nth-child(4) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type("BSiC001")
-	 cy.wait(2000)
+	 cy.wait(5000)
 	 cy.get(':nth-child(4) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type('{downarrow}')
 	 cy.wait(1000)
 	 cy.get(':nth-child(4) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type('{enter}')
 	 
 	 cy.wait(1000)
-     cy.get('[name="endDate"]').type('2021-12-31')// enter end date
+     cy.get('[name="endDate"]').type('2999-12-31')// enter end date
 	cy.wait(1000)
 	 cy.get('[name="aggStatus"]').select('Aggregate to Highest Maximum')
 	 cy.wait(1000)
-	 cy.get('[name="exprateDspl"]').clear()
-	 cy.get('[name="exprateDspl"]').type('1.00')
+	 cy.get('#useEEMax').click()
 	  cy.wait(1000)
-	  cy.get('[name="maxwage"]').clear()
-	  cy.get('[name="maxwage"]').type('7.00')
-	 cy.wait(1000)
+	  cy.get('#taxability').select('Limit / YTD')
+	  cy.wait(1000)
+	 cy.get('#eeMaxAmount').clear()
+     cy.get('#eeMaxAmount').type('99.99')
+	  cy.wait(1000)
+	  cy.get('#useERMax').click()
+	  cy.wait(1000)
+	  cy.get('#erTaxability').select('Taxable')
+	   cy.wait(1000)
 	 //verify buttons
 	 cy.wait(1000)	 
   	 cy.get("[type='reset']").should('contain', 'Reset')// verify Reset button
@@ -93,121 +98,33 @@ it('Add Tax Code', () => {
 	 cy.get("[type='submit']").click()// click save button
 	 cy.wait(1000)
 	 cy.get('#filter > .fas').click({force: true})
-	 cy.wait(1000)
-	 cy.get('[tabindex="5"]').clear()
+	cy.wait(1000)
+	cy.get('.modal-footer > .btn').click()
 })
-it('Edit to add additional Rate', () => {
-	// cy.wait(1000)
-	// cy.get("#jumpto-customFormulas").click() // selecting Companies from favorite menu
-	 	 cy.get('[tabindex="6"]').clear()
-	// cy.wait(1000)
-	// cy.get('#filter > .fas').click()
-	
-	 cy.wait(1000)
 
-	 cy.wait(1000)
-	 cy.get('#edit-0 > .fas').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
-	 cy.wait(1000)
-
-	
-	 cy.get('#edit-0 > .fas').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
-	 cy.wait(1000)
-	 cy.get("#saveAsNew").click()// click save button
-	 
-	 cy.wait(1000)
-     cy.get("input[name='startDateDspl']").type('2022-01-13')// enter start date
-	 cy.wait(1000)
-	 cy.get(':nth-child(2) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').clear()
-	 cy.wait(1000)
-	 cy.get(':nth-child(2) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type("0013")
-	 cy.wait(2000)
-	 cy.get(':nth-child(2) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type('{downarrow}')
-	 cy.wait(1000)
-	 cy.get(':nth-child(2) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type('{enter}')
-	 cy.wait(1000)
-	 cy.get(':nth-child(2) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').invoke('attr','value').should('contain','00130000- (BSI00130000- GEORGIA)')//Verify selection 
-	 
-	 cy.wait(1000)
-	 cy.get(':nth-child(3) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').clear()
-	  cy.wait(1000)
-	 cy.get(':nth-child(3) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type("EMPLOY")
-	 cy.wait(2000)
-	 cy.get(':nth-child(3) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type('{downarrow}')
-	 cy.wait(1000)
-	 cy.get(':nth-child(3) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type('{enter}')
-	 cy.wait(1000)
-	 cy.get(':nth-child(3) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').invoke('attr','value').should('contain','EMPLOYEE RETIREMENT PLAN-S.S')//Verify selection 
-	  cy.wait(1000)
-	 cy.get(':nth-child(4) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').clear() 
-	  cy.wait(1000)
-	 cy.get(':nth-child(4) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type("EMPLOYEE")
-	 cy.wait(2000)
-	 cy.get(':nth-child(4) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type('{downarrow}')
-	 cy.wait(1000)
-	 cy.get(':nth-child(4) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type('{enter}')
-	  cy.wait(1000)
-	 cy.get(':nth-child(4) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').invoke('attr','value').should('contain','EMPLOYEE RETIREMENT PLAN-S.S')//Verify selection 
-	
-	 
-	 cy.wait(1000)
-    // cy.get(':nth-child(5) > .col > .form-control').type('2022-02-28')// enter end date
-	 cy.wait(1000)
-	 cy.get('[name="account"]').type('Jones2')
-	 cy.wait(1000)
-	 cy.get('[name="exprateDspl"]').clear()
-	 cy.get('[name="exprateDspl"]').type('2.00')
-	  cy.wait(1000)
-	  cy.get('[name="maxwage"]').clear()
-	  cy.get('[name="maxwage"]').type('2.00')
-	 cy.wait(1000)
-	 //verify buttons
-	 cy.wait(1000)	 
-  	 cy.get("[type='reset']").should('contain', 'Reset')// verify Reset button
-	 cy.get('[type="button"]').should('contain', 'Cancel')// verify cancel button	
-	 cy.get("[type='submit']").should('contain', 'Save')// verify save button*/
-	 
-	 //cy.get('[type="button"]').click(({ multiple: true, force: true }))// click cancel- using multiple because "button" used in several places
-	 cy.get("[type='submit']").click()// click save button
-	 cy.wait(2000)
-	 cy.get('#filter > .fas').click({force: true})
-	 cy.wait(1000)
-	 cy.get('[tabindex="5"]').clear()
-
-})
 it('Edit Original Added Code', () => {
 	 cy.wait(1000)
 
 	 cy.wait(1000)
 	 cy.get('#edit-0 > .fas').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
 	 cy.wait(1000)
-	// cy.get('[tabindex="11"]').type('Jones1')
-	 cy.wait(1000)
 	 cy.get('#edit-0 > .fas').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
-	//Add an Payment Override
-	 cy.wait(1000)
-     cy.get("input[name='startDateDspl']").invoke('attr','value').should('contain','2021-01-12')//Verify selection 
-	 cy.wait(1000)
-	 cy.get(':nth-child(2) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container >.rbt-input-main') .invoke('attr','value').should('contain','BSI00000000')//Verify selection 
-
-	 cy.wait(1000)
-	 cy.get(':nth-child(3) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').invoke('attr','value').should('contain','003')//Verify selection 
-	  
+	 cy.wait(1000)	 
+	 cy.get('#eeMaxAmount').invoke('attr','value').should('contain','99.99')//Verify selection
 	  cy.wait(1000)
-	 cy.get(':nth-child(4) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').invoke('attr','value').should('contain','1')//Verify selection
-		 
-	 cy.wait(1000)
-   // cy.get(':nth-child(5) > .col > .form-control').type('2021-02-28')// enter end date
-	 cy.wait(1000)
-	 cy.get('[name="account"]').invoke('attr','value').should('contain','Jones')//Verify selection
-     cy.wait(1000)	 
-	 cy.get('[name="exprateDspl"]').invoke('attr','value').should('contain','1.000000000')//Verify selection
-	 cy.get('[name="exprateDspl"]').clear()
-	 cy.get('[name="exprateDspl"]').type('3.00')
+	 cy.get('#useEEMax').click()
+	 
+	   cy.wait(1000)
+	 cy.get('#useEEMax').click()
 	  cy.wait(1000)
-	  cy.get('[name="maxwage"]').invoke('attr','value').should('contain','7')//Verify selection
-	  cy.get('[name="maxwage"]').clear()
-	  cy.get('[name="maxwage"]').type('7.00')
-	 cy.wait(1000)
+	  cy.get('#taxability').select('Limit / QTD')
+	  cy.wait(1000)
+   
+   
+	
+	cy.get('#eeMaxAmount').clear()
+	cy.get('#eeMaxAmount').type('300.00')
+	  cy.wait(1000)
 	 //verify buttons
 	 cy.wait(1000)	 
   	 cy.get("[type='reset']").should('contain', 'Reset')// verify Reset button
@@ -216,122 +133,39 @@ it('Edit Original Added Code', () => {
 	 
 	 //cy.get('[type="button"]').click(({ multiple: true, force: true }))// click cancel- using multiple because "button" used in several places
 	 cy.get("[type='submit']").click()// click save button
-	 cy.wait(2000)
-	 cy.get('[tabindex="11"]').clear()
+
 	 cy.wait(1000)
 	 cy.get('#filter > .fas').click({force: true})
-	 cy.wait(1000)
-	 cy.get('[tabindex="5"]').clear()
-})
-it('Delete Originally Added Code', () => {
-	 cy.wait(1000)
-
-	 cy.wait(1000)
-	 cy.get('#edit-0 > .fas').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
-	 cy.wait(1000)
-	// cy.get('[tabindex="11"]').type('Jones2')
-	 cy.wait(1000)
-	 cy.get('#edit-1 > .fas').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
-	//Add an Payment Override
-	 cy.wait(1000)
-     cy.get("input[name='startDateDspl']").invoke('attr','value').should('contain','2022-01-13')//Verify selection 
-	 cy.wait(1000)
-	 cy.get(':nth-child(2) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container >.rbt-input-main') .invoke('attr','value').should('contain','BSI00130000')//Verify selection 
-
-	 cy.wait(1000)
-	 cy.get(':nth-child(3) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').invoke('attr','value').should('contain','061')//Verify selection 
-	  
-	  cy.wait(1000)
-	 cy.get(':nth-child(4) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').invoke('attr','value').should('contain','1')//Verify selection
-		 
-	 cy.wait(1000)
-   //  cy.get(':nth-child(5) > .col > .form-control').invoke('attr','value').should('contain','2022-02-28')//Verify selection 
-	 cy.wait(1000)
-	 cy.get('[name="account"]').invoke('attr','value').should('contain','Jones2')//Verify selection
-     cy.wait(1000)	 
-	 cy.get('[name="exprateDspl"]').invoke('attr','value').should('contain','2.000000000')//Verify selection
-
-	  cy.wait(1000)
-	  cy.get('[name="maxwage"]').invoke('attr','value').should('contain','2')//Verify selection
-
-	 cy.wait(1000)
-	  //verifying buttons
-	  cy.get("[type='reset']").should('contain', 'Reset')// verify Reset button
-	  cy.get('.modal-footer > [type="button"]').should('contain', 'Cancel')// verify cancel button	
-	  cy.get(".btn-danger").should('contain', 'Delete')
-	  cy.get("[type='submit']").should('contain', 'Save')// verify save button*
-	  
-	  cy.get(".btn-danger").click()
-	  cy.wait(1000)
-	 cy.get('[tabindex="11"]').clear() 
-	 cy.wait(1000)
-	 cy.get('#filter > .fas').click({force: true})
-	 cy.wait(1000)
-	 cy.get('[tabindex="5"]').clear()
-})
-it('Delete Newly Added Code', () => {
-	 cy.wait(1000)
-	 cy.get('[tabindex="5"]').type('DJHNYWELL')
-     cy.get('[tabindex="5"]').type('{enter}')
-	 cy.wait(1000)
-	 cy.get('#edit-0 > i').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
-	 cy.wait(1000)
-	 cy.get('[tabindex="11"]').type('Jones1')
-	 cy.wait(1000)
-	 cy.get('#edit-0 > .fas').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
-	//Add an Payment Override
-	 cy.wait(1000)
-     cy.get("input[name='startDateDspl']").invoke('attr','value').should('contain','2021-01-12')//Verify selection 
-	 cy.wait(1000)
-	 cy.get(':nth-child(2) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container >.rbt-input-main') .invoke('attr','value').should('contain','BSI00000000')//Verify selection 
-
-	 cy.wait(1000)
-	 cy.get(':nth-child(3) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').invoke('attr','value').should('contain','003')//Verify selection 
-	  
-	  cy.wait(1000)
-	 cy.get(':nth-child(4) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').invoke('attr','value').should('contain','1')//Verify selection
-		 
-	 cy.wait(1000)
-   //  cy.get(':nth-child(5) > .col > .form-control').invoke('attr','value').should('contain','2021-02-28')//Verify selection 
-	 cy.wait(1000)
-	 cy.get('[name="account"]').invoke('attr','value').should('contain','Jones1')//Verify selection
-     cy.wait(1000)	 
-	 cy.get('[name="exprateDspl"]').invoke('attr','value').should('contain','3.000000000')//Verify selection
-
-	  cy.wait(1000)
-	  cy.get('[name="maxwage"]').invoke('attr','value').should('contain','7')//Verify selection
-
-	 cy.wait(1000)
-	  //verifying buttons
-	  cy.get("[type='reset']").should('contain', 'Reset')// verify Reset button
-	  cy.get('.modal-footer > [type="button"]').should('contain', 'Cancel')// verify cancel button	
-	  cy.get(".btn-danger").should('contain', 'Delete')
-	  cy.get("[type='submit']").should('contain', 'Save')// verify save button*
-	  
-	  cy.get(".btn-danger").click()
-	  cy.wait(1000)
-	 cy.get('[tabindex="11"]').clear() 
-	 cy.wait(1000)
-	 cy.get('#filter > .fas').click({force: true})
-	 cy.wait(1000)
-	 cy.get('[tabindex="5"]').clear()
-})
-it('Delete Originally Added Code', () => {
-	 cy.wait(1000)
-	 cy.get('[tabindex="5"]').type('DJHNYWELL')
-     cy.get('[tabindex="5"]').type('{enter}')
-	 cy.wait(1000)
-	 cy.get('#edit-0 > i').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
-	 cy.wait(1000)
-	 cy.get('[tabindex="11"]').type('Jones')
-	// cy.wait(2000)
-	cy.get('[tabindex="15"]').should('have.text','No data to display')//Verify selection
 	cy.wait(1000)
-	// cy.get('[tabindex="11"]').clear() 
+	cy.get('.modal-footer > .btn').click()
+	
+})
+it('Delete Originally Added Code', () => {
 	 cy.wait(1000)
+
+	 cy.wait(1000)
+	 cy.get('#edit-0 > .fas').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
+	 cy.wait(1000)
+	 cy.get('#edit-0 > .fas').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
+	//Add an Payment Override
+	 cy.wait(1000)
+	cy.get('#eeMaxAmount').invoke('attr','value').should('contain','300.00')//Verify selection
+
+	 cy.wait(1000)
+	  //verifying buttons
+	  cy.get("[type='reset']").should('contain', 'Reset')// verify Reset button
+	  cy.get('.modal-footer > [type="button"]').should('contain', 'Cancel')// verify cancel button	
+	  cy.get(".btn-danger").should('contain', 'Delete')
+	  cy.get("[type='submit']").should('contain', 'Save')// verify save button*
+	  
+	  cy.get(".btn-danger").click()
+	  cy.wait(1000)
+
 	 cy.get('#filter > .fas').click({force: true})
-	 cy.wait(1000)
-	 cy.get('[tabindex="5"]').clear()
-})	
+	cy.wait(1000)
+	cy.get('.modal-footer > .btn').click()
+
+})
+
 
 })

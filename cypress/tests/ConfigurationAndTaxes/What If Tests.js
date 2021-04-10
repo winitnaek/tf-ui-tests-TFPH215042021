@@ -50,7 +50,7 @@ it('Adding Employee', ()=> {
 	 cy.wait(1000)
 	 cy.get("input[name='empCode']").type('0001BSI') 
 	 cy.wait (1000)
-     cy.get('[name="empGroup"]').select("BSI Automation Test- (001BSI)")
+     cy.get('[name="empGroup"]').select("BSIAutomation1- (0001BSI)")
 	  cy.wait(1000)
 	  cy.get('[name="companyCode"]').select("BSI Automation1- (0001BSI)")
 	  cy.wait(1000)
@@ -102,8 +102,9 @@ it('Adding Employee', ()=> {
 	 
 })
 it('Edit newly Recipient Code', () => {
+	
 	cy.wait(1000)
-	 
+	  cy.get("#pageContainer > div:nth-child(1) > h1", { timeout: 30000 }).should('be.visible'); //Waiting 30 secs to have screen to load 
 	cy.get('[columnindex="6"] > #edit-0 > .fas').click({ force: true })
 	cy.wait(1000)
 	

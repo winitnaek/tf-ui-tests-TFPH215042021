@@ -23,7 +23,7 @@ cy.get(':nth-child(3) > :nth-child(1) > :nth-child(15) > .d-block').click()// cl
 	 
 	 //Tax Code
 	  cy.wait(1000)
-	  cy.get("#myform > div > div:nth-child(1) > div > div > div.col > div > div.rbt-input-hint-container > input").type('00210000')//selecting Alabama
+	  cy.get("#myform > div > div:nth-child(1) > div > div > div.col > div > div.rbt-input-hint-container > input").type('BSI00210000')//selecting Alabama
 	 
 	  cy.wait(1000)
 	  

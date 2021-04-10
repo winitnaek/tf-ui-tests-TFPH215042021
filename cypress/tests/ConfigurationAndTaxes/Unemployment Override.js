@@ -66,7 +66,7 @@ it('Add Tax Code', () => {
      cy.get("input[name='startDate']").type('2021-02-01')// enter start date
 	 cy.wait(1000)
 	 
-	 cy.get(':nth-child(2) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type("0000")
+	 cy.get(':nth-child(2) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type("BSI0000")
 	 cy.wait(2000)
 	cy.get(':nth-child(2) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type('{downarrow}')
 	 cy.wait(1000)

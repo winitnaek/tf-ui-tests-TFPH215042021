@@ -24,7 +24,7 @@ it('fails to visit website 1', function () {
 	  
 	  //Authority Code
 	  
-	  cy.get("#myform > div > div:nth-child(1) > div > div > div.col > div > div.rbt-input-hint-container > input").type("00130000")
+	  cy.get("#myform > div > div:nth-child(1) > div > div > div.col > div > div.rbt-input-hint-container > input").type("BSI00130000")
 	  
 	  cy.wait(1000)
 	    

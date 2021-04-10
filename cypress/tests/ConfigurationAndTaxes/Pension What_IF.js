@@ -17,7 +17,7 @@ it('launch Pension What-If Test from Config Page', function () {
 	  cy.wait(1000)
       cy.get(':nth-child(3) > :nth-child(1) > :nth-child(3) > .d-block').click()
 	  cy.wait(1000)
-	  cy.get('.btn > .fas').click(1000)
+	  cy.get('.text-center > .btn > .fas').click(1000)
 	  
 })
 
@@ -45,7 +45,7 @@ it('Add Pension What IF Test', () => {
 	  cy.wait(1000)	  
 	  cy.get('[name="empCode"]').type("0001BSI")
 	  cy.wait(1000)
-	  cy.get('[name="empGroup"]').select("BSI Automation Test- (001BSI)")
+	  cy.get('[name="empGroup"]').select("BSIAutomation1- (0001BSI)")
 	  cy.wait(1000)
 	  cy.get('[name="companyCode"]').select("BSI Automation1- (0001BSI)")
 	  cy.wait(1000)
