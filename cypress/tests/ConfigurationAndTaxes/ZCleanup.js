@@ -93,6 +93,9 @@ it('Cleanup Favorites Links', function () {
       //remove unemployment Override from Fav links		
 	  cy.get(':nth-child(1) > :nth-child(1) > :nth-child(5) > .fav-icon').click({force: true})
 	  cy.wait(1000)		
+	  //remove Tax Effective Rate Override from Fav links
+	   cy.get(':nth-child(2) > :nth-child(3) > :nth-child(4) > .fav-icon').click({force: true})
+	   cy.wait(1000)
 	  // remover tax locator from favorites links	
 	  cy.get(':nth-child(3) > :nth-child(1) > :nth-child(4) > .fav-icon').click({force: true})
 	    cy.wait(1000)
@@ -137,6 +140,9 @@ it('Cleanup Favorites Links', function () {
 	  cy.wait(1000)
 	      //remove Companies from Fav links		
 	 	  cy.get(':nth-child(1) > :nth-child(1) > :nth-child(2) > .fav-icon').click({force: true})
+	  cy.wait(1000)
+	  //remove Batch Test from Fav links		
+	  cy.get(':nth-child(3) > :nth-child(1) > :nth-child(2) > .fav-icon').click()	
 	  cy.wait(1000)
 	  
 })
