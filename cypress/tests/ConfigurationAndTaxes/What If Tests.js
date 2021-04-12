@@ -50,7 +50,7 @@ it('Adding Employee', ()=> {
 	 cy.wait(1000)
 	 cy.get("input[name='empCode']").type('0001BSI') 
 	 cy.wait (1000)
-     cy.get('[name="empGroup"]').select("BSIAutomation1- (0001BSI)")
+     cy.get('[name="empGroup"]').select("BSI Automation Test- (_001BSI)")
 	  cy.wait(1000)
 	  cy.get('[name="companyCode"]').select("BSI Automation1- (0001BSI)")
 	  cy.wait(1000)
@@ -160,7 +160,7 @@ it('Edit newly Recipient Code', () => {
 //place add taxes	 
 it('Add taxes for Employee', () => {
 	 cy.wait(1000)
-	 cy.get('[tabindex="5"]').type('0001BSI')
+	 //cy.get('[tabindex="5"]').type('_0001BSI')
    	 cy.wait(1000)
 	 
 	cy.get('[columnindex="7"] > #edit-0 > .fas').click({ force: true })
@@ -710,7 +710,7 @@ cy.get('[name="garnGross"]').type('125.00')
 })
 it('Add Deduction and Benefits for Employee', () => {
 	 cy.wait(1000)
-	// cy.get('[tabindex="5"]').type('0001BSI')
+	// cy.get('[tabindex="5"]').type('_0001BSI')
    	// cy.wait(1000)
 	 
 	cy.get('[columnindex="10"] > #edit-0 > .fas').click({ force: true })

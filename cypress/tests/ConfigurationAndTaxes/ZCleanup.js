@@ -144,6 +144,9 @@ it('Cleanup Favorites Links', function () {
 	  //remove Batch Test from Fav links		
 	  cy.get(':nth-child(3) > :nth-child(1) > :nth-child(2) > .fav-icon').click()	
 	  cy.wait(1000)
+	   //remove Address Overrides from Fav links		
+	  cy.get(':nth-child(2) > :nth-child(3) > :nth-child(2) > .fav-icon').click({force: true})
+	  cy.wait(1000)
 	  
 })
 })

@@ -18,6 +18,8 @@ it('launch Address Overrides', function () {
 	  cy.wait(1000)
      cy.get(':nth-child(2) > :nth-child(3) > :nth-child(4) > .d-block').click()
 	  cy.wait(1000)
+	  cy.get('.modal-footer > .btn').click()
+	  cy.wait(1000)
 	  cy.get('.btn > .fas').click(1000)
 	  
 })
@@ -47,56 +49,63 @@ it('Add Tax Code', () => {
 	
 
 	 cy.wait(1000)
-	 cy.get("input[name='snt']").select('Alpha Numeric')
+	 cy.get('#snt').select('Alpha Numeric')
 	 cy.wait(1000)
-     cy.get("input[name='fpre']").select('W')
+     cy.get('#fpre').select('S')
 	 cy.wait(1000)
 	 
 	 //Input Section
-	 cy.get('[name="fname"]').clear()
-	 cy.get('[name="fname"]').type('Main')
+	cy.get('#fname').clear()
+	cy.get('#fname').type('ABC')
 	 cy.wait(1000)
 
-	 cy.get('[name="ftype"]').select('ST')
+	 cy.get('#ftype').select('LN')
 	  cy.wait(1000)
 
-	  //cy.get('[name="fpost"]').select('.')
+	 cy.get('#fpost').select('N')
 	 cy.wait(1000)
-	 cy.get('[name="fadd"]').clear()
-	  cy.get('[name="fadd"]').type('1')
-	   cy.wait(1000)
+	 cy.get('#fadd').clear()
+	 cy.get('#fadd').type('0')
+	
 	
 	 cy.wait(1000)
-	 cy.get('[name="alphaNumericStartingNumber"]').clear()
-	 cy.get('[name="alphaNumericStartingNumber"]').type('M')
-	  cy.wait(1000)
-	  cy.get('[name="tadd"]').clear()
-	  cy.get('[name="tadd"]').type('9')
+	 cy.get('#alphaNumericStartingNumber').clear()
+	 cy.get('#alphaNumericStartingNumber').type('S')
 	 cy.wait(1000)
-	 cy.get('[name="alphaNumericEndingNumber"]').clear()
-	  cy.get('[name="alphaNumericEndingNumber"]').type('N')
+	 cy.get('[name="tadd"]').clear()
+	 cy.get('[name="tadd"]').type('0')
+	 cy.wait(1000)
+	 cy.get('#alphaNumericEndingNumber').clear()
+	 cy.get('#alphaNumericEndingNumber').type('G')
 	  cy.wait(1000)
-	  cy.get('[name="fzip"]').clear()
-	 cy.get('[name="fzip"]').type('40202')
+	 cy.get('#fzip').clear()
+	 cy.get('#fzip').type('43351')
 	 
 	 cy.wait(1000)
-	 cy.get('[name="parity"]').select('BOTH')
+	 cy.get('#parity').select('BOTH')
 	 cy.wait(1000)
-	// cy.get('[name="sunit"]').clear()
-	// cy.get('[name="sunit"]').type('')
-	  cy.wait(1000)
+	 cy.get('#sunit').clear()
+	 cy.get('#sunit').type('qwe 123')
+	 cy.wait(1000)
 	
-	  cy.get('[name="state"]').select('KY')
+	 cy.get('#state').select('OH')
 	 cy.wait(1000)
-	 cy.get('[name="countyName"]').clear()
-	  cy.get('[name="countyName"]').type('JEFFERSON')
-	  
-	  
-	// cy.get('[name="placeCode"]').select('')
+	 cy.get('#countyName').select('169- (WAYNE)')
 	 cy.wait(1000)
-	 // cy.get('[name="sdName"]').select('')
-
-
+	  
+	 cy.get(':nth-child(16) > .pl-0 > .input-group > .m-0 > .rbt > .rbt-input-hint-container > .rbt-input-main').type("T1 | 82320 | WAYNE")
+	 cy.wait(2000)
+	 cy.get(':nth-child(16) > .pl-0 > .input-group > .m-0 > .rbt > .rbt-input-hint-container > .rbt-input-main').type('{downarrow}')
+	 cy.wait(1000)
+	 cy.get(':nth-child(16) > .pl-0 > .input-group > .m-0 > .rbt > .rbt-input-hint-container > .rbt-input-main').type('{enter}')
+     cy.wait(1000)
+	 
+     cy.get(':nth-child(17) > .pl-0 > .input-group > .m-0 > .rbt > .rbt-input-hint-container > .rbt-input-main').type("AMANDA-CLEARCREEK LSD | BSI00391899 | FAIRFIELD")
+	 cy.wait(5000)
+     cy.get(':nth-child(17) > .pl-0 > .input-group > .m-0 > .rbt > .rbt-input-hint-container > .rbt-input-main').type('{downarrow}')
+	 cy.wait(1000)
+	 cy.get(':nth-child(17) > .pl-0 > .input-group > .m-0 > .rbt > .rbt-input-hint-container > .rbt-input-main').type('{enter}')
+     cy.wait(1000)
 	 
 	 //verify buttons
 	 cy.wait(1000)	 
@@ -121,11 +130,7 @@ it('Add Tax Code', () => {
 it('Edit Original Added Code', () => {
 	cy.get('#edit-0 > .fas').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
 	 cy.wait(1000)
-	 
-	  cy.get('.modal-footer > :nth-child(4)').should('contain', 'PDF')
-      cy.get('.modal-footer > :nth-child(4)').click()
-	  
-	  cy.wait(10000)
+
 	  
 	  cy.get('.modal-content > .modal-footer > .btn').click({force: true})
 	  
