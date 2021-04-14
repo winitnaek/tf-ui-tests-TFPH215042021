@@ -49,35 +49,32 @@ it('Add Tax Code', () => {
 	
 
 	 cy.wait(1000)
-	 cy.get('#snt').select('Alpha Numeric')
+	 cy.get('#snt').select('Numeric')
 	 cy.wait(1000)
-     cy.get('#fpre').select('S')
+     cy.get('#fpre').select('E')
 	 cy.wait(1000)
 	 
 	 //Input Section
 	cy.get('#fname').clear()
-	cy.get('#fname').type('ABC')
+	cy.get('#fname').type('BSI')
 	 cy.wait(1000)
 
 	 cy.get('#ftype').select('LN')
 	  cy.wait(1000)
 
-	 cy.get('#fpost').select('N')
+	 cy.get('#fpost').select('SE')
 	 cy.wait(1000)
 	 cy.get('#fadd').clear()
 	 cy.get('#fadd').type('0')
 	
 	
 	 cy.wait(1000)
-	 cy.get('#alphaNumericStartingNumber').clear()
-	 cy.get('#alphaNumericStartingNumber').type('S')
+	 cy.get('#fadd').clear()
+	 cy.get('#fadd').type('12')
 	 cy.wait(1000)
 	 cy.get('[name="tadd"]').clear()
-	 cy.get('[name="tadd"]').type('0')
+	 cy.get('[name="tadd"]').type('12')
 	 cy.wait(1000)
-	 cy.get('#alphaNumericEndingNumber').clear()
-	 cy.get('#alphaNumericEndingNumber').type('G')
-	  cy.wait(1000)
 	 cy.get('#fzip').clear()
 	 cy.get('#fzip').type('43351')
 	 

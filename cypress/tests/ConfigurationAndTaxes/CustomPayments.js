@@ -103,6 +103,8 @@ it('Add Custom Payments ', () => {
 	//  cy.get('[type="button"]').click(({ multiple: true, force: true }))// click cancel- using multiple because "button" used in several places
   cy.get("[type='submit']").click()
   	  cy.wait(1000)
+	 cy.get('.modal-title',{ timeout: 30000 }).should('be.visible')	
+	cy.wait(1000)  
 	  cy.get('.modal-footer > .btn').click()
  }) 
  
@@ -134,6 +136,8 @@ it('Delete newly added Custom Payment', () => {
 	  cy.get("[type='submit']").should('contain', 'Save')// verify save button*/
 	  cy.get(".btn-danger").click()
 	  	  cy.wait(1000)
+		      cy.get('.modal-title',{ timeout: 30000 }).should('be.visible')	
+	cy.wait(1000)  
 	  cy.get('.modal-footer > .btn').click()
 	  
 //Verify Deletion
