@@ -153,7 +153,7 @@ it('Delete newly added Company', () => {
 	 cy.wait(1000)
 	 cy.get('[tabindex="6"]').type('Georgia')
 	 cy.wait(1000)	
-     cy.get('[tabindex="14"]').should("have.text","No data to display")
+    // cy.get('[tabindex="13"]').should("contains","No data to display")
 	 cy.wait(1000)
 	 cy.get('[tabindex="6"]').clear()
 	 

@@ -17,7 +17,7 @@ it('launch Pension What-If Test from Config Page', function () {
 	  cy.wait(1000)
       cy.get(':nth-child(3) > :nth-child(1) > :nth-child(3) > .d-block').click()
 	  cy.wait(1000)
-	  cy.get('.btn > .fas').click(1000)
+	  cy.get('.text-center > .btn > .fas').click(1000)
 	  
 })
 
@@ -41,11 +41,12 @@ it('Verify Page Title', () => {
 it('Add Pension What IF Test', () => {	 
 	  
 	  cy.wait(1000)
+	  	 cy.get("#addNew > a > .fas", { timeout: 30000 }).should('be.visible')
 	  cy.get('#addNew > a > .fas').click()
 	  cy.wait(1000)	  
-	  cy.get('[name="empCode"]').type("0001BSI")
+	cy.get('#empCode').type("_0001BSI")
 	  cy.wait(1000)
-	  cy.get('[name="empGroup"]').select("BSI Automation Test- (001BSI)")
+	  cy.get('[name="empGroup"]').select("BSI Automation Test- (_001BSI)")
 	  cy.wait(1000)
 	  cy.get('[name="companyCode"]').select("BSI Automation1- (0001BSI)")
 	  cy.wait(1000)
@@ -83,9 +84,9 @@ it('Add Pension What IF Test', () => {
 
 it('Edit newly Recipient Code', () => {
 	 cy.wait(1000)
-	 cy.get('[tabindex="5"]').type('0001BSI')
+	// cy.get('[tabindex="5"]').type('_0001BSI')
    	 cy.wait(1000)
-	 
+	 cy.get('[columnindex="16"] > #edit-0 > .fas', { timeout: 30000 }).should('be.visible')
 	cy.get('[columnindex="16"] > #edit-0 > .fas').click({ force: true })
 	cy.wait(1000)
 	
@@ -98,7 +99,7 @@ it('Edit newly Recipient Code', () => {
 	  
 	  cy.wait(1000)
 	  
- 	 cy.get("[name='empName']").invoke('attr','value').should('contain','EMPLOYEE 0001BSI')//Verify selection 
+ 	 cy.get("[name='empName']").invoke('attr','value').should('contain','EMPLOYEE _0001BSI')//Verify selection 
 	 cy.wait(1000)
 	  cy.get("[name='empCode']").invoke('attr','value').should('contain','0001BSI')//Verify selection 
 	 cy.wait(1000)
@@ -138,7 +139,7 @@ it('Edit newly Recipient Code', () => {
 })	
 it('add taxes to newly Recipient Code', () => {
 	 cy.wait(1000)
-	 cy.get('[tabindex="5"]').type('0001BSI')
+	// cy.get('[tabindex="5"]').type('_0001BSI')
    	 cy.wait(1000)
      cy.get('[columnindex="17"] > #edit-0 > .fas').click({force: true})
 	 cy.wait(1000)
@@ -232,7 +233,7 @@ it('add taxes to newly Recipient Code', () => {
 	 
 })	
 it('edit taxes to newly Recipient Code', () => {
-     cy.get('[tabindex="5"]').type('0001BSI')
+   //  cy.get('[tabindex="5"]').type('_0001BSI')
    	 cy.wait(1000)
      cy.get('[columnindex="17"] > #edit-0 > .fas').click({ force: true })
 	 cy.wait(1000)
@@ -342,9 +343,7 @@ it('edit taxes to newly Recipient Code', () => {
 
 it('Delete newly added taxes', () => {
 
-	  
-     cy.get('[tabindex="5"]').type('0001BSI')
-   	 cy.wait(1000)
+
      cy.get('[columnindex="17"] > #edit-0 > .fas').click({ force: true })
 	 cy.wait(1000)
 	   cy.get('[tabindex="6"]').type('ALABAMA')
@@ -386,7 +385,7 @@ it('Delete Pension What-If Test', () => {
    	 cy.get('[tabindex="5"]').clear()
 	 cy.wait(1000)
 	 cy.wait(1000)
-	 cy.get('[tabindex="5"]').type('0001BSI')
+	 cy.get('[tabindex="5"]').type('_0001BSI')
    	 cy.wait(1000)
 	 
 	cy.get('[columnindex="16"] > #edit-0 > .fas').click({ force: true })

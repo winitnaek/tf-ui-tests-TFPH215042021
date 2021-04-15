@@ -1,6 +1,6 @@
 ///<reference types="cypress"/>
 
-describe("Configuration and Taxes Companies", function ()
+describe("Login and Permissions", function ()
 {
  it("Companies", function()
   {
@@ -10,7 +10,7 @@ describe("Configuration and Taxes Companies", function ()
   return false
 })
 })
-it('launch Companies from Config Page', function () {
+it('launch Login from Setup and Permissions Page', function () {
 	  cy.visit(Cypress.env('setupmaintenanceurl')) //Opens the URL	 
 	  cy.get("#appAreaSideMenu > li > a").click() // using force:true to click the Hidden fav icon.	  
 	  cy.get(':nth-child(1) > :nth-child(1) > :nth-child(4) > .fav-icon').click({force: true})
@@ -21,7 +21,7 @@ it('launch Companies from Config Page', function () {
 	  
 })
 
-it('launch Custom Tax Codes from Fav Menu', function () {
+it('launch Logins from Fav Menu', function () {
 	  cy.wait(1000)
       cy.get("#jumpto-logins").click() // selecting Custom Tax from favorite menu
 })

@@ -1,6 +1,6 @@
 ///<reference types="cypress"/>
 
-describe("Batch Test", function ()
+describe("Message to Suppress", function ()
 {
  it("Batch Test", function()
   {
@@ -10,7 +10,7 @@ describe("Batch Test", function ()
   return false
 })
 })
-it('launch Batch Test', function () {
+it('launch Batch test', function () {
 	  cy.visit(Cypress.env('configntaxesurl')) //Opens the URL 
 	  cy.get("#appAreaSideMenu > li > a").click() // using force:true to click the Hidden fav icon.	
       cy.wait(1000)
@@ -48,6 +48,7 @@ it('Process File', () => {
 })
  it('Message Viewer', () => {
 	cy.wait(1000)
+    cy.get('[style="margin-left: 0px; margin-top: 10px;"] > strong', { timeout: 30000 }).should('be.visible'); //Waiting 30 secs to have screen to load
     cy.get('[style="margin-left: 0px; margin-top: 10px;"] > strong').should( "have.text","Open Message Viewer for details")// verifying screen title
 	cy.wait(1000)
 	cy.get('strong > a').click()

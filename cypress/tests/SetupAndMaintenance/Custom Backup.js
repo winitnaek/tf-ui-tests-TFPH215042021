@@ -51,8 +51,7 @@ it('Select Data Set', () => {
 	  
 })
 it('View PDF ', () => {
-	
-	  cy.wait(10000)	  
+	  cy.get('#viewPdf > .fa', { timeout: 30000 }).should('be.visible'); //Waiting 30 secs to have screen to load
 	 cy.get('#viewPdf > .fa').click()
 	  cy.wait(10000)
 	  cy.get('.modal-footer > .btn').click()

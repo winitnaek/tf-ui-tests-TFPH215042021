@@ -47,15 +47,16 @@ it('Add Tax Code', () => {
 	 cy.wait(1000)
 	 cy.get('#edit-0 > .fas').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
 	 cy.wait(1000)
+	  cy.get("#addNew > a > .fas", { timeout: 30000 }).should('be.visible')
 	 cy.get('#addNew > a > .fas').click()
 	 cy.wait(2000)
 	//Add an Disposable Override
 	
 	 cy.wait(1000)
-    cy.get("input[name='startDate']").type('2021-02-01')// enter start date
+  // cy.get("input[name='startDate']").type('2021-02-01')// enter start date
 	 cy.wait(1000)
 	 
-	 cy.get(':nth-child(2) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type("0000")
+	 cy.get(':nth-child(2) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type("BSI000000")
 	 cy.wait(2000)
 	cy.get(':nth-child(2) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type('{downarrow}')
 	 cy.wait(1000)
@@ -69,14 +70,14 @@ it('Add Tax Code', () => {
 	cy.get(':nth-child(3) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type('{enter}')
 	  
 	  cy.wait(1000)
-	 cy.get(':nth-child(4) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type("BSID025")
+	 cy.get(':nth-child(4) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type("DJCUSPAY")
 	 cy.wait(2000)
 	 cy.get(':nth-child(4) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type('{downarrow}')
 	 cy.wait(1000)
 	 cy.get(':nth-child(4) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container > .rbt-input-main').type('{enter}')
 	 
 	 cy.wait(1000)
-     cy.get("input[name='endDate']").type('2021-03-31')// enter end date
+ //    cy.get("input[name='endDate']").type('2999-03-31')// enter end date
 	 cy.wait(1000)
 	 cy.get('[name="dateCodeVal"]').select('Use if Prior To Order')
 	 cy.wait(1000)
@@ -120,7 +121,7 @@ it('Edit to Disposable Override', () => {
 	 cy.get('#edit-0 > .fas').click({ multiple: true, force: true })  // clicking on search element. Using until I can figure out how to move scrollbars
 	 cy.wait(1000)
 	
-	 cy.get("input[name='startDate']").invoke('attr','value').should('contain','2021-02-01')//Verify selection 
+//	 cy.get("input[name='startDate']").invoke('attr','value').should('contain','2021-02-01')//Verify selection 
 	 cy.wait(1000)
 	 cy.get(':nth-child(2) > :nth-child(1) > .input-group > .col > .rbt > .rbt-input-hint-container >.rbt-input-main').invoke('attr','value').should('contain','BSI00000000')//Verify selection 
      cy.wait(1000)

@@ -30,7 +30,7 @@ it('launch Custom Data Restore from Fav Menu', function () {
 it('Verify Page Title', () => {
 		  
 	  cy.wait(1000)
-	  cy.get("h1", { timeout: 30000 }).should('be.visible'); //Waiting 30 secs to have screen to load
+	  cy.get("h1", { timeout: 30000 }).should('be.visible')//Waiting 30 secs to have screen to load
 	  cy.get("h1").should( "have.text","Custom Data Restore Status")// verifying screen title
 	  cy.wait(1000)
 	  cy.get('#refresh').click()
@@ -41,7 +41,10 @@ it('Verify Page Title', () => {
 
 it('View Restore PDF', () => {
 	
-	  cy.wait(15000)	  
+	  cy.wait(15000)
+      cy.get('#files').click()
+      cy.wait(1000)	  
+	  cy.get("#viewPdf > .fa", { timeout: 30000 }).should('be.visible')
 	  cy.get('#viewPdf > .fa').click()
 	  cy.wait(10000)
 	  cy.get('.modal-footer > .btn').click()

@@ -41,6 +41,7 @@ it('Verify Page Title', () => {
 it('Add Pension What IF Test', () => {	 
 	  
 	  cy.wait(1000)
+	  	 cy.get("#addNew > a > .fas", { timeout: 30000 }).should('be.visible')
 	  cy.get('#addNew > a > .fas').click()
 	  cy.wait(1000)	  
 	cy.get('#empCode').type("_0001BSI")
@@ -85,7 +86,7 @@ it('Edit newly Recipient Code', () => {
 	 cy.wait(1000)
 	// cy.get('[tabindex="5"]').type('_0001BSI')
    	 cy.wait(1000)
-	 
+	 cy.get('[columnindex="16"] > #edit-0 > .fas', { timeout: 30000 }).should('be.visible')
 	cy.get('[columnindex="16"] > #edit-0 > .fas').click({ force: true })
 	cy.wait(1000)
 	

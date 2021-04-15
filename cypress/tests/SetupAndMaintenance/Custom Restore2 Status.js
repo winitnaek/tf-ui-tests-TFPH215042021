@@ -1,8 +1,8 @@
 ///<reference types="cypress"/>
 
-describe("Custom Data Restore Status", function ()
+describe("Custom Data Restore Status2", function ()
 {
- it("Custom Data Restore Status", function()
+ it("Custom Data Restore Status2", function()
   {
 	  Cypress.on('uncaught:exception', (err, runnable) => {
   // returning false here prevents Cypress from
@@ -13,19 +13,16 @@ describe("Custom Data Restore Status", function ()
 it('launch Custom Data Restore', function () {
 	  cy.visit(Cypress.env('setupmaintenanceurl')) //Opens the URL	 
 	  cy.get("#appAreaSideMenu > li > a").click() // using force:true to click the Hidden fav icon.	
-      cy.wait(1000)
-      cy.get(':nth-child(2) > :nth-child(1) > :nth-child(4) > .fav-icon').click()	
-	  cy.wait(1000)
-	  cy.get(':nth-child(2) > :nth-child(1) > :nth-child(4) > .d-block').click({force: true})
-	  cy.wait(1000)
-	  cy.get('.text-center > .btn > .fas').click()
+   //   cy.wait(1000)
+     // cy.get(':nth-child(2) > :nth-child(1) > :nth-child(4) > .fav-icon').click()	
+//	  cy.wait(1000)
+	 cy.get(':nth-child(2) > :nth-child(1) > :nth-child(4) > .d-block').click({force: true})
+	//  cy.wait(1000)
+	//  cy.get('.text-center > .btn > .fas').click()
 	  
 })
 
-it('launch Custom Data Restore from Fav Menu', function () {
-	  cy.wait(1000)
-      cy.get('#jumpto-customrestoreStatus').click() // selecting Custom Tax from favorite menu
-})
+
 
 it('Verify Page Title', () => {
 		  
@@ -40,8 +37,10 @@ it('Verify Page Title', () => {
 })
 
 it('View Restore PDF', () => {
-	
-	  cy.wait(15000)	  
+	  cy.wait(15000)
+      cy.get('#files').click()
+      cy.wait(1000)	  
+	  cy.get("#viewPdf > .fa", { timeout: 30000 }).should('be.visible')
 	  cy.get('#viewPdf > .fa').click()
 	  cy.wait(10000)
 	  cy.get('.modal-footer > .btn').click()
